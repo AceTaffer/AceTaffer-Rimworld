@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef>
+    <defName>BobPotatoPlant</defName>
+    <label>PotatoMine</label>
+    <description>A PotatoMine. Harvest to get Mashed Potatoes.</description>
+    <thingClass>Plant</thingClass>
+    <graphicData>
+      <texPath>Things/Plant/Potato/tudou1</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+      <drawSize>(1.1,1.3)</drawSize>
+    </graphicData>
+    <uiIconPath>UI/Things/Plant_Potato</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+    <statBases>
+      <MaxHitPoints>35</MaxHitPoints>
+      <Nutrition>0.1</Nutrition>
+      <Beauty>-0.5</Beauty>
+      <Flammability>0.8</Flammability>
+      <WorkToBuild>400</WorkToBuild>
+    </statBases>
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+    <selectable>true</selectable>
+    <pathCost>10</pathCost>
+    <plant>
+      <growMinGlow>0.5</growMinGlow>
+      <growOptimalGlow>0.7</growOptimalGlow>
+      <fertilitySensitivity>1</fertilitySensitivity>
+      <lifespanDaysPerGrowDays>7.5</lifespanDaysPerGrowDays>
+      <harvestWork>200</harvestWork>
+      <sowWork>200</sowWork>
+      <dieIfLeafless>true</dieIfLeafless>
+      <maxMeshCount>1</maxMeshCount>
+      <harvestTag>Standard</harvestTag>
+      <harvestedThingDef>BobPotatoFood</harvestedThingDef>
+      <harvestYield>5</harvestYield>
+      <sowMinSkill>0</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>
+      </sowTags>
+      <topWindExposure>0.1</topWindExposure>
+      <growDays>7</growDays>
+      <immatureGraphicPath>Things/Plant/Potato/tudou2</immatureGraphicPath>
+      <visualSizeRange>0.5~1.2</visualSizeRange>
+      <cavePlantWeight>0</cavePlantWeight>
+      <purpose>Food</purpose>
+    </plant>
+    <category>Plant</category>
+    <thingCategories>
+      <li>Plants</li>
+    </thingCategories>
+  </ThingDef>
+</Defs>

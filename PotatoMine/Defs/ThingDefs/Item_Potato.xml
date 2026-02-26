@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef>
+    <defName>BobPotatoFood</defName>
+    <label>MashedPotato</label>
+    <description>Mashed Potato. Can be eaten raw</description>
+    <thingClass>ThingWithComps</thingClass>
+    <tickerType>Rare</tickerType>
+    <graphicData>
+      <texPath>Things/Item/Resource/PlantFoodRaw/tudou3</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <soundInteract>Grain_Drop</soundInteract>
+    <soundDrop>Grain_Drop</soundDrop>
+    <statBases>
+      <MarketValue>1.8</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>0.02</Mass>
+      <Nutrition>0.1</Nutrition>
+      <Flammability>0.5</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>18</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+      <!-- 尝试添加以下行消除禁止警告，若报错则删除 -->
+      <li Class="CompProperties_Forbiddable" />
+    </comps>
+    <stackLimit>75</stackLimit>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <category>Item</category>
+    <selectable>true</selectable>
+    <alwaysHaulable>true</alwaysHaulable>
+    <useHitPoints>true</useHitPoints>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+</Defs>

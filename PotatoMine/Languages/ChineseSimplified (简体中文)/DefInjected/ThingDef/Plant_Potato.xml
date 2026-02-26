@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: potato plant -->
+  <BobPotatoPlant.label>土豆地雷</BobPotatoPlant.label>
+  <!-- EN: A potato plant. Harvest to get potatoes. -->
+  <BobPotatoPlant.description>土豆地雷，收获不会爆炸，会变成土豆泥。也可以直接吃，但不饱腹。</BobPotatoPlant.description>
+  
+</LanguageData>
