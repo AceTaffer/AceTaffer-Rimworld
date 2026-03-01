@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <ThingDef>
+  <ThingDef ParentName="PlantBase">
     <defName>BobPotatoPlant</defName>
     <label>PotatoMine</label>
     <description>A PotatoMine. Harvest to get Mashed Potatoes.</description>
@@ -8,7 +8,7 @@
     <graphicData>
       <texPath>Things/Plant/Potato/tudou1</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>Cutout</shaderType>
+      <shaderType>CutoutPlant</shaderType>
       <drawSize>(1.1,1.3)</drawSize>
     </graphicData>
     <uiIconPath>UI/Things/Plant_Potato</uiIconPath>
@@ -22,7 +22,7 @@
     </statBases>
     <ingestible>
       <foodType>VegetableOrFruit</foodType>
-      <preferability>NeverForNutrition</preferability>
+      <preferability>NeverForNutrition</preferability>   <!-- 改为 NeverForNutrition -->
     </ingestible>
     <selectable>true</selectable>
     <pathCost>10</pathCost>
@@ -50,8 +50,6 @@
       <purpose>Food</purpose>
     </plant>
     <category>Plant</category>
-    <thingCategories>
-      <li>Plants</li>
-    </thingCategories>
+    <!-- 删除 <thingCategories> 块 -->
   </ThingDef>
 </Defs>
