@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- 完全模仿坚果墙的成功模板，继承 PlantBase -->
+  <ThingDef ParentName="PlantBase">
+    <defName>BigFungus</defName>
+    <label>large puff mushroom</label>
+    <description>A large fungus that can be cultivated. Grows best in darkness.</description>
+    <thingClass>Plant</thingClass>
+
+    <!-- 图形设置 -->
+    <graphicData>
+      <texPath>Things/Plant/FungusBig/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>
+      <drawSize>(1.0,1.0)</drawSize>
+    </graphicData>
+    <uiIconPath>UI/Things/Plant_FungusBig</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+
+    <!-- 基础属性 -->
+    <statBases>
+      <MaxHitPoints>45</MaxHitPoints>
+      <Beauty>-2.0</Beauty>
+      <Flammability>0.8</Flammability>
+      <WorkToBuild>200</WorkToBuild>
+      <Nutrition>0.05</Nutrition>
+    </statBases>
+
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+
+    <selectable>true</selectable>
+    <pathCost>14</pathCost>
+
+    <!-- 植物生长核心 -->
+    <plant>
+      <growDays>6</growDays>
+
+      <!-- 可种植标签（核心） -->
+      <sowTags>
+        <li>Ground</li>
+      </sowTags>
+      <sowMinSkill>4</sowMinSkill>
+
+      <!-- 可收获产物 -->
+      <harvestedThingDef>RawFungus</harvestedThingDef>
+      <harvestYield>12</harvestYield>
+
+      <!-- 光照需求：黑暗中生长（但可种在任何地方，只是生长速度受影响） -->
+      <growMinGlow>0</growMinGlow>
+      <growOptimalGlow>0</growOptimalGlow>   <!-- 最佳光照为0，即完全黑暗 -->
+      <!-- 如果不想让它在光下死亡，可以不写 dieIfLeaflessInLight（1.6不支持） -->
+
+      <!-- 其他通用参数（保证生长逻辑完整） -->
+      <fertilitySensitivity>0.5</fertilitySensitivity>
+      <dieIfLeafless>true</dieIfLeafless>
+      <topWindExposure>0.0</topWindExposure>
+      <immatureGraphicPath>Things/Plant/FungusBig/immature</immatureGraphicPath>
+      <visualSizeRange>0.4~1.0</visualSizeRange>
+      <purpose>Food</purpose>
+    </plant>
+
+    <category>Plant</category>
+  </ThingDef>
+</Defs>

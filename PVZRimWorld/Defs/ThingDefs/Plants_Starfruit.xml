@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="PlantBase">
+    <defName>StarfruitPlant</defName>
+    <label>starfruit plant</label>
+    <description>A rare plant that bears golden starfruits after 12 days.</description>
+    <thingClass>Plant</thingClass>
+    <graphicData>
+      <texPath>Things/Plant/Starfruit/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>   <!-- ✅ 关键修改 -->
+      <drawSize>(1.1,1.3)</drawSize>
+    </graphicData>
+    <uiIconPath>UI/Things/Plant_Starfruit</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+    <statBases>
+      <MaxHitPoints>60</MaxHitPoints>
+      <Beauty>1.0</Beauty>
+      <Flammability>0.5</Flammability>
+      <WorkToBuild>400</WorkToBuild>
+      <Nutrition>0</Nutrition>
+    </statBases>
+    <ingestible>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+    <selectable>true</selectable>
+    <pathCost>14</pathCost>
+    <plant>
+      <growDays>12</growDays>
+      <harvestedThingDef>Gold</harvestedThingDef>
+      <harvestYield>50</harvestYield>
+      <sowMinSkill>6</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>
+      </sowTags>
+      <immatureGraphicPath>Things/Plant/Starfruit/immature</immatureGraphicPath>
+    </plant>
+  </ThingDef>
+</Defs>

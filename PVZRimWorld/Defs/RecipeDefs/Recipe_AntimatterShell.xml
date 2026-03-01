@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <RecipeDef>
+    <defName>MakeAntimatterShell</defName>
+    <label>make anti-particle warhead</label>
+    <description>Craft a devastating warhead from stabilized antimatter nuclides and advanced materials.</description>
+    
+    <recipeUsers>
+      <li>FabricationBench</li>
+    </recipeUsers>
+    
+    <researchPrerequisite>AntimatterWarheads</researchPrerequisite>
+    
+    <workAmount>10000</workAmount>
+    <workSkill>Crafting</workSkill>
+    <workSkillLearnFactor>0.1</workSkillLearnFactor>
+
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>AntimatterNuclide</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentSpacer</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Uranium</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+    
+    <products>
+      <Shell_AntigrainWarhead>1</Shell_AntigrainWarhead>
+    </products>
+  </RecipeDef>
+</Defs>

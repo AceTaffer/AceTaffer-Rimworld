@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="PlantBase">
+    <defName>GoldPanFlower</defName>
+    <label>gold pan flower</label>
+    <description>A mystical flower that can be harvested repeatedly for silver.</description>
+    <thingClass>Plant</thingClass>
+    <graphicData>
+      <texPath>Things/Plant/GoldPan/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>
+      <drawSize>(1.0,1.2)</drawSize>
+    </graphicData>
+    <uiIconPath>UI/Things/Plant_GoldPan</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <Nutrition>0.02</Nutrition>
+      <Beauty>1.5</Beauty>
+      <Flammability>0.2</Flammability>
+      <WorkToBuild>300</WorkToBuild>
+    </statBases>
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>   <!-- 改为 NeverForNutrition -->
+    </ingestible>
+    <selectable>true</selectable>
+    <pathCost>10</pathCost>
+    <plant>
+      <growDays>3</growDays>
+      <harvestAfterGrowth>0.8</harvestAfterGrowth>
+      <growMinGlow>0.5</growMinGlow>
+      <growOptimalGlow>0.8</growOptimalGlow>
+      <fertilitySensitivity>0.5</fertilitySensitivity>
+      <lifespanDaysPerGrowDays>20</lifespanDaysPerGrowDays>
+      <harvestWork>10</harvestWork>
+      <sowWork>300</sowWork>
+      <dieIfLeafless>true</dieIfLeafless>
+      <harvestTag>Standard</harvestTag>
+      <harvestedThingDef>Silver</harvestedThingDef>
+      <harvestYield>3</harvestYield>
+      <sowMinSkill>4</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>
+      </sowTags>
+      <immatureGraphicPath>Things/Plant/GoldPan/immature</immatureGraphicPath>
+      <visualSizeRange>0.5~1.2</visualSizeRange>
+      <topWindExposure>0.6</topWindExposure>
+      <purpose>Food</purpose>
+    </plant>
+    <category>Plant</category>
+    <!-- 删除 <thingCategories> 块 -->
+  </ThingDef>
+</Defs>

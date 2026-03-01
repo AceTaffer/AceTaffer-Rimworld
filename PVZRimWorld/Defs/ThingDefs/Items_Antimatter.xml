@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef>
+    <!-- 物品内部ID，全局唯一 -->
+    <defName>AntimatterNuclide</defName>
+    <!-- 游戏内显示名称 -->
+    <label>antimatter nuclide</label>
+    <!-- 描述 -->
+    <description>A stabilized, extremely rare and energetic nuclide. The pinnacle of物质 science.</description>
+    <!-- 使用原版资源类即可 -->
+    <thingClass>ThingWithComps</thingClass>
+    <!-- 图形设置，你可以给它一个闪亮的图标 -->
+    <graphicData>
+      <texPath>Things/Item/AntimatterNuclide</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+    <!-- 基础属性，重点是价值 -->
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Mass>0.1</Mass>
+      <Flammability>0</Flammability> <!-- 反物质不可燃，很合理 -->
+      <DeteriorationRate>0</DeteriorationRate>
+    </statBases>
+    <stackLimit>10</stackLimit> <!-- 非常稀有，堆叠上限可以设低一点 -->
+    <thingCategories>
+      <li>ResourcesRaw</li> <!-- 归入原材料，方便查找 -->
+    </thingCategories>
+    <category>Item</category>
+    <selectable>true</selectable>
+    <alwaysHaulable>true</alwaysHaulable>
+    <useHitPoints>true</useHitPoints>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+</Defs>

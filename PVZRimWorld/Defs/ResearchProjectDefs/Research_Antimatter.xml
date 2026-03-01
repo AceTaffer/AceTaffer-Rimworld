@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- 基础反粒子科技 -->
+  <ResearchProjectDef>
+    <defName>AntimatterTech</defName>
+    <label>antimatter tech</label>
+    <description>Theoretical knowledge on stabilizing and harvesting antimatter particles. Unlocks the Doom Shroom.</description>
+    <baseCost>2000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>Fabrication</li>
+      <li>MicroelectronicsBasics</li>
+    </prerequisites>
+    <researchViewX>5</researchViewX>
+    <researchViewY>1.4</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- 高级反粒子科技（用于解锁弹头制造） -->
+  <ResearchProjectDef>
+    <defName>AntimatterWarheads</defName>
+    <label>antimatter warheads</label>
+    <description>Advanced weaponization of antimatter. Unlocks the devastating Anti-Particle Warhead at the machining table.</description>
+    <baseCost>3000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>AntimatterTech</li>
+      <!-- 原版造船科技可能为 ShipBasics（如不是可移除） -->
+      <li>ShipBasics</li>
+    </prerequisites>
+    <researchViewX>6</researchViewX>
+    <researchViewY>1.4</researchViewY>
+  </ResearchProjectDef>
+</Defs>
