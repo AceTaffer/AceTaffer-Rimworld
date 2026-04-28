@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: peashooter -->
+  <Peashooter.label>豌豆射手</Peashooter.label>
+  <!-- EN: The classic peashooter. Fires peas at enemies within range. Cannot be harvested, only cut down. -->
+  <Peashooter.description>经典的豌豆射手，向射程内的敌人发射豌豆。</Peashooter.description>
+  
+  <!-- EN: pea -->
+  <Projectile_Pea.label>豌豆</Projectile_Pea.label>
+  
+</LanguageData>

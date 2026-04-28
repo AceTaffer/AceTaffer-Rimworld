@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: antimatter cannon -->
+  <AntimatterCannon.label>反物质炮</AntimatterCannon.label>
+  <!-- EN: Miniaturize antimatter warheads into a man-portable launcher. Unlocks the devastating Antimatter Cannon. -->
+  <AntimatterCannon.description>将反物质弹头小型化为人手一具的发射器。解锁毁灭性的反物质炮。</AntimatterCannon.description>
+  
+  <!-- EN: antimatter tech -->
+  <AntimatterTech.label>反物质科技</AntimatterTech.label>
+  <!-- EN: Theoretical knowledge on stabilizing and harvesting antimatter particles. Unlocks the Doom Shroom. -->
+  <AntimatterTech.description>关于稳定和收集反物质粒子的理论知识。解锁毁灭菇。</AntimatterTech.description>
+  
+  <!-- EN: antimatter warheads -->
+  <AntimatterWarheads.label>反物质弹头</AntimatterWarheads.label>
+  <!-- EN: Advanced weaponization of antimatter. Unlocks the Anti-Particle Warhead at the fabrication bench. -->
+  <AntimatterWarheads.description>反物质的先进武器化。在精密装配台解锁反粒子弹头。</AntimatterWarheads.description>
+  
+  <!-- EN: home defense -->
+  <HomeDefense.label>家园防卫</HomeDefense.label>
+  <!-- EN: Basic mechanical traps to protect your colony. Unlocks the Rake and Lawn Mower traps. -->
+  <HomeDefense.description>保护殖民地的基础机械陷阱。解锁钉耙和除草机陷阱。</HomeDefense.description>
+  
+  <!-- EN: plant applications -->
+  <PlantApplications.label>植物应用技术</PlantApplications.label>
+  <!-- EN: Learn to use sunlight as a material to craft various items at the machining table. (Placeholder for future recipes) -->
+  <PlantApplications.description>学习使用阳光作为材料，在机械加工台制作各种植物技术物品。</PlantApplications.description>
+  
+  <!-- EN: plant cultivation -->
+  <PlantCultivation.label>植物种植技术</PlantCultivation.label>
+  <!-- EN: Basic knowledge of cultivating PVZ plants. Unlocks potato mines, nut walls, big fungus, sunflowers, and clovers. -->
+  <PlantCultivation.description>种植 PVZ 植物的基础知识。解锁豌豆射手、土豆雷、坚果墙、大喷菇、向日葵和三叶草等植物。</PlantCultivation.description>
+  
+  <!-- EN: sustainable plants -->
+  <SustainablePlants.label>持续生长植物</SustainablePlants.label>
+  <!-- EN: Advanced cultivation techniques for sustainable harvest. Unlocks wall-nut hologram, tall nut, gold pan flower, starfruit. -->
+  <SustainablePlants.description>可持续收获的先进种植技术。解锁全息坚果、高坚果、淘金花、杨桃等植物。</SustainablePlants.description>
+  
+</LanguageData>

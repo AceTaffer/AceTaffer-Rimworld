@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef>
+    <defName>Cryogen</defName>
+    <label>cryogen</label>
+    <description>A super-cooled crystalline material harvested from ice shrooms. It radiates an intense cold and is used in advanced cryogenic applications.</description>
+    <thingClass>ThingWithComps</thingClass>
+
+    <graphicData>
+      <texPath>Things/Item/Cryogen</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+
+    <statBases>
+      <MarketValue>650</MarketValue>        <!-- 市场价值650银 -->
+      <MaxHitPoints>50</MaxHitPoints>       <!-- 耐久上限50 -->
+      <Mass>0.5</Mass>                       <!-- 质量可自行调整 -->
+      <Flammability>0</Flammability>         <!-- 不可燃 -->
+      <DeteriorationRate>0</DeteriorationRate> <!-- 不会老化 -->
+      <Nutrition>0</Nutrition>                <!-- 不可食用 -->
+    </statBases>
+
+    <!-- 没有 ingestible 块，因此不可食用（符合要求） -->
+
+    <stackLimit>75</stackLimit>
+    <thingCategories>
+      <li>ResourcesRaw</li>                   <!-- 归入原材料 -->
+    </thingCategories>
+    <category>Item</category>
+    <selectable>true</selectable>
+    <alwaysHaulable>true</alwaysHaulable>
+    <useHitPoints>true</useHitPoints>
+    <drawGUIOverlay>true</drawGUIOverlay>
+
+    <!-- 交易标签：使物品出现在商队和轨道贸易中 -->
+    <tradeTags>
+      <li>Exotic</li>
+      <li>Rare</li>
+    </tradeTags>
+  </ThingDef>
+</Defs>

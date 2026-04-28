@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: barricade -->
+  <Apparel_Barricade.label>路障</Apparel_Barricade.label>
+  <!-- EN: A makeshift barricade worn as headgear. Offers basic protection and is somewhat flammable. -->
+  <Apparel_Barricade.description>临时凑合的路障，用作头饰。提供基本防护，但易燃。</Apparel_Barricade.description>
+  
+  <!-- EN: iron bucket -->
+  <Apparel_IronBucket.label>铁桶</Apparel_IronBucket.label>
+  <!-- EN: A sturdy iron bucket worn as headgear. Provides decent protection but looks odd. -->
+  <Apparel_IronBucket.description>结实的铁桶，戴在头上。提供不错的防护，但看起来很傻。</Apparel_IronBucket.description>
+  
+</LanguageData>

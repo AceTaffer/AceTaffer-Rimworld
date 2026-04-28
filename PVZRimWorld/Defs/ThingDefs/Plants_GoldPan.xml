@@ -22,7 +22,7 @@
     </statBases>
     <ingestible>
       <foodType>VegetableOrFruit</foodType>
-      <preferability>NeverForNutrition</preferability>   <!-- 改为 NeverForNutrition -->
+      <preferability>NeverForNutrition</preferability>
     </ingestible>
     <selectable>true</selectable>
     <pathCost>10</pathCost>
@@ -47,8 +47,11 @@
       <visualSizeRange>0.5~1.2</visualSizeRange>
       <topWindExposure>0.6</topWindExposure>
       <purpose>Food</purpose>
+      <!-- 研究前置：持续生长植物 -->
+      <sowResearchPrerequisites>
+        <li>SustainablePlants</li>
+      </sowResearchPrerequisites>
     </plant>
     <category>Plant</category>
-    <!-- 删除 <thingCategories> 块 -->
   </ThingDef>
 </Defs>

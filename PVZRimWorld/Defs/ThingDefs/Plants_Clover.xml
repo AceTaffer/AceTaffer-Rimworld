@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="PlantBase">
+    <defName>CloverPlant</defName>
+    <label>clover</label>
+    <description>A decorative clover plant. It cannot be harvested but adds great beauty to your colony.</description>
+    <thingClass>Plant</thingClass>
+
+    <graphicData>
+      <texPath>Things/Plant/Clover/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>
+      <drawSize>(0.8,0.8)</drawSize>
+    </graphicData>
+    <uiIconPath>UI/Things/Plant_Clover</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+
+    <statBases>
+      <MaxHitPoints>30</MaxHitPoints>
+      <Beauty>20.0</Beauty>                             <!-- 高美观度 -->
+      <Flammability>0.3</Flammability>
+      <WorkToBuild>150</WorkToBuild>
+      <Nutrition>0</Nutrition>
+    </statBases>
+
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+
+    <selectable>true</selectable>
+    <pathCost>6</pathCost>
+
+    <plant>
+      <growDays>3</growDays>                            <!-- 短生长周期 -->
+      <!-- 研究前置：种植植物科技 -->
+      <sowResearchPrerequisites>
+        <li>PlantCultivation</li>
+      </sowResearchPrerequisites>
+      <!-- 没有 harvestedThingDef，表示不可收获 -->
+      <sowMinSkill>0</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>                                 <!-- 只能种地上，不能水培 -->
+      </sowTags>
+      <growMinGlow>0.3</growMinGlow>
+      <growOptimalGlow>0.6</growOptimalGlow>
+      <fertilitySensitivity>0.3</fertilitySensitivity>
+      <dieIfLeafless>true</dieIfLeafless>
+      <immatureGraphicPath>Things/Plant/Clover/immature</immatureGraphicPath>
+      <visualSizeRange>0.5~1.0</visualSizeRange>
+      <topWindExposure>0.4</topWindExposure>
+      <purpose>Food</purpose>
+    </plant>
+
+    <category>Plant</category>
+  </ThingDef>
+</Defs>

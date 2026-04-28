@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- ==================== 烈焰手枪子弹 ==================== -->
+  <!-- 子弹的定义，继承了原版 Bullet 类，效果由 Harmony 补丁处理（命中时附加燃烧效果）。 -->
+  <ThingDef>
+    <defName>Bullet_FirePistol</defName>
+    <label>fire pistol bullet</label>
+    <thingClass>Bullet</thingClass>           <!-- 使用原版子弹类 -->
+    <category>Item</category>                  <!-- 物品类别 -->
+    <tickerType>Normal</tickerType>            <!-- 必须为 Normal，子弹才能飞行 -->
+
+    <graphicData>
+      <!-- 使用原版小型子弹贴图，该文件一定存在。 -->
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+
+    <projectile>
+      <damageDef>Bullet</damageDef>            <!-- 伤害类型：普通子弹 -->
+      <damageAmountBase>10</damageAmountBase>  <!-- 基础伤害10，点燃效果由补丁附加 -->
+      <speed>40</speed>                         <!-- 子弹飞行速度（格/秒） -->
+      <armorPenetrationBase>0.20</armorPenetrationBase> <!-- 基础护甲穿透 20% -->
+    </projectile>
+  </ThingDef>
+
+  <!-- ==================== 烈焰突击步枪子弹 ==================== -->
+  <ThingDef>
+    <defName>Bullet_FireRifle</defName>
+    <label>fire rifle bullet</label>
+    <thingClass>Bullet</thingClass>
+    <category>Item</category>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>13</damageAmountBase>  <!-- 基础伤害13 -->
+      <speed>45</speed>
+      <armorPenetrationBase>0.20</armorPenetrationBase>
+    </projectile>
+  </ThingDef>
+
+  <!-- ==================== 烈焰散弹枪子弹 ==================== -->
+  <ThingDef>
+    <defName>Bullet_FireShotgun</defName>
+    <label>fire shotgun pellet</label>
+    <thingClass>Bullet</thingClass>
+    <category>Item</category>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <!-- 使用原版霰弹枪子弹贴图。 -->
+      <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>20</damageAmountBase>  <!-- 基础伤害20，为散弹枪单发弹丸伤害 -->
+      <speed>30</speed>                         <!-- 散弹枪子弹速度通常较慢 -->
+      <armorPenetrationBase>0.30</armorPenetrationBase> <!-- 30%护甲穿透 -->
+    </projectile>
+  </ThingDef>
+
+  <!-- ==================== 烈焰手枪 ==================== -->
+  <ThingDef ParentName="BaseGun">  <!-- 继承自 BaseGun，获得远程武器基础属性 -->
+    <defName>Gun_FirePistol</defName>
+    <label>fire pistol</label>
+    <description>融合了植物应用技术与边缘科技的产物，他发射出的子弹造成伤害，子弹具有燃烧效果，高温穿透防弹衣的同时能够使敌人燃烧！</description>
+    <techLevel>Spacer</techLevel>  <!-- 科技等级：太空级 -->
+
+    <graphicData>
+      <texPath>Things/Item/Weapons/FirePistol</texPath>  <!-- 请确保有此贴图 -->
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>1.20</Mass>
+      <Flammability>0.20</Flammability>       <!-- 20%易燃 -->
+      <Beauty>1</Beauty>
+      <DeteriorationRate>1.25</DeteriorationRate>
+      <WorkToMake>2000</WorkToMake>            <!-- 制作工作量2000 -->
+      <RangedWeapon_Cooldown>0.6</RangedWeapon_Cooldown> <!-- 射击冷却0.6秒 -->
+      <AccuracyTouch>0.85</AccuracyTouch>      <!-- 贴身精度 -->
+      <AccuracyShort>0.75</AccuracyShort>      <!-- 近程精度 -->
+      <AccuracyMedium>0.45</AccuracyMedium>    <!-- 中程精度 -->
+      <AccuracyLong>0.35</AccuracyLong>        <!-- 远程精度 -->
+    </statBases>
+
+    <!-- 近战工具：枪托/握把攻击 -->
+    <tools>
+      <li>
+        <label>grip</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>10</power>
+        <cooldownTime>2.0</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>10</power>
+        <cooldownTime>2.0</cooldownTime>
+      </li>
+    </tools>
+
+    <!-- 装备时降低近战伤害（因为它是远程武器） -->
+    <equippedStatOffsets>
+      <MeleeWeapon_DamageMultiplier>0.5</MeleeWeapon_DamageMultiplier>
+    </equippedStatOffsets>
+
+    <verbs>
+      <li Class="VerbProperties">
+        <label>shoot fire pistol</label>
+        <verbClass>Verb_Shoot</verbClass>      <!-- 普通射击类 -->
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_FirePistol</defaultProjectile> <!-- 使用的子弹 -->
+        <warmupTime>0.4</warmupTime>           <!-- 瞄准时间0.4秒 -->
+        <range>30</range>                        <!-- 射程30格 -->
+        <!-- 音效已移除，使用游戏默认音效，避免警告 -->
+        <!-- <soundCast>Shot_Default</soundCast> -->
+        <!-- <soundCastTail>GunTail_Light</soundCastTail> -->
+        <burstShotCount>1</burstShotCount>      <!-- 单发 -->
+        <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+        <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
+        <!-- 各距离精度，覆盖 statBases 中的设置 -->
+        <accuracyTouch>0.85</accuracyTouch>
+        <accuracyShort>0.75</accuracyShort>
+        <accuracyMedium>0.45</accuracyMedium>
+        <accuracyLong>0.35</accuracyLong>
+      </li>
+    </verbs>
+
+    <!-- 制作材料 -->
+    <costList>
+      <Steel>50</Steel>
+      <Plasteel>30</Plasteel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+      <Sunlight>200</Sunlight>
+      <Phlogiston>5</Phlogiston>   <!-- 燃素（自定义物品） -->
+    </costList>
+
+    <recipeMaker>
+      <researchPrerequisite>FireTech</researchPrerequisite> <!-- 前置研究：烈焰科技 -->
+      <recipeUsers>
+        <li>TableMachining</li>   <!-- 可在机械加工台制作 -->
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>6</Crafting>    <!-- 需要制作技能6级 -->
+      </skillRequirements>
+    </recipeMaker>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+
+  <!-- ==================== 烈焰突击步枪 ==================== -->
+  <!-- 结构与手枪类似，不再重复详细注释，只标注关键差异。 -->
+  <ThingDef ParentName="BaseGun">
+    <defName>Gun_FireRifle</defName>
+    <label>fire assault rifle</label>
+    <description>融合了植物应用技术与边缘科技的产物，持续发射燃烧子弹造成伤害，高温穿透防弹衣的同时能够使敌人燃烧！</description>
+    <techLevel>Spacer</techLevel>
+
+    <graphicData>
+      <texPath>Things/Item/Weapons/FireRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>800</MarketValue>
+      <Mass>3.8</Mass>
+      <Flammability>0.25</Flammability>
+      <Beauty>1</Beauty>
+      <DeteriorationRate>1.5</DeteriorationRate>
+      <WorkToMake>15000</WorkToMake>
+      <RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown>
+      <AccuracyTouch>0.65</AccuracyTouch>
+      <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.65</AccuracyMedium>
+      <AccuracyLong>0.60</AccuracyLong>
+    </statBases>
+
+    <tools>
+      <li><label>grip</label><capacities><li>Blunt</li></capacities><power>10</power><cooldownTime>2.0</cooldownTime></li>
+      <li><label>barrel</label><capacities><li>Blunt</li></capacities><power>10</power><cooldownTime>2.0</cooldownTime></li>
+    </tools>
+
+    <equippedStatOffsets>
+      <MeleeWeapon_DamageMultiplier>0.5</MeleeWeapon_DamageMultiplier>
+    </equippedStatOffsets>
+
+    <verbs>
+      <li Class="VerbProperties">
+        <label>shoot fire rifle</label>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_FireRifle</defaultProjectile>
+        <warmupTime>0.5</warmupTime>
+        <range>40</range>
+        <!-- Shot_ChargeRifle 是原版突击步枪音效，存在 -->
+        <soundCast>Shot_ChargeRifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <burstShotCount>5</burstShotCount>          <!-- 连发5发 -->
+        <ticksBetweenBurstShots>5</ticksBetweenBurstShots> <!-- 每发间隔5 ticks（≈0.083秒） -->
+        <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
+        <accuracyTouch>0.65</accuracyTouch>
+        <accuracyShort>0.70</accuracyShort>
+        <accuracyMedium>0.65</accuracyMedium>
+        <accuracyLong>0.60</accuracyLong>
+      </li>
+    </verbs>
+
+    <costList>
+      <Steel>85</Steel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+      <Plasteel>30</Plasteel>
+      <Sunlight>275</Sunlight>
+      <Phlogiston>15</Phlogiston>
+    </costList>
+
+    <recipeMaker>
+      <researchPrerequisite>FireTech</researchPrerequisite>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+
+  <!-- ==================== 烈焰散弹枪 ==================== -->
+  <ThingDef ParentName="BaseGun">
+    <defName>Gun_FireShotgun</defName>
+    <label>fire shotgun</label>
+    <description>融合了植物应用技术与边缘科技的产物，全自动供弹散弹枪，射程短精度低火力强大！对一切敌人造成可观的穿透燃烧伤害！</description>
+    <techLevel>Spacer</techLevel>
+
+    <graphicData>
+      <texPath>Things/Item/Weapons/FireShotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <MarketValue>850</MarketValue>
+      <Mass>4.8</Mass>
+      <Flammability>0.20</Flammability>
+      <Beauty>1</Beauty>
+      <DeteriorationRate>1.5</DeteriorationRate>
+      <WorkToMake>12000</WorkToMake>
+      <RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown>
+      <AccuracyTouch>0.60</AccuracyTouch>
+      <AccuracyShort>0.65</AccuracyShort>
+      <AccuracyMedium>0.55</AccuracyMedium>
+      <AccuracyLong>0.40</AccuracyLong>
+    </statBases>
+
+    <tools>
+      <li><label>grip</label><capacities><li>Blunt</li></capacities><power>10</power><cooldownTime>2.0</cooldownTime></li>
+      <li><label>barrel</label><capacities><li>Blunt</li></capacities><power>10</power><cooldownTime>2.0</cooldownTime></li>
+    </tools>
+
+    <equippedStatOffsets>
+      <MeleeWeapon_DamageMultiplier>0.5</MeleeWeapon_DamageMultiplier>
+    </equippedStatOffsets>
+
+    <verbs>
+      <li Class="VerbProperties">
+        <label>shoot fire shotgun</label>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_FireShotgun</defaultProjectile>
+        <warmupTime>1.0</warmupTime>
+        <range>15</range>
+        <!-- Shot_Shotgun 是原版散弹枪音效，存在 -->
+        <soundCast>Shot_Shotgun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <burstShotCount>5</burstShotCount>          <!-- 连发5发 -->
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots> <!-- 每发间隔10 ticks（≈0.167秒） -->
+        <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
+        <accuracyTouch>0.60</accuracyTouch>
+        <accuracyShort>0.65</accuracyShort>
+        <accuracyMedium>0.55</accuracyMedium>
+        <accuracyLong>0.40</accuracyLong>
+      </li>
+    </verbs>
+
+    <costList>
+      <Steel>80</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+      <Plasteel>40</Plasteel>
+      <Sunlight>300</Sunlight>
+      <Phlogiston>10</Phlogiston>
+    </costList>
+
+    <recipeMaker>
+      <researchPrerequisite>FireTech</researchPrerequisite>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+</Defs>

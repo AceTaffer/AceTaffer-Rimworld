@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: ice peashooter -->
+  <IcePeashooter.label>寒冰射手</IcePeashooter.label>
+  <!-- EN: A chilly plant that fires frozen peas, dealing additional frostbite damage. Slows enemies with cold. Cannot be harvested, only cut down. -->
+  <IcePeashooter.description>发射冰冻豌豆的寒冷植物，造成额外冻伤。用寒冷减缓敌人。无法收获，只能割除。</IcePeashooter.description>
+  
+</LanguageData>

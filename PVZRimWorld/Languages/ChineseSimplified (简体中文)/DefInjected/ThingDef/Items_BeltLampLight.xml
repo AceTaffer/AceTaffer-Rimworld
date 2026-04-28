@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: light source (invisible) -->
+  <BeltLampLightSource.label>光源（不可见）</BeltLampLightSource.label>
+  <!-- EN: Invisible light source for belt lamp. -->
+  <BeltLampLightSource.description>腰带挂灯的隐形光源。</BeltLampLightSource.description>
+  
+</LanguageData>

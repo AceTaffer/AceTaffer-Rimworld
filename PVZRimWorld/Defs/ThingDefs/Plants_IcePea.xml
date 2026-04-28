@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ========== 寒冰射手 (Ice Pea) ========== -->
+  <ThingDef ParentName="PlantBase">
+    <defName>IcePeashooter</defName>
+    <label>ice peashooter</label>
+    <description>A chilly plant that fires frozen peas, dealing additional frostbite damage. Slows enemies with cold. Cannot be harvested, only cut down.</description>
+    <thingClass>Plant</thingClass>
+    <tickerType>Normal</tickerType>
+
+    <graphicData>
+      <texPath>Things/Plant/IcePea/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>
+      <drawSize>(1.0,1.2)</drawSize>
+    </graphicData>
+    <uiIconPath>UI/Things/Plant_IcePea</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+
+    <statBases>
+      <MaxHitPoints>60</MaxHitPoints>
+      <Beauty>2</Beauty>
+      <Flammability>0.5</Flammability>
+      <WorkToBuild>150</WorkToBuild>
+      <Nutrition>0</Nutrition>
+      <MarketValue>150</MarketValue>
+    </statBases>
+
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+
+    <selectable>true</selectable>
+    <pathCost>14</pathCost>
+
+    <plant>
+      <growDays>1</growDays>
+      <sowMinSkill>0</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>
+        <li>Hydroponic</li>
+      </sowTags>
+      <growMinGlow>0.3</growMinGlow>
+      <growOptimalGlow>0.6</growOptimalGlow>
+      <fertilitySensitivity>0.5</fertilitySensitivity>
+      <dieIfLeafless>true</dieIfLeafless>
+      <immatureGraphicPath>Things/Plant/IcePea/immature</immatureGraphicPath>
+      <visualSizeRange>0.5~1.2</visualSizeRange>
+      <topWindExposure>0.4</topWindExposure>
+      <purpose>Food</purpose>
+      <!-- 研究前置：可持续收获类科技 -->
+      <sowResearchPrerequisites>
+        <li>SustainablePlants</li>
+      </sowResearchPrerequisites>
+    </plant>
+
+    <comps>
+      <li Class="PumpkinShield.CompProperties_PlantShooter">
+        <range>25</range>
+        <burstShotCount>1</burstShotCount>        <!-- 单发，与豌豆射手一致 -->
+        <ticksBetweenShots>240</ticksBetweenShots> <!-- 射击间隔 240 ticks ≈ 4 秒（比豌豆射手快1秒） -->
+        <projectileDef>Bullet_IcePea</projectileDef> <!-- 使用的子弹 -->
+        <accuracyTouch>1.0</accuracyTouch>
+        <accuracyShort>1.0</accuracyShort>
+        <accuracyMedium>1.0</accuracyMedium>
+        <accuracyLong>1.0</accuracyLong>
+      </li>
+    </comps>
+
+    <category>Plant</category>
+  </ThingDef>
+</Defs>

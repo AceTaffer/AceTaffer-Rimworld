@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef>
+    <defName>Projectile_NutBowl</defName>
+    <label>rolling nut</label>
+    <thingClass>PumpkinShield.Projectile_NutBowl</thingClass>
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <neverMultiSelect>true</neverMultiSelect>
+    <selectable>false</selectable>
+    <drawGUIOverlay>false</drawGUIOverlay>
+
+    <graphicData>
+      <texPath>Things/Projectile/NutBowl</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <drawSize>(0.8,0.8)</drawSize>
+    </graphicData>
+
+    <!-- 投射物属性（被自定义代码覆盖，保留参考） -->
+    <projectile>
+      <speed>60</speed>
+      <flyOverhead>false</flyOverhead>
+    </projectile>
+  </ThingDef>
+</Defs>

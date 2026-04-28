@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: elite zombie -->
+  <Zombie_Elite.label>精英僵尸</Zombie_Elite.label>
+  <!-- EN: A stronger, more resilient zombie that often carries makeshift shields and heavy weapons. -->
+  <Zombie_Elite.description>更强壮、更坚韧的僵尸，通常携带简易盾牌和重型武器。</Zombie_Elite.description>
+  
+  <!-- EN: joker zombie -->
+  <Zombie_Joker.label>小丑僵尸</Zombie_Joker.label>
+  <!-- EN: A bizarre zombie clutching a mysterious box. -->
+  <Zombie_Joker.description>一个抓着一个神秘盒子的古怪僵尸。</Zombie_Joker.description>
+  
+  <!-- EN: zombie -->
+  <Zombie_Regular.label>普通僵尸</Zombie_Regular.label>
+  <!-- EN: A shambling, mindless corpse animated by dark forces. -->
+  <Zombie_Regular.description>渴望脑子的蹒跚尸体。</Zombie_Regular.description>
+  
+</LanguageData>

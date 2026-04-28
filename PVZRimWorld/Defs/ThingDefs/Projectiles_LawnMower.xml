@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ========== 除草机投射物定义 ========== -->
+  <!-- 用于除草机陷阱触发后生成的移动物体，沿直线移动并对路径上的敌人造成伤害 -->
+  <ThingDef>
+    <!-- 唯一标识符，必须全局唯一 -->
+    <defName>Projectile_LawnMower</defName>
+    <!-- 游戏内显示名称（极少出现，但保留） -->
+    <label>lawn mower projectile</label>
+    <!-- 逻辑类，指向我们自定义的 C# 类 -->
+    <thingClass>PumpkinShield.Projectile_LawnMower</thingClass>
+    <!-- 物品类别：投射物 -->
+    <category>Projectile</category>
+    <!-- 更新频率：Normal 表示每帧更新（必须） -->
+    <tickerType>Normal</tickerType>
+    <!-- 高度层：投射物 -->
+    <altitudeLayer>Projectile</altitudeLayer>
+    <!-- 禁止多选（投射物不可选） -->
+    <neverMultiSelect>true</neverMultiSelect>
+    <!-- 不可被玩家选中 -->
+    <selectable>false</selectable>
+    <!-- 不显示 GUI 叠加层（如名称） -->
+    <drawGUIOverlay>false</drawGUIOverlay>
+
+    <!-- ========== 图形设置 ========== -->
+    <graphicData>
+      <!-- 贴图路径（相对于 Textures 文件夹，不加后缀）。请确保存在此贴图，否则游戏会报错但可运行。 -->
+      <!-- 若暂无专用贴图，可使用原版子弹贴图作为占位：Things/Projectile/Bullet_Small -->
+      <texPath>Things/Projectile/LawnMower</texPath>
+      <!-- 使用单张贴图 -->
+      <graphicClass>Graphic_Single</graphicClass>
+      <!-- 着色器类型：透明（投射物常用） -->
+      <shaderType>Transparent</shaderType>
+      <!-- 显示大小，根据实际贴图比例调整 -->
+      <drawSize>(0.8,0.8)</drawSize>
+    </graphicData>
+
+    <!-- ========== 声音设置（可选） ========== -->
+    <!-- 如果不想使用声音，可以删除以下两行；若使用，请确保音效Def存在 -->
+    <!-- <soundInteract>Interact_Metal</soundInteract> -->
+    <!-- <soundDrop>Metal_Drop</soundDrop> -->
+
+    <!-- ========== 投射物属性 ========== -->
+    <projectile>
+      <!-- 移动速度（格/秒） -->
+      <speed>8</speed>
+      <!-- 是否飞越障碍物：false 表示会与障碍物碰撞（碰到不可通行地形停止并销毁） -->
+      <flyOverhead>false</flyOverhead>
+      <!-- 伤害类型（用于基础伤害，但实际伤害由自定义类处理，此处仅作备份） -->
+      <damageDef>Blunt</damageDef>
+      <!-- 基础伤害值（同样由自定义类覆盖，保留原值便于参考） -->
+      <damageAmountBase>30</damageAmountBase>
+      <!-- 基础护甲穿透 -->
+      <armorPenetrationBase>1.0</armorPenetrationBase>
+      <!-- 注意：此处移除 <soundHit> 和 <soundMiss>，因为这些标签不属于 ProjectileProperties，会导致 XML 解析错误 -->
+    </projectile>
+  </ThingDef>
+</Defs>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- ==================== 寒冰手枪子弹 ==================== -->
+  <!-- 子弹定义，效果由 Harmony 补丁处理：命中时附加眩晕和冻伤。 -->
+  <ThingDef>
+    <defName>Bullet_IcePistol</defName>
+    <label>ice pistol bullet</label>
+    <thingClass>Bullet</thingClass>           <!-- 使用原版子弹类 -->
+    <category>Item</category>                  <!-- 物品类别 -->
+    <tickerType>Normal</tickerType>            <!-- 必须为 Normal，子弹才能飞行 -->
+
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+
+    <projectile>
+      <damageDef>Bullet</damageDef>            <!-- 基础伤害类型为普通子弹 -->
+      <damageAmountBase>10</damageAmountBase>  <!-- 基础伤害10，特殊效果由补丁附加 -->
+      <speed>40</speed>                         <!-- 飞行速度 -->
+      <armorPenetrationBase>0.15</armorPenetrationBase> <!-- 15%护甲穿透 -->
+    </projectile>
+  </ThingDef>
+
+  <!-- ==================== 寒冰突击步枪子弹 ==================== -->
+  <ThingDef>
+    <defName>Bullet_IceRifle</defName>
+    <label>ice rifle bullet</label>
+    <thingClass>Bullet</thingClass>
+    <category>Item</category>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>15</damageAmountBase>
+      <speed>45</speed>
+      <armorPenetrationBase>0.18</armorPenetrationBase> <!-- 18%护甲穿透 -->
+    </projectile>
+  </ThingDef>
+
+  <!-- ==================== 寒冰狙击步枪子弹 ==================== -->
+  <ThingDef>
+    <defName>Bullet_IceSniper</defName>
+    <label>ice sniper bullet</label>
+    <thingClass>Bullet</thingClass>
+    <category>Item</category>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>30</damageAmountBase>
+      <speed>50</speed>
+      <armorPenetrationBase>0.25</armorPenetrationBase> <!-- 25%护甲穿透 -->
+    </projectile>
+  </ThingDef>
+
+  <!-- ==================== 寒冰手枪 ==================== -->
+  <ThingDef ParentName="BaseGun">
+    <defName>Gun_IcePistol</defName>
+    <label>ice pistol</label>
+    <description>A cryogenic pistol that fires supercooled bullets, briefly freezing enemies on impact.</description>
+    <techLevel>Spacer</techLevel>
+
+    <graphicData>
+      <texPath>Things/Item/Weapons/IcePistol</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>1.2</Mass>
+      <Flammability>0.2</Flammability>
+      <Beauty>1</Beauty>
+      <DeteriorationRate>1.5</DeteriorationRate>
+      <WorkToMake>15000</WorkToMake>
+      <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+      <AccuracyTouch>0.85</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.45</AccuracyMedium>
+      <AccuracyLong>0.35</AccuracyLong>
+    </statBases>
+
+    <tools>
+      <li><label>grip</label><capacities><li>Blunt</li></capacities><power>10</power><cooldownTime>2.0</cooldownTime></li>
+      <li><label>barrel</label><capacities><li>Blunt</li></capacities><power>10</power><cooldownTime>2.0</cooldownTime></li>
+    </tools>
+
+    <equippedStatOffsets>
+      <MeleeWeapon_DamageMultiplier>0.5</MeleeWeapon_DamageMultiplier>
+    </equippedStatOffsets>
+
+    <verbs>
+      <li Class="VerbProperties">
+        <label>shoot ice pistol</label>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_IcePistol</defaultProjectile>
+        <warmupTime>0.3</warmupTime>
+        <range>30</range>
+        <!-- 音效已移除，使用游戏默认音效，避免警告 -->
+        <!-- <soundCast>Shot_Default</soundCast> -->
+        <!-- <soundCastTail>GunTail_Light</soundCastTail> -->
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+        <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
+        <accuracyTouch>0.85</accuracyTouch>
+        <accuracyShort>0.75</accuracyShort>
+        <accuracyMedium>0.45</accuracyMedium>
+        <accuracyLong>0.35</accuracyLong>
+      </li>
+    </verbs>
+
+    <costList>
+      <Steel>30</Steel>
+      <Plasteel>10</Plasteel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+      <Sunlight>150</Sunlight>
+      <Cryogen>5</Cryogen>   <!-- 寒素（自定义物品） -->
+    </costList>
+
+    <!-- 注意：没有显式添加 thingCategories，因为父类 BaseGun 已包含 WeaponsRanged -->
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+
+  <!-- ==================== 寒冰突击步枪 ==================== -->
+  <ThingDef ParentName="BaseGun">
+    <defName>Gun_IceRifle</defName>
+    <label>ice assault rifle</label>
+    <description>An automatic rifle that fires cryogenic rounds, freezing enemies with each burst.</description>
+    <techLevel>Spacer</techLevel>
+
+    <graphicData>
+      <texPath>Things/Item/Weapons/IceRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>800</MarketValue>
+      <Mass>3.8</Mass>
+      <Flammability>0.25</Flammability>
+      <Beauty>1</Beauty>
+      <DeteriorationRate>1.5</DeteriorationRate>
+      <WorkToMake>90000</WorkToMake>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+      <AccuracyTouch>0.65</AccuracyTouch>
+      <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.65</AccuracyMedium>
+      <AccuracyLong>0.60</AccuracyLong>
+    </statBases>
+
+    <tools>
+      <li><label>grip</label><capacities><li>Blunt</li></capacities><power>10</power><cooldownTime>2.0</cooldownTime></li>
+      <li><label>barrel</label><capacities><li>Blunt</li></capacities><power>10</power><cooldownTime>2.0</cooldownTime></li>
+    </tools>
+
+    <equippedStatOffsets>
+      <MeleeWeapon_DamageMultiplier>0.5</MeleeWeapon_DamageMultiplier>
+    </equippedStatOffsets>
+
+    <verbs>
+      <li Class="VerbProperties">
+        <label>shoot ice rifle</label>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_IceRifle</defaultProjectile>
+        <warmupTime>0.5</warmupTime>
+        <range>40</range>
+        <!-- Shot_ChargeRifle 是原版突击步枪音效，存在 -->
+        <soundCast>Shot_ChargeRifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <burstShotCount>5</burstShotCount>        <!-- 连发5发 -->
+        <ticksBetweenBurstShots>4</ticksBetweenBurstShots> <!-- 每发间隔4 ticks -->
+        <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
+        <accuracyTouch>0.65</accuracyTouch>
+        <accuracyShort>0.70</accuracyShort>
+        <accuracyMedium>0.65</accuracyMedium>
+        <accuracyLong>0.60</accuracyLong>
+      </li>
+    </verbs>
+
+    <costList>
+      <Steel>75</Steel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+      <Plasteel>25</Plasteel>
+      <Sunlight>225</Sunlight>
+      <Cryogen>8</Cryogen>
+    </costList>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+
+  <!-- ==================== 寒冰狙击步枪 ==================== -->
+  <ThingDef ParentName="BaseGun">
+    <defName>Gun_IceSniper</defName>
+    <label>ice sniper rifle</label>
+    <description>A high-powered cryogenic sniper rifle. Each shot delivers a devastating freeze to the target.</description>
+    <techLevel>Spacer</techLevel>
+
+    <graphicData>
+      <texPath>Things/Item/Weapons/IceSniper</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>900</MarketValue>
+      <Mass>4.8</Mass>
+      <Flammability>0.25</Flammability>
+      <Beauty>1</Beauty>
+      <DeteriorationRate>1.5</DeteriorationRate>
+      <WorkToMake>120000</WorkToMake>
+      <RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown>
+      <AccuracyTouch>0.60</AccuracyTouch>
+      <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.88</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+    </statBases>
+
+    <tools>
+      <li><label>grip</label><capacities><li>Blunt</li></capacities><power>10</power><cooldownTime>2.0</cooldownTime></li>
+      <li><label>barrel</label><capacities><li>Blunt</li></capacities><power>10</power><cooldownTime>2.0</cooldownTime></li>
+    </tools>
+
+    <equippedStatOffsets>
+      <MeleeWeapon_DamageMultiplier>0.5</MeleeWeapon_DamageMultiplier>
+    </equippedStatOffsets>
+
+    <verbs>
+      <li Class="VerbProperties">
+        <label>shoot ice sniper</label>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_IceSniper</defaultProjectile>
+        <warmupTime>2.5</warmupTime>
+        <range>60</range>
+        <!-- Shot_SniperRifle 是原版狙击步枪音效，存在 -->
+        <soundCast>Shot_SniperRifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <burstShotCount>1</burstShotCount>        <!-- 单发 -->
+        <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
+        <accuracyTouch>0.60</accuracyTouch>
+        <accuracyShort>0.70</accuracyShort>
+        <accuracyMedium>0.88</accuracyMedium>
+        <accuracyLong>0.85</accuracyLong>
+      </li>
+    </verbs>
+
+    <costList>
+      <Steel>75</Steel>
+      <ComponentIndustrial>10</ComponentIndustrial>
+      <Sunlight>325</Sunlight>
+      <Cryogen>10</Cryogen>
+      <Plasteel>30</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>       <!-- 太空零部件 -->
+    </costList>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+</Defs>

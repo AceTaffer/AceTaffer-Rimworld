@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: fire pistol bullet -->
+  <Bullet_FirePistol.label>烈焰手枪子弹</Bullet_FirePistol.label>
+  
+  <!-- EN: fire rifle bullet -->
+  <Bullet_FireRifle.label>烈焰步枪子弹</Bullet_FireRifle.label>
+  
+  <!-- EN: fire shotgun pellet -->
+  <Bullet_FireShotgun.label>烈焰霰弹</Bullet_FireShotgun.label>
+  
+  <!-- EN: fire pistol -->
+  <Gun_FirePistol.label>烈焰手枪</Gun_FirePistol.label>
+  <!-- EN: 融合了植物应用技术与边缘科技的产物，他发射出的子弹造成伤害，子弹具有燃烧效果，高温穿透防弹衣的同时能够使敌人燃烧！ -->
+  <Gun_FirePistol.description>融合了植物应用技术与边缘科技的产物，他发射出的子弹造成伤害，子弹具有燃烧效果，高温穿透防弹衣的同时能够使敌人燃烧！</Gun_FirePistol.description>
+  <!-- EN: grip -->
+  <Gun_FirePistol.tools.grip.label>握把</Gun_FirePistol.tools.grip.label>
+  <!-- EN: barrel -->
+  <Gun_FirePistol.tools.barrel.label>枪管</Gun_FirePistol.tools.barrel.label>
+  <!-- EN: shoot fire pistol -->
+  <Gun_FirePistol.verbs.shoot_fire_pistol.label>发射烈焰手枪</Gun_FirePistol.verbs.shoot_fire_pistol.label>
+  
+  <!-- EN: fire assault rifle -->
+  <Gun_FireRifle.label>烈焰突击步枪</Gun_FireRifle.label>
+  <!-- EN: 融合了植物应用技术与边缘科技的产物，持续发射燃烧子弹造成伤害，高温穿透防弹衣的同时能够使敌人燃烧！ -->
+  <Gun_FireRifle.description>融合了植物应用技术与边缘科技的产物，持续发射燃烧子弹造成伤害，高温穿透防弹衣的同时能够使敌人燃烧！</Gun_FireRifle.description>
+  <!-- EN: grip -->
+  <Gun_FireRifle.tools.grip.label>握把</Gun_FireRifle.tools.grip.label>
+  <!-- EN: barrel -->
+  <Gun_FireRifle.tools.barrel.label>枪管</Gun_FireRifle.tools.barrel.label>
+  <!-- EN: shoot fire rifle -->
+  <Gun_FireRifle.verbs.shoot_fire_rifle.label>发射烈焰步枪</Gun_FireRifle.verbs.shoot_fire_rifle.label>
+  
+  <!-- EN: fire shotgun -->
+  <Gun_FireShotgun.label>烈焰霰弹枪</Gun_FireShotgun.label>
+  <!-- EN: 融合了植物应用技术与边缘科技的产物，全自动供弹散弹枪，射程短精度低火力强大！对一切敌人造成可观的穿透燃烧伤害！ -->
+  <Gun_FireShotgun.description>融合了植物应用技术与边缘科技的产物，全自动供弹散弹枪，射程短精度低火力强大！对一切敌人造成可观的穿透燃烧伤害！</Gun_FireShotgun.description>
+  <!-- EN: grip -->
+  <Gun_FireShotgun.tools.grip.label>握把</Gun_FireShotgun.tools.grip.label>
+  <!-- EN: barrel -->
+  <Gun_FireShotgun.tools.barrel.label>枪管</Gun_FireShotgun.tools.barrel.label>
+  <!-- EN: shoot fire shotgun -->
+  <Gun_FireShotgun.verbs.shoot_fire_shotgun.label>发射烈焰霰弹</Gun_FireShotgun.verbs.shoot_fire_shotgun.label>
+  
+</LanguageData>

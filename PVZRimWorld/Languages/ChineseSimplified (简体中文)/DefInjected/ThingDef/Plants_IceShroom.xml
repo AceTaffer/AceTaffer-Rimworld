@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: ice shroom -->
+  <IceShroom.label>寒冰菇</IceShroom.label>
+  <!-- EN: A cryogenic fungus that freezes everything around it when destroyed. Harvest it for cryogen, but beware of its deadly freezing burst when killed. -->
+  <IceShroom.description>低温真菌，被摧毁时会冻结周围的一切。收获它以获取寒素，但要小心其致命的冰冻爆发。</IceShroom.description>
+  
+</LanguageData>

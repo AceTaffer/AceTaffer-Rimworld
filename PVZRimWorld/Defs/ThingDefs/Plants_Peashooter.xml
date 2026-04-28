@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ========== 豌豆射手 (Peashooter) ========== -->
+  <!-- 继承自 PlantBase，获得植物基础属性。 -->
+  <ThingDef ParentName="PlantBase">
+    <!-- 唯一标识符，全局唯一 -->
+    <defName>Peashooter</defName>
+    <!-- 游戏内显示名称 -->
+    <label>peashooter</label>
+    <!-- 描述文本 -->
+    <description>The classic peashooter. Fires peas at enemies within range. Cannot be harvested, only cut down.</description>
+    <!-- 逻辑类，使用原版 Plant 类即可，攻击由组件处理 -->
+    <thingClass>Plant</thingClass>
+    <!-- 更新频率：Normal 使组件每帧被调用，但攻击我们使用 CompTick 控制冷却 -->
+    <tickerType>Normal</tickerType>
+
+    <!-- ========== 图形设置 ========== -->
+    <graphicData>
+      <!-- 成熟期贴图路径（需自行放置） -->
+      <texPath>Things/Plant/Peashooter/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>
+      <drawSize>(1.0,1.2)</drawSize>
+    </graphicData>
+    <!-- 种植菜单图标路径 -->
+    <uiIconPath>UI/Things/Plant_Peashooter</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+
+    <!-- ========== 基础属性 ========== -->
+    <statBases>
+      <MaxHitPoints>60</MaxHitPoints>          <!-- 耐久度 -->
+      <Beauty>2</Beauty>                        <!-- 美观度 -->
+      <Flammability>0.5</Flammability>          <!-- 易燃性 50% -->
+      <WorkToBuild>150</WorkToBuild>             <!-- 种植工作量 -->
+      <Nutrition>0</Nutrition>                   <!-- 不可食用 -->
+      <MarketValue>100</MarketValue>              <!-- 市场价值，敌人会优先攻击高价值建筑 -->
+    </statBases>
+
+    <!-- 必须添加 ingestible 块，避免营养值警告，但设为不可食用 -->
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+
+    <selectable>true</selectable>
+    <pathCost>14</pathCost>                      <!-- 轻微阻挡移动 -->
+
+    <!-- ========== 植物生长参数 ========== -->
+    <plant>
+      <growDays>1</growDays>                     <!-- 1天成熟 -->
+      <!-- 没有 harvestedThingDef，因此不可收获 -->
+      <sowMinSkill>0</sowMinSkill>                <!-- 无需种植技能 -->
+      <sowTags>
+        <li>Ground</li>                           <!-- 可种于地面 -->
+        <li>Hydroponic</li>                       <!-- 可种于水培盆 -->
+      </sowTags>
+      <growMinGlow>0.3</growMinGlow>
+      <growOptimalGlow>0.6</growOptimalGlow>
+      <fertilitySensitivity>0.5</fertilitySensitivity>
+      <dieIfLeafless>true</dieIfLeafless>
+      <!-- 生长期贴图 -->
+      <immatureGraphicPath>Things/Plant/Peashooter/immature</immatureGraphicPath>
+      <visualSizeRange>0.5~1.2</visualSizeRange>
+      <topWindExposure>0.4</topWindExposure>
+      <purpose>Food</purpose>                     <!-- 归类，但无收获物 -->
+      <!-- 研究前置：植物种植科技（PlantCultivation） -->
+      <sowResearchPrerequisites>
+        <li>PlantCultivation</li>
+      </sowResearchPrerequisites>
+    </plant>
+
+    <!-- ========== 攻击组件 ========== -->
+    <comps>
+      <li Class="PumpkinShield.CompProperties_PlantShooter">
+        <range>25</range>                          <!-- 攻击半径 25 格 -->
+        <burstShotCount>1</burstShotCount>        <!-- 每次发射 1 发豌豆 -->
+        <ticksBetweenShots>300</ticksBetweenShots> <!-- 射击间隔 300 ticks ≈ 5 秒 -->
+        <projectileDef>Projectile_Pea</projectileDef> <!-- 使用的子弹 defName -->
+        <accuracyTouch>1.0</accuracyTouch>         <!-- 各距离精度均为 100% -->
+        <accuracyShort>1.0</accuracyShort>
+        <accuracyMedium>1.0</accuracyMedium>
+        <accuracyLong>1.0</accuracyLong>
+        <!-- 新增：要求视线检测（不攻击墙后敌人） -->
+        <checkLineOfSight>true</checkLineOfSight>
+      </li>
+    </comps>
+
+    <category>Plant</category>
+  </ThingDef>
+
+  <!-- ========== 豌豆子弹定义 ========== -->
+  <!-- 使用原版子弹类，可自定义贴图或借用原版小型子弹贴图。 -->
+  <ThingDef>
+    <defName>Projectile_Pea</defName>
+    <label>pea</label>
+    <thingClass>Bullet</thingClass>
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <neverMultiSelect>true</neverMultiSelect>
+    <selectable>false</selectable>
+    <drawGUIOverlay>false</drawGUIOverlay>
+
+    <!-- 图形设置 -->
+    <graphicData>
+      <!-- 借用原版小型子弹贴图，也可以自己制作，此处建议使用原版子弹 -->
+      <texPath>Things/Item/Pea</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <drawSize>(0.5,0.5)</drawSize>
+      <!-- 给豌豆一个淡绿色，使其区别于原版子弹 -->
+      <color>(200,255,100)</color>
+    </graphicData>
+
+    <!-- 投射物属性 -->
+    <projectile>
+      <damageDef>Bullet</damageDef>                 <!-- 伤害类型：子弹 -->
+      <damageAmountBase>5</damageAmountBase>        <!-- 基础伤害 5 点 -->
+      <speed>15</speed>                              <!-- 子弹飞行速度 15 格/秒 -->
+      <armorPenetrationBase>0</armorPenetrationBase> <!-- 无护甲穿透 -->
+      <!-- 禁止越过围墙（射手类子弹不越墙） -->
+      <flyOverhead>false</flyOverhead>
+    </projectile>
+  </ThingDef>
+
+</Defs>

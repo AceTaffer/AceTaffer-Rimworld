@@ -8,7 +8,7 @@
     <graphicData>
       <texPath>Things/Plant/Starfruit/mature</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>CutoutPlant</shaderType>   <!-- ✅ 关键修改 -->
+      <shaderType>CutoutPlant</shaderType>
       <drawSize>(1.1,1.3)</drawSize>
     </graphicData>
     <uiIconPath>UI/Things/Plant_Starfruit</uiIconPath>
@@ -26,14 +26,18 @@
     <selectable>true</selectable>
     <pathCost>14</pathCost>
     <plant>
-      <growDays>12</growDays>
+      <growDays>7</growDays>
       <harvestedThingDef>Gold</harvestedThingDef>
-      <harvestYield>50</harvestYield>
+      <harvestYield>5</harvestYield>
       <sowMinSkill>6</sowMinSkill>
       <sowTags>
         <li>Ground</li>
       </sowTags>
       <immatureGraphicPath>Things/Plant/Starfruit/immature</immatureGraphicPath>
+      <!-- 研究前置：持续生长植物 -->
+      <sowResearchPrerequisites>
+        <li>SustainablePlants</li>
+      </sowResearchPrerequisites>
     </plant>
   </ThingDef>
 </Defs>

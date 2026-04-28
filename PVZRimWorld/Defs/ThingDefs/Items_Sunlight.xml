@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef>
+    <defName>Sunlight</defName>
+    <label>sunlight</label>
+    <description>A concentrated orb of solar energy. Used as a currency and material for advanced crafting.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Sunlight</texPath>   <!-- 请确保贴图存在 -->
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+    <statBases>
+      <MarketValue>0.1</MarketValue>               <!-- 1阳光 = 0.1白银 -->
+      <MaxHitPoints>50</MaxHitPoints>
+      <Mass>0.01</Mass>
+      <Flammability>0</Flammability>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Nutrition>0</Nutrition>                    <!-- 营养值设为0，但无ingestible块，所以不可食用 -->
+    </statBases>
+    <!-- ✅ 已完全删除 ingestible 块，阳光不再是食物 -->
+    <stackLimit>100</stackLimit>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <category>Item</category>
+    <selectable>true</selectable>
+    <alwaysHaulable>true</alwaysHaulable>
+    <useHitPoints>true</useHitPoints>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+</Defs>

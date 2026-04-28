@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: doom shroom -->
+  <DoomShroom.label>毁灭菇</DoomShroom.label>
+  <!-- EN: A highly unstable and dangerous fungus. Its cultivation requires expert knowledge and yields precious antimatter nuclides. -->
+  <DoomShroom.description>一种高度不稳定且危险的真菌。其培养需要专业知识，且能产出珍贵的反物质核素。</DoomShroom.description>
+  
+</LanguageData>

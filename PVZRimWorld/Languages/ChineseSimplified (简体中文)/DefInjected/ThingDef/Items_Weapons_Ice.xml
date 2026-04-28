@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: ice pistol bullet -->
+  <Bullet_IcePistol.label>寒冰手枪子弹</Bullet_IcePistol.label>
+  
+  <!-- EN: ice rifle bullet -->
+  <Bullet_IceRifle.label>寒冰步枪子弹</Bullet_IceRifle.label>
+  
+  <!-- EN: ice sniper bullet -->
+  <Bullet_IceSniper.label>寒冰狙击子弹</Bullet_IceSniper.label>
+  
+  <!-- EN: ice pistol -->
+  <Gun_IcePistol.label>寒冰手枪</Gun_IcePistol.label>
+  <!-- EN: A cryogenic pistol that fires supercooled bullets, briefly freezing enemies on impact. -->
+  <Gun_IcePistol.description>低温手枪，发射过冷子弹，命中时短暂冰冻敌人。</Gun_IcePistol.description>
+  <!-- EN: grip -->
+  <Gun_IcePistol.tools.grip.label>握把</Gun_IcePistol.tools.grip.label>
+  <!-- EN: barrel -->
+  <Gun_IcePistol.tools.barrel.label>枪管</Gun_IcePistol.tools.barrel.label>
+  <!-- EN: shoot ice pistol -->
+  <Gun_IcePistol.verbs.shoot_ice_pistol.label>发射寒冰手枪</Gun_IcePistol.verbs.shoot_ice_pistol.label>
+  
+  <!-- EN: ice assault rifle -->
+  <Gun_IceRifle.label>寒冰突击步枪</Gun_IceRifle.label>
+  <!-- EN: An automatic rifle that fires cryogenic rounds, freezing enemies with each burst. -->
+  <Gun_IceRifle.description>自动步枪，发射低温子弹，每次连发都能冰冻敌人。</Gun_IceRifle.description>
+  <!-- EN: grip -->
+  <Gun_IceRifle.tools.grip.label>握把</Gun_IceRifle.tools.grip.label>
+  <!-- EN: barrel -->
+  <Gun_IceRifle.tools.barrel.label>枪管</Gun_IceRifle.tools.barrel.label>
+  <!-- EN: shoot ice rifle -->
+  <Gun_IceRifle.verbs.shoot_ice_rifle.label>发射寒冰步枪</Gun_IceRifle.verbs.shoot_ice_rifle.label>
+  
+  <!-- EN: ice sniper rifle -->
+  <Gun_IceSniper.label>寒冰狙击步枪</Gun_IceSniper.label>
+  <!-- EN: A high-powered cryogenic sniper rifle. Each shot delivers a devastating freeze to the target. -->
+  <Gun_IceSniper.description>大威力低温狙击步枪，每发子弹都能对目标造成毁灭性冰冻。</Gun_IceSniper.description>
+  <!-- EN: grip -->
+  <Gun_IceSniper.tools.grip.label>握把</Gun_IceSniper.tools.grip.label>
+  <!-- EN: barrel -->
+  <Gun_IceSniper.tools.barrel.label>枪管</Gun_IceSniper.tools.barrel.label>
+  <!-- EN: shoot ice sniper -->
+  <Gun_IceSniper.verbs.shoot_ice_sniper.label>发射寒冰狙击步枪</Gun_IceSniper.verbs.shoot_ice_sniper.label>
+  
+</LanguageData>

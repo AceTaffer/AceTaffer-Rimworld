@@ -1,32 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <!-- 继承 PlantBase，与坚果墙模板一致，确保生长逻辑稳定 -->
+  <!--
+    ========== 毁灭菇 (Doom Shroom) ==========
+    继承自 PlantBase。
+    主要功能：
+      - 收获得到反粒子核素 (AntimatterNuclide)
+      - 被摧毁时（非收获）引发爆炸，对周围造成伤害
+      - 收获时不会爆炸（通过自定义 Plant_DoomShroom 类标记）
+    研究前置：AntimatterTech
+    种植技能要求：12
+    可种植于：地面（不可水培）
+  -->
   <ThingDef ParentName="PlantBase">
     <defName>DoomShroom</defName>
     <label>doom shroom</label>
     <description>A highly unstable and dangerous fungus. Its cultivation requires expert knowledge and yields precious antimatter nuclides.</description>
-    <thingClass>Plant</thingClass>
+    <!-- 指向自定义植物类，用于标记收获事件 -->
+    <thingClass>PumpkinShield.Plant_DoomShroom</thingClass>
+    <!-- 必须为 Normal，使 CompTick 等组件正常工作 -->
+    <tickerType>Normal</tickerType>
 
-    <!-- 图形设置 -->
+    <!-- ========== 图形设置 ========== -->
     <graphicData>
       <texPath>Things/Plant/DoomShroom/mature</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutPlant</shaderType>
-      <drawSize>(1.2,1.2)</drawSize> <!-- 更大，更具威慑力 -->
+      <drawSize>(1.2,1.2)</drawSize>
     </graphicData>
     <uiIconPath>UI/Things/Plant_DoomShroom</uiIconPath>
     <uiIconScale>1.0</uiIconScale>
 
-    <!-- 基础属性：脆弱但极具价值 -->
+    <!-- ========== 基础属性 ========== -->
     <statBases>
       <MaxHitPoints>30</MaxHitPoints>
-      <Beauty>-4.0</Beauty>
-      <Flammability>0.1</Flammability>
+      <Beauty>-4.0</Beauty>       <!-- 丑陋，-4美观度 -->
+      <Flammability>0.1</Flammability> <!-- 10%易燃 -->
       <WorkToBuild>1000</WorkToBuild>
-      <Nutrition>0</Nutrition> <!-- 防止动物啃食 -->
+      <Nutrition>0</Nutrition>
     </statBases>
 
-    <!-- 必须添加 ingestible 块，避免营养值为0的警告 -->
     <ingestible>
       <foodType>VegetableOrFruit</foodType>
       <preferability>NeverForNutrition</preferability>
@@ -35,25 +47,22 @@
     <selectable>true</selectable>
     <pathCost>16</pathCost>
 
-    <!-- 植物生长核心 -->
+    <!-- ========== 植物生长参数 ========== -->
     <plant>
-      <!-- 生长周期极长，20天 -->
-      <growDays>20</growDays>
-      <!-- 收获物：反粒子核素（需提前定义） -->
+      <growDays>15</growDays>               <!-- 生长20天 -->
+      <!-- 一次性收获，harvestAfterGrowth 默认1.0，可不写 -->
+      <sowResearchPrerequisites>
+        <li>AntimatterTech</li>
+      </sowResearchPrerequisites>
       <harvestedThingDef>AntimatterNuclide</harvestedThingDef>
-      <!-- 产量极少，每次1个，符合稀有设定 -->
       <harvestYield>1</harvestYield>
-
-      <!-- 种植技能要求高达12级！ -->
       <sowMinSkill>12</sowMinSkill>
       <sowTags>
-        <li>Ground</li>
+        <li>Ground</li>                      <!-- 只能种地面，不可水培 -->
       </sowTags>
-
-      <!-- 以下参数继承自模板，可按需微调 -->
       <growMinGlow>0.5</growMinGlow>
       <growOptimalGlow>0.8</growOptimalGlow>
-      <fertilitySensitivity>0.8</fertilitySensitivity> <!-- 对土壤要求高 -->
+      <fertilitySensitivity>0.8</fertilitySensitivity>
       <dieIfLeafless>true</dieIfLeafless>
       <immatureGraphicPath>Things/Plant/DoomShroom/immature</immatureGraphicPath>
       <visualSizeRange>0.5~1.5</visualSizeRange>
@@ -61,7 +70,17 @@
       <purpose>Food</purpose>
     </plant>
 
+    <!-- ========== 爆炸组件 ========== -->
+    <comps>
+      <li Class="PumpkinShield.CompProperties_ExplodeOnDeath">
+        <explosionRadius>5.9</explosionRadius>       <!-- 爆炸半径5.9格 -->
+        <explosionDamage>100</explosionDamage>       <!-- 爆炸伤害100点 -->
+        <explosionDamageDef>Bomb</explosionDamageDef> <!-- 伤害类型：爆炸 -->
+        <minGrowthToExplode>0.8</minGrowthToExplode> <!-- 生长进度≥80%才爆炸 -->
+        <!-- 注意：组件内部已处理收获时不爆炸，无需额外配置 -->
+      </li>
+    </comps>
+
     <category>Plant</category>
-    <!-- 注意：不要添加 <thingCategories>，避免与父类重复 -->
   </ThingDef>
 </Defs>

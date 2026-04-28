@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- 自定义研究标签页，所有植物科技将归于此 -->
+  <ResearchTabDef>
+    <defName>PVZPlants</defName>
+    <label>plant technology</label>
+    <description>Technologies related to cultivating and utilizing plants from the PVZ world.</description>
+    <!-- 可以指定图标，留空则使用默认 -->
+  </ResearchTabDef>
+</Defs>

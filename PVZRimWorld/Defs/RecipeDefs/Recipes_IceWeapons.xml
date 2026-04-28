@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- 寒冰手枪配方 -->
+  <RecipeDef>
+    <defName>Recipe_MakeIcePistol</defName>
+    <label>make ice pistol</label>
+    <description>Craft an ice pistol at the machining table.</description>
+    <jobString>Making ice pistol.</jobString>
+    <workAmount>100</workAmount>
+    <workSkill>Crafting</workSkill>
+    <recipeUsers>
+      <li>TableMachining</li>
+    </recipeUsers>
+    <researchPrerequisite>IceTech</researchPrerequisite>   <!-- 需要研究寒冰科技 -->
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>Steel</li></thingDefs></filter>
+        <count>30</count>
+      </li>
+      <li>
+        <filter><thingDefs><li>Plasteel</li></thingDefs></filter>
+        <count>10</count>
+      </li>
+      <li>
+        <filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter><thingDefs><li>Sunlight</li></thingDefs></filter>
+        <count>150</count>
+      </li>
+      <li>
+        <filter><thingDefs><li>Cryogen</li></thingDefs></filter>
+        <count>5</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+        <li>Plasteel</li>
+        <li>ComponentIndustrial</li>
+        <li>Sunlight</li>
+        <li>Cryogen</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Gun_IcePistol>1</Gun_IcePistol>
+    </products>
+  </RecipeDef>
+
+  <!-- 寒冰突击步枪配方 -->
+  <RecipeDef>
+    <defName>Recipe_MakeIceRifle</defName>
+    <label>make ice assault rifle</label>
+    <description>Craft an ice assault rifle at the machining table.</description>
+    <jobString>Making ice assault rifle.</jobString>
+    <workAmount>700</workAmount>
+    <workSkill>Crafting</workSkill>
+    <recipeUsers>
+      <li>TableMachining</li>
+    </recipeUsers>
+    <researchPrerequisite>IceTech</researchPrerequisite>
+    <ingredients>
+      <li><filter><thingDefs><li>Steel</li></thingDefs></filter><count>75</count></li>
+      <li><filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter><count>5</count></li>
+      <li><filter><thingDefs><li>Plasteel</li></thingDefs></filter><count>25</count></li>
+      <li><filter><thingDefs><li>Sunlight</li></thingDefs></filter><count>225</count></li>
+      <li><filter><thingDefs><li>Cryogen</li></thingDefs></filter><count>8</count></li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li><li>ComponentIndustrial</li><li>Plasteel</li><li>Sunlight</li><li>Cryogen</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Gun_IceRifle>1</Gun_IceRifle>
+    </products>
+  </RecipeDef>
+
+  <!-- 寒冰狙击步枪配方 -->
+  <RecipeDef>
+    <defName>Recipe_MakeIceSniper</defName>
+    <label>make ice sniper rifle</label>
+    <description>Craft an ice sniper rifle at the machining table.</description>
+    <jobString>Making ice sniper rifle.</jobString>
+    <workAmount>1150</workAmount>
+    <workSkill>Crafting</workSkill>
+    <recipeUsers>
+      <li>TableMachining</li>
+    </recipeUsers>
+    <researchPrerequisite>IceTech</researchPrerequisite>
+    <ingredients>
+      <li><filter><thingDefs><li>Steel</li></thingDefs></filter><count>75</count></li>
+      <li><filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter><count>10</count></li>
+      <li><filter><thingDefs><li>Sunlight</li></thingDefs></filter><count>325</count></li>
+      <li><filter><thingDefs><li>Cryogen</li></thingDefs></filter><count>10</count></li>
+      <li><filter><thingDefs><li>Plasteel</li></thingDefs></filter><count>30</count></li>
+      <li><filter><thingDefs><li>ComponentSpacer</li></thingDefs></filter><count>1</count></li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li><li>ComponentIndustrial</li><li>Sunlight</li><li>Cryogen</li><li>Plasteel</li><li>ComponentSpacer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Gun_IceSniper>1</Gun_IceSniper>
+    </products>
+  </RecipeDef>
+</Defs>

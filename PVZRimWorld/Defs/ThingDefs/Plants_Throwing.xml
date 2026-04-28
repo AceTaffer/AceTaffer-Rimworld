@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ========== 卷心菜投手 (Cabbage Thrower) ========== -->
+  <ThingDef ParentName="PlantBase">
+    <defName>CabbageThrower</defName>
+    <label>cabbage thrower</label>
+    <description>Throws cabbages over walls, but cannot fire under roofs.</description>
+    <thingClass>Plant</thingClass>
+    <tickerType>Normal</tickerType>
+
+    <graphicData>
+      <texPath>Things/Plant/CabbageThrower/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>
+      <drawSize>(1.0,1.2)</drawSize>
+    </graphicData>
+    <uiIconPath>UI/Things/Plant_CabbageThrower</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+
+    <statBases>
+      <MaxHitPoints>60</MaxHitPoints>
+      <Beauty>2</Beauty>
+      <Flammability>0.5</Flammability>
+      <WorkToBuild>150</WorkToBuild>
+      <Nutrition>0</Nutrition>
+      <MarketValue>100</MarketValue>
+    </statBases>
+
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+
+    <selectable>true</selectable>
+    <pathCost>14</pathCost>
+
+    <plant>
+      <growDays>1</growDays>
+      <sowMinSkill>0</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>
+        <li>Hydroponic</li>
+      </sowTags>
+      <growMinGlow>0.3</growMinGlow>
+      <growOptimalGlow>0.6</growOptimalGlow>
+      <fertilitySensitivity>0.5</fertilitySensitivity>
+      <dieIfLeafless>true</dieIfLeafless>
+      <immatureGraphicPath>Things/Plant/CabbageThrower/immature</immatureGraphicPath>
+      <visualSizeRange>0.5~1.2</visualSizeRange>
+      <topWindExposure>0.4</topWindExposure>
+      <purpose>Food</purpose>
+      <sowResearchPrerequisites>
+        <li>ThrowingPlants</li>
+      </sowResearchPrerequisites>
+    </plant>
+
+    <comps>
+      <li Class="PumpkinShield.CompProperties_PlantShooter">
+        <range>25</range>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenShots>240</ticksBetweenShots>
+        <projectileDef>Bullet_Cabbage</projectileDef>
+        <!-- 精准度 100% -->
+        <accuracyTouch>1.0</accuracyTouch>
+        <accuracyShort>1.0</accuracyShort>
+        <accuracyMedium>1.0</accuracyMedium>
+        <accuracyLong>1.0</accuracyLong>
+      </li>
+    </comps>
+
+    <category>Plant</category>
+  </ThingDef>
+
+  <!-- ========== 西瓜投手 (Watermelon Thrower) ========== -->
+  <ThingDef ParentName="PlantBase">
+    <defName>WatermelonThrower</defName>
+    <label>watermelon thrower</label>
+    <description>Hurls heavy watermelons over walls, dealing high damage but with a slower rate of fire.</description>
+    <thingClass>Plant</thingClass>
+    <tickerType>Normal</tickerType>
+
+    <graphicData>
+      <texPath>Things/Plant/WatermelonThrower/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>
+      <drawSize>(1.2,1.3)</drawSize>
+    </graphicData>
+    <uiIconPath>UI/Things/Plant_WatermelonThrower</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <Beauty>2</Beauty>
+      <Flammability>0.4</Flammability>
+      <WorkToBuild>200</WorkToBuild>
+      <Nutrition>0</Nutrition>
+      <MarketValue>150</MarketValue>
+    </statBases>
+
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+
+    <selectable>true</selectable>
+    <pathCost>14</pathCost>
+
+    <plant>
+      <growDays>1.5</growDays>
+      <sowMinSkill>0</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>
+        <li>Hydroponic</li>
+      </sowTags>
+      <growMinGlow>0.3</growMinGlow>
+      <growOptimalGlow>0.6</growOptimalGlow>
+      <fertilitySensitivity>0.5</fertilitySensitivity>
+      <dieIfLeafless>true</dieIfLeafless>
+      <immatureGraphicPath>Things/Plant/WatermelonThrower/immature</immatureGraphicPath>
+      <visualSizeRange>0.5~1.3</visualSizeRange>
+      <topWindExposure>0.3</topWindExposure>
+      <purpose>Food</purpose>
+      <sowResearchPrerequisites>
+        <li>ThrowingPlants</li>
+      </sowResearchPrerequisites>
+    </plant>
+
+    <comps>
+      <li Class="PumpkinShield.CompProperties_PlantShooter">
+        <range>25</range>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenShots>300</ticksBetweenShots>
+        <projectileDef>Bullet_Watermelon</projectileDef>
+        <accuracyTouch>1.0</accuracyTouch>
+        <accuracyShort>1.0</accuracyShort>
+        <accuracyMedium>1.0</accuracyMedium>
+        <accuracyLong>1.0</accuracyLong>
+      </li>
+    </comps>
+
+    <category>Plant</category>
+  </ThingDef>
+
+  <!-- ========== 冰西瓜投手 (Ice Watermelon Thrower) ========== -->
+  <ThingDef ParentName="PlantBase">
+    <defName>IceWatermelonThrower</defName>
+    <label>ice watermelon thrower</label>
+    <description>Launches frozen watermelons that chill and stun enemies on impact.</description>
+    <thingClass>Plant</thingClass>
+    <tickerType>Normal</tickerType>
+
+    <graphicData>
+      <texPath>Things/Plant/IceWatermelonThrower/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>
+      <drawSize>(1.2,1.3)</drawSize>
+    </graphicData>
+    <uiIconPath>UI/Things/Plant_IceWatermelonThrower</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <Beauty>2</Beauty>
+      <Flammability>0.3</Flammability>
+      <WorkToBuild>250</WorkToBuild>
+      <Nutrition>0</Nutrition>
+      <MarketValue>200</MarketValue>
+    </statBases>
+
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+
+    <selectable>true</selectable>
+    <pathCost>14</pathCost>
+
+    <plant>
+      <growDays>2</growDays>
+      <sowMinSkill>0</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>
+        <li>Hydroponic</li>
+      </sowTags>
+      <growMinGlow>0.3</growMinGlow>
+      <growOptimalGlow>0.6</growOptimalGlow>
+      <fertilitySensitivity>0.5</fertilitySensitivity>
+      <dieIfLeafless>true</dieIfLeafless>
+      <immatureGraphicPath>Things/Plant/IceWatermelonThrower/immature</immatureGraphicPath>
+      <visualSizeRange>0.5~1.3</visualSizeRange>
+      <topWindExposure>0.2</topWindExposure>
+      <purpose>Food</purpose>
+      <sowResearchPrerequisites>
+        <li>ThrowingPlants</li>
+      </sowResearchPrerequisites>
+    </plant>
+
+    <comps>
+      <li Class="PumpkinShield.CompProperties_PlantShooter">
+        <range>25</range>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenShots>300</ticksBetweenShots>
+        <projectileDef>Bullet_IceWatermelon</projectileDef>
+        <accuracyTouch>1.0</accuracyTouch>
+        <accuracyShort>1.0</accuracyShort>
+        <accuracyMedium>1.0</accuracyMedium>
+        <accuracyLong>1.0</accuracyLong>
+      </li>
+    </comps>
+
+    <category>Plant</category>
+  </ThingDef>
+
+</Defs>

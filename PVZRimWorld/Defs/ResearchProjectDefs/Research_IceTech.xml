@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ResearchProjectDef>
+    <defName>IceTech</defName>
+    <label>ice tech</label>
+    <description>Cryogenic weaponization of cryogen materials. Unlocks ice-based firearms that freeze enemies on hit.</description>
+    <tab>PVZPlants</tab>
+    <baseCost>1000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>PrecisionRifling</li>
+      <li>PlantApplications</li>
+      <li>AntimatterTech</li>
+    </prerequisites>
+    <researchViewX>3.0</researchViewX>   <!-- 与AntimatterTech同列 -->
+    <researchViewY>2.0</researchViewY>   <!-- 位于AntimatterTech正下方 -->
+  </ResearchProjectDef>
+</Defs>

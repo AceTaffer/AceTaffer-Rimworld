@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- ===== 基础科技：种植植物科技 ===== -->
+  <ResearchProjectDef>
+    <defName>PlantCultivation</defName>
+    <label>plant cultivation</label>
+    <description>Basic knowledge of cultivating PVZ plants. Unlocks potato mines, nut walls, big fungus, sunflowers, and clovers.</description>
+    <tab>PVZPlants</tab>                 <!-- 归属自定义标签页 -->
+    <baseCost>300</baseCost>              <!-- 300研究点数 -->
+    <techLevel>Industrial</techLevel>     <!-- 工业级，适当 -->
+    <!-- 无前置，可直接研究 -->
+    <researchViewX>1.0</researchViewX>    <!-- 在标签页内的坐标 -->
+    <researchViewY>1.0</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- ===== 高级科技：持续生长植物 ===== -->
+  <ResearchProjectDef>
+    <defName>SustainablePlants</defName>
+    <label>sustainable plants</label>
+    <description>Advanced cultivation techniques for sustainable harvest. Unlocks wall-nut hologram, tall nut, gold pan flower, starfruit.</description>
+    <tab>PVZPlants</tab>
+    <baseCost>1500</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>PlantCultivation</li>           <!-- 依赖基础科技 -->
+      <li>TreeSowing</li>             <!-- 原版“植树”科技，defName通常是PlantTreeSowing，请确认 -->
+    </prerequisites>
+    <researchViewX>2.0</researchViewX>
+    <researchViewY>1.0</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- ===== 植物应用技术（框架，供后续扩展） ===== -->
+  <ResearchProjectDef>
+    <defName>PlantApplications</defName>
+    <label>plant applications</label>
+    <description>Learn to use sunlight as a material to craft various items at the machining table. (Placeholder for future recipes)</description>
+    <tab>PVZPlants</tab>
+    <baseCost>800</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>PlantCultivation</li>
+      <li>Smithing</li>
+    </prerequisites>
+    <researchViewX>1.0</researchViewX>
+    <researchViewY>2.0</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- ===== 反物质技术（从原版移入，新增前置可持续植物） ===== -->
+  <ResearchProjectDef>
+    <defName>AntimatterTech</defName>
+    <label>antimatter tech</label>
+    <description>Theoretical knowledge on stabilizing and harvesting antimatter particles. Unlocks the Doom Shroom.</description>
+    <tab>PVZPlants</tab>                   <!-- 移入植物标签页 -->
+    <baseCost>2000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>Fabrication</li>                  <!-- 原版精密装配 -->
+      <li>MicroelectronicsBasics</li>        <!-- 原版微电子基础 -->
+      <li>SustainablePlants</li>             <!-- 新增前置：持续生长植物 -->
+    </prerequisites>
+    <researchViewX>3.0</researchViewX>
+    <researchViewY>1.0</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- ===== 反粒子弹头技术（依赖反物质技术） ===== -->
+  <ResearchProjectDef>
+    <defName>AntimatterWarheads</defName>
+    <label>antimatter warheads</label>
+    <description>Advanced weaponization of antimatter. Unlocks the Anti-Particle Warhead at the fabrication bench.</description>
+    <tab>PVZPlants</tab>
+    <baseCost>3000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>AntimatterTech</li>
+    </prerequisites>
+    <researchViewX>4.0</researchViewX>
+    <researchViewY>1.0</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>AntimatterCannon</defName>
+    <label>antimatter cannon</label>
+    <description>Miniaturize antimatter warheads into a man-portable launcher. Unlocks the devastating Antimatter Cannon.</description>
+    <tab>PVZPlants</tab>
+    <baseCost>2000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>AntimatterTech</li>                 <!-- 前置：反物质技术 -->
+    </prerequisites>
+    <!-- 放在“反粒子弹头”科技下方：假设反粒子弹头坐标为 (4.0,1.0)，则此科技位于 (4.0,2.0) -->
+    <researchViewX>4.0</researchViewX>
+    <researchViewY>2.0</researchViewY>
+  </ResearchProjectDef>
+  <!-- ===== 家园防卫科技 ===== -->
+<ResearchProjectDef>
+  <defName>HomeDefense</defName>
+  <label>home defense</label>
+  <description>Basic mechanical traps to protect your colony. Unlocks the Rake and Lawn Mower traps.</description>
+  <tab>PVZPlants</tab>                         <!-- 归属植物科技标签页 -->
+  <baseCost>500</baseCost>                      <!-- 研究点数 -->
+  <techLevel>Industrial</techLevel>              <!-- 工业级 -->
+  <prerequisites>
+    <li>PlantCultivation</li>                    <!-- 前置：植物种植科技 -->
+  </prerequisites>
+  <!-- 放在可持续植物科技下方：SustainablePlants 坐标为 (2.0,1.0)，本科技位于 (2.0,2.0) -->
+  <researchViewX>2.0</researchViewX>
+  <researchViewY>2.0</researchViewY>
+</ResearchProjectDef>
+</Defs>

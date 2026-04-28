@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ========== 寒冰豌豆子弹定义 ========== -->
+  <!-- 使用原版子弹类，效果由 Harmony 补丁处理（命中时附加冻伤）。 -->
+  <ThingDef>
+    <defName>Bullet_IcePea</defName>
+    <label>ice pea</label>
+    <thingClass>Bullet</thingClass>          <!-- 使用原版子弹类 -->
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>          <!-- 必须为 Normal，子弹才能飞行 -->
+    <altitudeLayer>Projectile</altitudeLayer>
+    <neverMultiSelect>true</neverMultiSelect>
+    <selectable>false</selectable>
+    <drawGUIOverlay>false</drawGUIOverlay>
+
+    <!-- 图形设置 -->
+    <graphicData>
+      <!-- 贴图路径：您已准备的冰豌豆贴图 -->
+      <texPath>Things/Item/Icepea</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <drawSize>(0.5,0.5)</drawSize>
+      <!-- 可以不加颜色，直接使用贴图本身的颜色 -->
+    </graphicData>
+
+    <!-- 投射物属性 -->
+    <projectile>
+      <damageDef>Bullet</damageDef>          <!-- 基础伤害类型为普通子弹 -->
+      <damageAmountBase>5</damageAmountBase> <!-- 基础伤害5，额外冻伤由补丁附加 -->
+      <speed>15</speed>                      <!-- 子弹飞行速度 15 格/秒（与豌豆射手一致） -->
+      <armorPenetrationBase>0</armorPenetrationBase> <!-- 无护甲穿透 -->
+      <!-- 禁止越过围墙（射手类子弹不越墙） -->
+      <flyOverhead>false</flyOverhead>
+    </projectile>
+  </ThingDef>
+
+</Defs>

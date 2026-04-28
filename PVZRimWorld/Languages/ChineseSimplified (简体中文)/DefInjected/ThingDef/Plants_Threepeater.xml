@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: threepeater -->
+  <Threepeater.label>三发射手</Threepeater.label>
+  <!-- EN: A powerful plant that fires three peas in a burst. Slightly less accurate but faster than the peashooter. Cannot be harvested, only cut down. -->
+  <Threepeater.description>强大的植物，一次发射三颗豌豆。精度略低于豌豆射手，但射速更快。无法收获，只能割除。</Threepeater.description>
+  
+</LanguageData>

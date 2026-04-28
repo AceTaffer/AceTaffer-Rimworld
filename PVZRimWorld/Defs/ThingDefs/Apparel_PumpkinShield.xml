@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ========== 南瓜保护罩 (Pumpkin Shield) ========== -->
+  <!-- 继承自 ApparelBase，获得基础衣物属性（如耐久、质量、易燃性等） -->
+  <ThingDef ParentName="ApparelBase">
+    <!-- 唯一标识符，全局唯一，用于内部引用和存档 -->
+    <defName>Apparel_PumpkinShield</defName>
+    <!-- 游戏内显示的名称 -->
+    <label>pumpkin shield</label>
+    <!-- 鼠标悬停时的描述文本 -->
+    <description>A mystical shield woven from hardened sunlight and plasteel. Absorbs damage and recharges over time. Allows ranged attacks while active.</description>
+    <!-- 逻辑类，Apparel表示可穿戴装备 -->
+    <thingClass>Apparel</thingClass>
+
+    <!-- ========== 图形设置 ========== -->
+    <graphicData>
+      <!-- 贴图基础路径（相对于 Textures 文件夹，不加后缀）。游戏会自动查找对应方向的贴图（如 _south.png） -->
+      <texPath>Things/Apparel/PumpkinShield/PumpkinShield</texPath>
+      <!-- 使用单张贴图（物品栏图标用），如果有多方向穿戴贴图，需要另设 wornGraphicPath -->
+      <graphicClass>Graphic_Single</graphicClass>
+      <!-- 着色器类型，Cutout 适用于不透明物体，带透明边缘的物品也可用 -->
+      <shaderType>Cutout</shaderType>
+      <!-- 物品图标显示大小（相对于一个格子），1.0 表示占满一格，可根据贴图比例调整 -->
+      <drawSize>(1.0,1.0)</drawSize>
+    </graphicData>
+
+    <!-- ========== 时间更新机制 ========== -->
+    <!-- 护盾需要每帧更新（充能、能量消耗），因此设为 Normal -->
+    <tickerType>Normal</tickerType>
+
+    <!-- ========== 科技水平 ========== -->
+    <!-- 设为太空级，与原版护盾腰带一致 -->
+    <techLevel>Spacer</techLevel>
+
+    <!-- ========== 基础属性 ========== -->
+    <statBases>
+      <!-- 耐久度（生命值） -->
+      <MaxHitPoints>150</MaxHitPoints>
+      <!-- 市场价值（白银） -->
+      <MarketValue>850</MarketValue>
+      <!-- 重量（kg） -->
+      <Mass>2.0</Mass>
+      <!-- 易燃性，0.4 表示有 40% 概率被点燃 -->
+      <Flammability>0.4</Flammability>
+      <!-- 美观度，正数为美观，负数为丑陋 -->
+      <Beauty>1</Beauty>
+      <!-- 制作所需工作量（ticks，1秒≈60ticks，250约4.2秒） -->
+      <WorkToMake>12500</WorkToMake>
+      <!-- 装备所需时间（秒） -->
+      <EquipDelay>1.5</EquipDelay>
+
+      <!-- 护盾能量相关属性（原版护盾从 statBases 读取） -->
+      <!-- 能量上限：2.0，游戏内显示为200%，可吸收约150点伤害（原版1.0约75点） -->
+      <EnergyShieldEnergyMax>2.0</EnergyShieldEnergyMax>
+      <!-- 每秒充能比例：0.2 = 20%/秒，即每秒恢复0.4能量（对应40点伤害/秒，但游戏显示为20%） -->
+      <EnergyShieldRechargeRate>0.2</EnergyShieldRechargeRate>
+    </statBases>
+
+    <!-- ========== 制作材料 ========== -->
+    <!-- 内联配方，直接指定所需材料和数量 -->
+    <costList>
+      <Sunlight>225</Sunlight>                <!-- 阳光（自定义物品） -->
+      <ComponentIndustrial>3</ComponentIndustrial>  <!-- 普通零部件 -->
+      <Plasteel>25</Plasteel>                  <!-- 玻璃钢 -->
+      <Steel>75</Steel>                         <!-- 钢铁 -->
+    </costList>
+
+    <!-- ========== 护盾组件 ========== -->
+    <!-- 使用原版护盾组件 CompProperties_Shield，它支持 blocksRangedWeapons 属性 -->
+    <comps>
+      <li Class="CompProperties_Shield">
+        <!-- blocksRangedWeapons：设为 false 表示不阻挡远程武器，允许穿戴者向外射击；
+             设为 true 则与原版护盾一样阻挡。该字段是原版组件自带的，无需自定义C#。 -->
+        <blocksRangedWeapons>false</blocksRangedWeapons>
+        <!-- 注意：能量上限和充能速率已在 statBases 中定义，组件内无需重复设置 -->
+      </li>
+    </comps>
+
+    <!-- ========== 衣物属性 ========== -->
+    <apparel>
+      <!-- 裸体主义者是否认为这是一件衣服？false 表示不影响裸体判定（裸体主义者可穿戴且不视为衣服） -->
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <!-- 覆盖的身体部位组：躯干和颈部 -->
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+      </bodyPartGroups>
+      <!-- 衣物层：与腰带同层，避免与其他腰带冲突 -->
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <!-- 标签，用于分类和与其他模组交互（如CE模组可能会识别 Shield 标签） -->
+      <tags>
+        <li>Shield</li>
+      </tags>
+      <!-- 允许所有发育阶段穿戴（儿童和成人） -->
+      <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+      <!-- 穿戴贴图基础路径（如果提供了方向贴图，游戏会自动加载 _south, _north, _east 文件） -->
+      <wornGraphicPath>Things/Apparel/PumpkinShield/PumpkinShield</wornGraphicPath>
+    </apparel>
+
+    <!-- ========== 制作配方设置 ========== -->
+    <recipeMaker>
+      <!-- 需要研究的前置科技（必须与科技文件中的 defName 一致） -->
+      <researchPrerequisite>PlantApplications</researchPrerequisite>
+      <!-- 可在哪些工作台上制作：机械加工台的正确 ID 是 TableMachining -->
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <!-- 所需技能等级（可选，这里设为6级制作） -->
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+
+    <!-- ========== 交易标签 ========== -->
+    <!-- 使物品出现在特定商人处：CombatSupplier 为战斗补给商人 -->
+    <tradeTags>
+      <li>CombatSupplier</li>
+    </tradeTags>
+
+    <!-- ========== 物品分类 ========== -->
+    <!-- 影响UI中的显示位置：Apparel 为衣物大类 -->
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+
+    <!-- ========== 交互设置 ========== -->
+    <!-- 确保可以右键点击选中 -->
+    <selectable>true</selectable>
+    <!-- 在游戏界面上显示交互层（如右键菜单） -->
+    <drawGUIOverlay>true</drawGUIOverlay>
+
+    <!-- 颜色生成器（可选，如果希望支持染色可取消注释并配置） -->
+    <!-- <colorGenerator Class="ColorGenerator_Options">...</colorGenerator> -->
+  </ThingDef>
+</Defs>

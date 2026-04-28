@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ========== 地刺 (Spike) ========== -->
+  <!-- 继承自 PlantBase，获得植物基础属性。 -->
+  <ThingDef ParentName="PlantBase">
+    <!-- 唯一标识符，全局唯一 -->
+    <defName>Spike</defName>
+    <!-- 游戏内显示名称 -->
+    <label>spike</label>
+    <!-- 描述文本 -->
+    <description>A sharp thorny plant that damages any enemy standing on it. Cannot be harvested, only cut down.</description>
+    <!-- 逻辑类，使用原版 Plant 类即可，伤害由组件处理 -->
+    <thingClass>Plant</thingClass>
+    <!-- 更新频率：Normal 使组件每帧被调用，用于检测敌人 -->
+    <tickerType>Normal</tickerType>
+
+    <!-- ========== 图形设置 ========== -->
+    <graphicData>
+      <!-- 成熟期贴图路径（需自行放置） -->
+      <texPath>Things/Plant/Spike/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>
+      <drawSize>(1.0,1.0)</drawSize>
+    </graphicData>
+    <!-- 种植菜单图标路径 -->
+    <uiIconPath>UI/Things/Plant_Spike</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+
+    <!-- ========== 基础属性 ========== -->
+    <statBases>
+      <MaxHitPoints>30</MaxHitPoints>          <!-- 耐久度较低 -->
+      <Beauty>-1</Beauty>                       <!-- 略微丑陋 -->
+      <Flammability>0.3</Flammability>          <!-- 易燃性 30% -->
+      <WorkToBuild>100</WorkToBuild>             <!-- 种植工作量 -->
+      <Nutrition>0</Nutrition>                   <!-- 不可食用 -->
+      <MarketValue>10</MarketValue>               <!-- 市场价值极低，敌人不会主动攻击 -->
+    </statBases>
+
+    <!-- 必须添加 ingestible 块，避免营养值警告，但设为不可食用 -->
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+
+    <selectable>true</selectable>
+    <pathCost>14</pathCost>                      <!-- 轻微阻挡移动，但敌人可以踩过 -->
+
+    <!-- ========== 植物生长参数 ========== -->
+    <plant>
+      <growDays>1</growDays>                     <!-- 1天成熟 -->
+      <!-- 没有 harvestedThingDef，因此不可收获 -->
+      <sowMinSkill>0</sowMinSkill>                <!-- 无需种植技能 -->
+      <sowTags>
+        <li>Ground</li>                           <!-- 可种于地面 -->
+        <li>Hydroponic</li>                       <!-- 可种于水培盆 -->
+      </sowTags>
+      <growMinGlow>0.3</growMinGlow>
+      <growOptimalGlow>0.6</growOptimalGlow>
+      <fertilitySensitivity>0.5</fertilitySensitivity>
+      <dieIfLeafless>true</dieIfLeafless>
+      <!-- 生长期贴图 -->
+      <immatureGraphicPath>Things/Plant/Spike/immature</immatureGraphicPath>
+      <visualSizeRange>0.5~1.2</visualSizeRange>
+      <topWindExposure>0.1</topWindExposure>
+      <purpose>Food</purpose>                     <!-- 归类，但无收获物 -->
+      <!-- 研究前置：可持续收获类科技（SustainablePlants） -->
+      <sowResearchPrerequisites>
+        <li>SustainablePlants</li>
+      </sowResearchPrerequisites>
+    </plant>
+
+    <!-- ========== 伤害组件 ========== -->
+    <comps>
+      <li Class="PumpkinShield.CompProperties_SpikeTrap">
+        <damageAmount>15</damageAmount>           <!-- 每次伤害 15 点 -->
+        <damageDef>Stab</damageDef>                <!-- 伤害类型：刺伤 -->
+        <damageIntervalTicks>120</damageIntervalTicks> <!-- 伤害间隔 2 秒（1秒=60ticks） -->
+        <minGrowthToActivate>1.0</minGrowthToActivate> <!-- 完全成熟才触发 -->
+      </li>
+    </comps>
+
+    <category>Plant</category>
+  </ThingDef>
+</Defs>

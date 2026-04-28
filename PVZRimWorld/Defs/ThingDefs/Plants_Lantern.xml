@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="PlantBase">
+    <defName>LanternPlant</defName>
+    <label>lantern plant</label>
+    <description>A bioluminescent plant that produces phlogiston. Its gentle glow soothes the soul and lights the way in darkness.</description>
+    <thingClass>Plant</thingClass>
+    <tickerType>Normal</tickerType>  <!-- 每 250 ticks 检测一次，性能友好 -->
+
+    <graphicData>
+      <texPath>Things/Plant/Lantern/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>
+      <drawSize>(1.0,1.2)</drawSize>
+    </graphicData>
+    <uiIconPath>UI/Things/Plant_Lantern</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+
+    <statBases>
+      <MaxHitPoints>60</MaxHitPoints>
+      <Beauty>3</Beauty>
+      <Flammability>0.4</Flammability>
+      <WorkToBuild>300</WorkToBuild>
+      <Nutrition>0</Nutrition>
+    </statBases>
+
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+
+    <selectable>true</selectable>
+    <pathCost>10</pathCost>
+
+    <plant>
+      <growDays>7</growDays>
+      <harvestAfterGrowth>0.8</harvestAfterGrowth>
+      <growMinGlow>0.3</growMinGlow>
+      <growOptimalGlow>0.6</growOptimalGlow>
+      <fertilitySensitivity>0.5</fertilitySensitivity>
+      <harvestWork>150</harvestWork>
+      <sowWork>300</sowWork>
+      <dieIfLeafless>true</dieIfLeafless>
+      <harvestTag>Standard</harvestTag>
+      <harvestedThingDef>Phlogiston</harvestedThingDef>
+      <harvestYield>4</harvestYield>
+      <sowMinSkill>5</sowMinSkill>
+      <sowTags><li>Ground</li></sowTags>
+      <topWindExposure>0.4</topWindExposure>
+      <immatureGraphicPath>Things/Plant/Lantern/immature</immatureGraphicPath>
+      <visualSizeRange>0.5~1.2</visualSizeRange>
+      <cavePlantWeight>0</cavePlantWeight>
+      <purpose>Food</purpose>
+      <sowResearchPrerequisites><li>SustainablePlants</li></sowResearchPrerequisites>
+    </plant>
+
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(255,230,153)</glowColor>
+      </li>
+      <li Class="PumpkinShield.CompProperties_LanternPlant">
+        <radius>4</radius>
+      </li>
+    </comps>
+
+    <category>Plant</category>
+  </ThingDef>
+
+  <!-- 灯笼草心情记忆定义 -->
+  <ThoughtDef>
+    <defName>LanternPlantNearby</defName>
+    <!-- 关键：设置为记忆类型，才能通过 TryGainMemory 添加 -->
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stackLimit>1</stackLimit>                <!-- 最多叠加1个，避免重复 -->
+    <durationDays>0.0417</durationDays>       <!-- 1小时 ≈ 1/24 天，0.0417天 -->
+    <stages>
+      <li>
+        <baseMoodEffect>3</baseMoodEffect>     <!-- 心情 +3 -->
+        <label>gentle glowing plant</label>
+        <description>A beautiful lantern plant lights my way in the darkness.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

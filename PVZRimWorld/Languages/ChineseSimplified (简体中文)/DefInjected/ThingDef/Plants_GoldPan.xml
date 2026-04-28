@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: gold pan flower -->
+  <GoldPanFlower.label>金盆花</GoldPanFlower.label>
+  <!-- EN: A mystical flower that can be harvested repeatedly for silver. -->
+  <GoldPanFlower.description>一种富贵且神秘的花，可以多次采摘产出银。</GoldPanFlower.description>
+  
+</LanguageData>

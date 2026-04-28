@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: iron door -->
+  <Apparel_IronDoor.label>铁门</Apparel_IronDoor.label>
+  <!-- EN: 沉重的铁门，手持时能保护整个躯干。 -->
+  <Apparel_IronDoor.description>沉重的铁门，手持时能保护整个躯干。</Apparel_IronDoor.description>
+  <!-- EN: edge -->
+  <Apparel_IronDoor.tools.edge.label>门边</Apparel_IronDoor.tools.edge.label>
+  
+  <!-- EN: miner helmet -->
+  <Apparel_MinerHelmet.label>矿工头盔</Apparel_MinerHelmet.label>
+  <!-- EN: 提供微弱防护的矿工头盔，头上的电灯早已损坏。 -->
+  <Apparel_MinerHelmet.description>提供微弱防护的矿工头盔，头上的电灯早已损坏。</Apparel_MinerHelmet.description>
+  
+  <!-- EN: flag -->
+  <MeleeWeapon_Flag.label>旗帜</MeleeWeapon_Flag.label>
+  <!-- EN: 旗帜僵尸的旗帜，号令百万僵尸大军！ -->
+  <MeleeWeapon_Flag.description>旗帜僵尸的旗帜，号令百万僵尸大军！</MeleeWeapon_Flag.description>
+  <!-- EN: handle -->
+  <MeleeWeapon_Flag.tools.handle.label>旗杆</MeleeWeapon_Flag.tools.handle.label>
+  
+  <!-- EN: joker box -->
+  <MeleeWeapon_JokerBox.label>小丑盒</MeleeWeapon_JokerBox.label>
+  <!-- EN: A mysterious box that explodes upon impact, dealing area damage and disappearing. -->
+  <MeleeWeapon_JokerBox.description>神秘的盒子，撞击时爆炸，造成范围伤害并消失。</MeleeWeapon_JokerBox.description>
+  <!-- EN: box -->
+  <MeleeWeapon_JokerBox.tools.box.label>盒子</MeleeWeapon_JokerBox.tools.box.label>
+  
+  <!-- EN: utility pole -->
+  <MeleeWeapon_UtilityPole.label>电线杆</MeleeWeapon_UtilityPole.label>
+  <!-- EN: 路边拆下来的老旧电线杆，对敌人和墙体建筑结构等造成强力重击！ -->
+  <MeleeWeapon_UtilityPole.description>路边拆下来的老旧电线杆，对敌人和墙体建筑结构等造成强力重击！</MeleeWeapon_UtilityPole.description>
+  <!-- EN: pole -->
+  <MeleeWeapon_UtilityPole.tools.pole.label>杆身</MeleeWeapon_UtilityPole.tools.pole.label>
+  
+</LanguageData>

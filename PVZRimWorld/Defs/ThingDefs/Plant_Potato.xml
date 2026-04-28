@@ -1,55 +1,105 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+  <!-- ========== 土豆地雷 (Potato Mine) ========== -->
+  <!-- 继承自 PlantBase，获得植物基础属性（如耐久、生长周期等）。 -->
   <ThingDef ParentName="PlantBase">
+    <!-- 唯一标识符，全局唯一，用于内部引用和存档。 -->
     <defName>BobPotatoPlant</defName>
+    <!-- 游戏内显示名称。 -->
     <label>PotatoMine</label>
-    <description>A PotatoMine. Harvest to get Mashed Potatoes.</description>
+    <!-- 鼠标悬停时的描述文本。 -->
+    <description>A PotatoMine. Harvest to get Mashed Potatoes. When mature, it explodes if an enemy steps on it.</description>
+    <!-- 逻辑类，Plant 表示植物。 -->
     <thingClass>Plant</thingClass>
+
+    <!-- ========== 必须添加 tickerType ========== -->
+    <!-- 设为 Normal 使组件的 CompTick 方法每帧被调用，用于检测敌人。 -->
+    <tickerType>Normal</tickerType>
+
+    <!-- ========== 图形设置 ========== -->
     <graphicData>
+      <!-- 成熟期贴图路径（相对于 Textures 文件夹，不加后缀）。 -->
       <texPath>Things/Plant/Potato/tudou1</texPath>
+      <!-- 使用单张贴图。 -->
       <graphicClass>Graphic_Single</graphicClass>
+      <!-- 植物专用着色器，支持风效和正确渲染。 -->
       <shaderType>CutoutPlant</shaderType>
+      <!-- 植物在格子内的显示大小。 -->
       <drawSize>(1.1,1.3)</drawSize>
     </graphicData>
+    <!-- 种植菜单图标路径。 -->
     <uiIconPath>UI/Things/Plant_Potato</uiIconPath>
     <uiIconScale>1.0</uiIconScale>
+
+    <!-- ========== 基础属性 ========== -->
     <statBases>
-      <MaxHitPoints>35</MaxHitPoints>
-      <Nutrition>0.1</Nutrition>
-      <Beauty>-0.5</Beauty>
-      <Flammability>0.8</Flammability>
-      <WorkToBuild>400</WorkToBuild>
+      <MaxHitPoints>35</MaxHitPoints>       <!-- 最大耐久度。 -->
+      <Nutrition>0.1</Nutrition>             <!-- 营养值，被动物吃掉的几率。 -->
+      <Beauty>-0.5</Beauty>                  <!-- 美观度，负值表示丑陋。 -->
+      <Flammability>0.8</Flammability>       <!-- 易燃性，0.8 = 80% 概率被点燃。 -->
+      <WorkToBuild>400</WorkToBuild>         <!-- 建造所需工作量（种植时消耗）。 -->
     </statBases>
+
+    <!-- 必须添加 ingestible 块，避免营养值警告。 -->
     <ingestible>
       <foodType>VegetableOrFruit</foodType>
-      <preferability>NeverForNutrition</preferability>   <!-- 改为 NeverForNutrition -->
+      <preferability>NeverForNutrition</preferability>   <!-- 禁止食用。 -->
     </ingestible>
-    <selectable>true</selectable>
-    <pathCost>10</pathCost>
+
+    <selectable>true</selectable>   <!-- 可被选中。 -->
+    <pathCost>10</pathCost>         <!-- 穿过植物时的额外路径成本。 -->
+
+    <!-- ========== 植物生长核心参数 ========== -->
     <plant>
-      <growMinGlow>0.5</growMinGlow>
-      <growOptimalGlow>0.7</growOptimalGlow>
-      <fertilitySensitivity>1</fertilitySensitivity>
-      <lifespanDaysPerGrowDays>7.5</lifespanDaysPerGrowDays>
-      <harvestWork>200</harvestWork>
-      <sowWork>200</sowWork>
-      <dieIfLeafless>true</dieIfLeafless>
-      <maxMeshCount>1</maxMeshCount>
-      <harvestTag>Standard</harvestTag>
+      <growMinGlow>0.5</growMinGlow>          <!-- 最低光照需求。 -->
+      <growOptimalGlow>0.7</growOptimalGlow>  <!-- 最佳光照范围。 -->
+      <fertilitySensitivity>1</fertilitySensitivity> <!-- 对土壤肥力的敏感度。 -->
+      <lifespanDaysPerGrowDays>7.5</lifespanDaysPerGrowDays> <!-- 成熟后可存活时间（生长天数的倍数）。 -->
+      <harvestWork>200</harvestWork>           <!-- 收获所需工作量。 -->
+      <sowWork>200</sowWork>                    <!-- 种植所需工作量。 -->
+      <dieIfLeafless>true</dieIfLeafless>       <!-- 失去所有叶片后是否死亡。 -->
+      <maxMeshCount>1</maxMeshCount>            <!-- 最大网格数，1表示单株。 -->
+      <harvestTag>Standard</harvestTag>         <!-- 收获标签，用于识别可收获对象。 -->
+      <!-- 收获物：土豆泥（物品的 defName 为 BobPotatoFood） -->
       <harvestedThingDef>BobPotatoFood</harvestedThingDef>
-      <harvestYield>5</harvestYield>
-      <sowMinSkill>0</sowMinSkill>
-      <sowTags>
-        <li>Ground</li>
+      <harvestYield>5</harvestYield>            <!-- 每次收获产量。 -->
+      <sowMinSkill>0</sowMinSkill>              <!-- 种植技能要求。 -->
+      <sowTags>                                  <!-- 可种植的地形标签。 -->
+        <li>Ground</li>                          <!-- 只能种在普通地面。 -->
       </sowTags>
-      <topWindExposure>0.1</topWindExposure>
-      <growDays>4</growDays>
+      <topWindExposure>0.1</topWindExposure>    <!-- 风吹摇摆程度。 -->
+      <growDays>4</growDays>                    <!-- 完全成熟所需天数。 -->
+      <!-- 研究前置：需要先研究“种植植物科技”才能种植。 -->
+      <sowResearchPrerequisites>
+        <li>PlantCultivation</li>
+      </sowResearchPrerequisites>
+      <!-- 生长期贴图路径。 -->
       <immatureGraphicPath>Things/Plant/Potato/tudou2</immatureGraphicPath>
+      <!-- 生长过程中视觉大小变化范围。 -->
       <visualSizeRange>0.5~1.2</visualSizeRange>
+      <!-- 洞窟生成权重，0表示不自然生成。 -->
       <cavePlantWeight>0</cavePlantWeight>
-      <purpose>Food</purpose>
+      <purpose>Food</purpose>                    <!-- 用途归类。 -->
     </plant>
+
+    <!-- ========== 组件：地雷触发 ========== -->
+    <!-- 使用自定义的 CompMineTrigger 组件，实现敌对角色踩踏爆炸。 -->
+    <comps>
+      <li Class="PumpkinShield.CompProperties_MineTrigger">
+        <!-- 爆炸半径 2.9 格，适中范围。 -->
+        <explosionRadius>2.9</explosionRadius>
+        <!-- 爆炸伤害 50 点，比毁灭菇低，但足够杀伤轻型敌人。 -->
+        <explosionDamage>50</explosionDamage>
+        <!-- 伤害类型为普通爆炸（可破坏障碍物）。 -->
+        <explosionDamageDef>Bomb</explosionDamageDef>
+        <!-- 触发所需最小生长进度：0.8 表示必须完全成熟。 -->
+        <minGrowthToTrigger>0.8</minGrowthToTrigger>
+        <!-- 爆炸后销毁植物，地雷一次性使用。 -->
+        <destroyOnTrigger>true</destroyOnTrigger>
+      </li>
+    </comps>
+
     <category>Plant</category>
-    <!-- 删除 <thingCategories> 块 -->
+    <!-- 不要添加 thingCategories，避免与父类重复。 -->
   </ThingDef>
 </Defs>

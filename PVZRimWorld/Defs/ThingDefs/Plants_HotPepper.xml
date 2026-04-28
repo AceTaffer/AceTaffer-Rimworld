@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--
+    ========== 火爆辣椒 (Hot Pepper) ==========
+    继承自 PlantBase。
+    主要功能：
+      - 一次性收获，收获物为燃素 (Phlogiston)
+      - 被摧毁时（非收获）引发火焰爆炸，对周围生物造成烧伤
+      - 收获时不会爆炸（通过自定义 Plant_HotPepper 类标记）
+    研究前置：SustainablePlants
+    种植技能要求：6
+    可种植于：地面（不可水培）
+  -->
+  <ThingDef ParentName="PlantBase">
+    <defName>HotPepperPlant</defName>
+    <label>hot pepper plant</label>
+    <description>A volatile pepper plant that explodes into flames when destroyed. Harvest it carefully for phlogiston.</description>
+    <!-- 指向自定义植物类，用于标记收获事件 -->
+    <thingClass>PumpkinShield.Plant_HotPepper</thingClass>
+    <!-- 必须为 Normal，使 CompTick 等组件正常工作 -->
+    <tickerType>Normal</tickerType>
+
+    <!-- ========== 图形设置 ========== -->
+    <graphicData>
+      <texPath>Things/Plant/HotPepper/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>
+      <drawSize>(1.0,1.0)</drawSize>
+    </graphicData>
+    <uiIconPath>UI/Things/Plant_HotPepper</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+
+    <!-- ========== 基础属性 ========== -->
+    <statBases>
+      <MaxHitPoints>40</MaxHitPoints>
+      <Beauty>-1</Beauty>          <!-- 略微丑陋 -->
+      <Flammability>0.5</Flammability> <!-- 50%易燃 -->
+      <WorkToBuild>200</WorkToBuild>
+      <Nutrition>0</Nutrition>
+    </statBases>
+
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+
+    <selectable>true</selectable>
+    <pathCost>12</pathCost>
+
+    <!-- ========== 植物生长参数 ========== -->
+    <plant>
+      <growDays>3</growDays>               <!-- 3天成熟 -->
+      <!-- 一次性收获，harvestAfterGrowth 默认1.0，可不写 -->
+      <sowResearchPrerequisites>
+        <li>SustainablePlants</li>          <!-- 研究前置：可持续植物 -->
+      </sowResearchPrerequisites>
+      <harvestedThingDef>Phlogiston</harvestedThingDef>  <!-- 收获物：燃素 -->
+      <harvestYield>1</harvestYield>                     <!-- 每次收获1个 -->
+      <sowMinSkill>6</sowMinSkill>                        <!-- 种植技能要求6 -->
+      <sowTags>
+        <li>Ground</li>                      <!-- 只能种地面，不可水培 -->
+      </sowTags>
+      <growMinGlow>0.5</growMinGlow>
+      <growOptimalGlow>0.8</growOptimalGlow>
+      <fertilitySensitivity>0.6</fertilitySensitivity>
+      <dieIfLeafless>true</dieIfLeafless>
+      <immatureGraphicPath>Things/Plant/HotPepper/immature</immatureGraphicPath>
+      <visualSizeRange>0.5~1.2</visualSizeRange>
+      <topWindExposure>0.2</topWindExposure>
+      <purpose>Food</purpose>
+    </plant>
+
+    <!-- ========== 火焰爆炸组件 ========== -->
+    <comps>
+      <li Class="PumpkinShield.CompProperties_ExplodeOnDeath">
+        <explosionRadius>2.9</explosionRadius>       <!-- 爆炸半径2.9格 -->
+        <explosionDamage>30</explosionDamage>        <!-- 爆炸伤害30点（火焰烧伤） -->
+        <explosionDamageDef>Flame</explosionDamageDef> <!-- 伤害类型：火焰，会造成烧伤 -->
+        <minGrowthToExplode>0.8</minGrowthToExplode>  <!-- 生长进度≥80%才爆炸 -->
+        <!-- 组件内部已处理收获时不爆炸（通过自定义植物类标记） -->
+      </li>
+    </comps>
+
+    <category>Plant</category>
+  </ThingDef>
+</Defs>

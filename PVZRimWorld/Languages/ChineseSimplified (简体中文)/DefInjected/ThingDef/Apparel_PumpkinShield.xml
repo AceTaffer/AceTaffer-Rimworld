@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: pumpkin shield -->
+  <Apparel_PumpkinShield.label>南瓜护盾</Apparel_PumpkinShield.label>
+  <!-- EN: A mystical shield woven from hardened sunlight and plasteel. Absorbs damage and recharges over time. Allows ranged attacks while active. -->
+  <Apparel_PumpkinShield.description>植物科技的产物，由阳光和玻璃钢编织而成的植物护盾。吸收伤害并随时间充能。装备时可进行远程攻击。</Apparel_PumpkinShield.description>
+  
+</LanguageData>

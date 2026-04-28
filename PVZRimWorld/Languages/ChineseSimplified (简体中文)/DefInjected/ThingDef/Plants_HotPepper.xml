@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: hot pepper plant -->
+  <HotPepperPlant.label>火爆辣椒</HotPepperPlant.label>
+  <!-- EN: A volatile pepper plant that explodes into flames when destroyed. Harvest it carefully for phlogiston. -->
+  <HotPepperPlant.description>不稳定的辣椒植物，被摧毁时会爆炸成一团火焰。小心收获以获得燃素。</HotPepperPlant.description>
+  
+</LanguageData>

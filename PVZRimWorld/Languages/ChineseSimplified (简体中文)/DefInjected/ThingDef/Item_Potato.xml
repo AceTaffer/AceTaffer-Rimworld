@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: potato -->
+  <BobPotatoFood.label>土豆泥</BobPotatoFood.label>
+  <!-- EN: A raw potato. Can be eaten raw or cooked into meals. -->
+  <BobPotatoFood.description>土豆泥，收获土豆地雷后的产物。</BobPotatoFood.description>
+  
+</LanguageData>

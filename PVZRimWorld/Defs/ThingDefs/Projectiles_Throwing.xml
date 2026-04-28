@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ========== 卷心菜子弹 ========== -->
+  <ThingDef>
+    <defName>Bullet_Cabbage</defName>
+    <label>cabbage</label>
+    <thingClass>Bullet</thingClass>
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <neverMultiSelect>true</neverMultiSelect>
+    <selectable>false</selectable>
+    <drawGUIOverlay>false</drawGUIOverlay>
+
+    <graphicData>
+      <texPath>Things/Projectile/Cabbage</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <drawSize>(0.6,0.6)</drawSize>
+      <color>(100,200,100)</color>
+    </graphicData>
+
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>5</damageAmountBase>
+      <!-- 100% 护甲穿透，确保伤害 -->
+      <armorPenetrationBase>0</armorPenetrationBase>
+      <speed>15</speed>
+      <!-- ★★★ 改为 false，子弹不再越过墙体，直接命中敌人 ★★★ -->
+      <flyOverhead>false</flyOverhead>
+    </projectile>
+  </ThingDef>
+
+  <!-- ========== 西瓜子弹 ========== -->
+  <ThingDef>
+    <defName>Bullet_Watermelon</defName>
+    <label>watermelon</label>
+    <thingClass>Bullet</thingClass>
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <neverMultiSelect>true</neverMultiSelect>
+    <selectable>false</selectable>
+    <drawGUIOverlay>false</drawGUIOverlay>
+
+    <graphicData>
+      <texPath>Things/Projectile/Watermelon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <drawSize>(0.8,0.8)</drawSize>
+      <color>(200,100,100)</color>
+    </graphicData>
+
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <armorPenetrationBase>0</armorPenetrationBase>
+      <speed>12</speed>
+      <flyOverhead>false</flyOverhead>
+    </projectile>
+  </ThingDef>
+
+  <!-- ========== 冰西瓜子弹 ========== -->
+  <ThingDef>
+    <defName>Bullet_IceWatermelon</defName>
+    <label>ice watermelon</label>
+    <thingClass>Bullet</thingClass>
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <neverMultiSelect>true</neverMultiSelect>
+    <selectable>false</selectable>
+    <drawGUIOverlay>false</drawGUIOverlay>
+
+    <graphicData>
+      <texPath>Things/Projectile/IceWatermelon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <drawSize>(0.8,0.8)</drawSize>
+      <color>(150,220,255)</color>
+    </graphicData>
+
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <armorPenetrationBase>0</armorPenetrationBase>
+      <speed>12</speed>
+      <flyOverhead>false</flyOverhead>
+    </projectile>
+  </ThingDef>
+
+</Defs>

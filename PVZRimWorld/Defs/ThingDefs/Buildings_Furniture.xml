@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>LanternPlantBuilding</defName>
+    <label>lantern plant (building)</label>
+    <description>A decorative lantern plant that provides light and beauty. Does not require power.</description>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <tickerType>Rare</tickerType>
+
+    <graphicData>
+      <texPath>Things/Building/LanternPlant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>0</pathCost>
+    <blockPlants>false</blockPlants>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <constructEffect>ConstructWood</constructEffect>
+    <soundDrop>Wood_Drop</soundDrop>
+
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <MarketValue>300</MarketValue>
+      <Mass>2</Mass>
+      <Flammability>0.5</Flammability>
+      <Beauty>20</Beauty>
+      <Cleanliness>0</Cleanliness>
+      <WorkToBuild>200</WorkToBuild>
+    </statBases>
+
+    <costList>
+      <Sunlight>325</Sunlight>
+      <Phlogiston>5</Phlogiston>
+    </costList>
+
+    <researchPrerequisites>
+      <li>FunctionalPlants</li>
+    </researchPrerequisites>
+
+    <designationCategory>Misc</designationCategory>
+
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(255,230,153)</glowColor>
+      </li>
+    </comps>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+</Defs>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ========== 燃素 (Phlogiston) ========== -->
+  <!-- 灯笼草的收获物，一种发光能量物质 -->
+  <ThingDef>
+    <!-- 唯一标识符，全局唯一 -->
+    <defName>Phlogiston</defName>
+    <!-- 游戏内显示名称 -->
+    <label>phlogiston</label>
+    <!-- 描述文本 -->
+    <description>A glowing energy substance harvested from lantern plants. It pulses with a warm, gentle light.</description>
+    <!-- 物品逻辑类，使用原版带组件的物品类 -->
+    <thingClass>ThingWithComps</thingClass>
+
+    <!-- 图形设置：物品图标 -->
+    <graphicData>
+      <!-- 贴图路径（相对于Textures文件夹，不加后缀） -->
+      <texPath>Things/Item/Phlogiston/phlogiston</texPath>
+      <!-- 使用单张贴图 -->
+      <graphicClass>Graphic_Single</graphicClass>
+      <!-- 着色器，Cutout适用于不透明物体 -->
+      <shaderType>Cutout</shaderType>
+      <!-- 物品图标显示大小 -->
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+
+    <!-- 基础属性 -->
+    <statBases>
+      <!-- 市场价值（白银），比普通资源稍高 -->
+      <MarketValue>5</MarketValue>
+      <!-- 耐久度 -->
+      <MaxHitPoints>50</MaxHitPoints>
+      <!-- 重量（kg） -->
+      <Mass>0.02</Mass>
+      <!-- 营养值（设为0，不可食用） -->
+      <Nutrition>0</Nutrition>
+      <!-- 易燃性 -->
+      <Flammability>0.3</Flammability>
+      <!-- 老化速率 -->
+      <DeteriorationRate>1.0</DeteriorationRate>
+    </statBases>
+
+    <!-- 可食用属性（虽然营养值为0，但仍需定义以避免警告） -->
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+
+    <!-- 堆叠上限 -->
+    <stackLimit>75</stackLimit>
+    <!-- 物品分类，出现在“原材料”中 -->
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <!-- 物品类别 -->
+    <category>Item</category>
+    <!-- 可被选中 -->
+    <selectable>true</selectable>
+    <!-- 可被搬运 -->
+    <alwaysHaulable>true</alwaysHaulable>
+    <!-- 使用耐久度 -->
+    <useHitPoints>true</useHitPoints>
+    <!-- 显示GUI叠加层（如数量标记） -->
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+</Defs>

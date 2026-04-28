@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <!-- 继承 PlantBase，与杨桃完全一致，确保一次性收获后消失 -->
   <ThingDef ParentName="PlantBase">
     <defName>NutWallPlant</defName>
     <label>nut wall plant</label>
     <description>A sturdy plant that yields wood after 4 days.</description>
     <thingClass>Plant</thingClass>
-
-    <!-- 图形设置 -->
     <graphicData>
       <texPath>Things/Plant/NutWall/mature</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -16,8 +13,6 @@
     </graphicData>
     <uiIconPath>UI/Things/Plant_NutWall</uiIconPath>
     <uiIconScale>1.0</uiIconScale>
-
-    <!-- 基础属性 -->
     <statBases>
       <MaxHitPoints>80</MaxHitPoints>
       <Beauty>1.0</Beauty>
@@ -25,20 +20,14 @@
       <WorkToBuild>300</WorkToBuild>
       <Nutrition>0</Nutrition>
     </statBases>
-
-    <!-- 必须添加 ingestible 块，避免营养值为0的警告，并指定 foodType -->
     <ingestible>
       <foodType>VegetableOrFruit</foodType>
       <preferability>NeverForNutrition</preferability>
     </ingestible>
-
     <selectable>true</selectable>
     <pathCost>12</pathCost>
-
-    <!-- 植物生长核心 -->
     <plant>
       <growDays>4</growDays>
-      <!-- 不设置 harvestAfterGrowth，默认为1.0（完全成熟才收获），且一次性消失（与杨桃相同） -->
       <harvestedThingDef>WoodLog</harvestedThingDef>
       <harvestYield>10</harvestYield>
       <sowMinSkill>4</sowMinSkill>
@@ -46,7 +35,6 @@
         <li>Ground</li>
       </sowTags>
       <immatureGraphicPath>Things/Plant/NutWall/immature</immatureGraphicPath>
-      <!-- 以下参数可选，若省略则继承父类，但显式写上更稳妥 -->
       <growMinGlow>0.4</growMinGlow>
       <growOptimalGlow>0.7</growOptimalGlow>
       <fertilitySensitivity>0.6</fertilitySensitivity>
@@ -54,8 +42,11 @@
       <visualSizeRange>0.5~1.2</visualSizeRange>
       <topWindExposure>0.3</topWindExposure>
       <purpose>Food</purpose>
+      <!-- 研究前置：种植植物科技 -->
+      <sowResearchPrerequisites>
+        <li>PlantCultivation</li>
+      </sowResearchPrerequisites>
     </plant>
-
     <category>Plant</category>
   </ThingDef>
 </Defs>

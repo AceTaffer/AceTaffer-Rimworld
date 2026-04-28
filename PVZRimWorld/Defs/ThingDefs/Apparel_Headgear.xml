@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ========== 铁桶 (Iron Bucket) ========== -->
+  <!-- 头饰装备，可穿戴在头部，提供较高防护但外观奇特。 -->
+  <ThingDef>
+    <defName>Apparel_IronBucket</defName>
+    <label>iron bucket</label>
+    <description>A sturdy iron bucket worn as headgear. Provides decent protection but looks odd.</description>
+    <thingClass>Apparel</thingClass>
+    <category>Item</category>
+
+    <!-- ========== 图形设置 ========== -->
+    <graphicData>
+      <texPath>Things/Apparel/IronBucket</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+      <drawSize>(0.8,0.8)</drawSize>
+    </graphicData>
+
+    <!-- ========== 基础属性 ========== -->
+    <statBases>
+      <MaxHitPoints>130</MaxHitPoints>
+      <MarketValue>250</MarketValue>
+      <Mass>1.0</Mass>
+      <Flammability>0</Flammability>
+      <Beauty>-1</Beauty>
+      <WorkToMake>8000</WorkToMake>
+      <ArmorRating_Sharp>0.60</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.30</ArmorRating_Heat>
+      <Insulation_Cold>-1.0</Insulation_Cold>
+      <Insulation_Heat>0</Insulation_Heat>
+      <EquipDelay>1.5</EquipDelay>
+    </statBases>
+
+    <equippedStatOffsets>
+      <ComfyTemperatureMin>-1</ComfyTemperatureMin>
+    </equippedStatOffsets>
+
+    <comps>
+      <li Class="CompProperties_Forbiddable" />
+    </comps>
+
+    <costList>
+      <Steel>50</Steel>
+      <Plasteel>5</Plasteel>
+      <Sunlight>200</Sunlight>
+    </costList>
+
+    <!-- ========== 衣物属性 ========== -->
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Apparel/IronBucket</wornGraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <!-- 标签：用于分类和随机选择。必须包含原版 Headgear 标签，同时添加自定义标签 PVZ_Headgear。 -->
+      <tags>
+        <li>Headgear</li>      <!-- 原版头饰标签，系统识别为头饰 -->
+        <li>PVZ_Headgear</li>   <!-- 自定义标签，供僵尸派系头饰随机选择使用 -->
+      </tags>
+    </apparel>
+
+    <recipeMaker>
+      <researchPrerequisite>PlantApplications</researchPrerequisite>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+    </recipeMaker>
+
+    <tradeTags>
+      <li>CombatSupplier</li>
+    </tradeTags>
+
+    <thingCategories>
+      <li>Headgear</li>        <!-- 物品分类，显示在头饰制造菜单中 -->
+    </thingCategories>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+
+  <!-- ========== 路障 (Barricade) ========== -->
+  <!-- 另一种头饰装备，由钢铁和阳光制成，提供基本防护。 -->
+  <ThingDef>
+    <defName>Apparel_Barricade</defName>
+    <label>barricade</label>
+    <description>A makeshift barricade worn as headgear. Offers basic protection and is somewhat flammable.</description>
+    <thingClass>Apparel</thingClass>
+    <category>Item</category>
+
+    <graphicData>
+      <texPath>Things/Apparel/Barricade</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <MarketValue>180</MarketValue>
+      <Mass>0.8</Mass>
+      <Flammability>0.4</Flammability>
+      <Beauty>1</Beauty>
+      <WorkToMake>5000</WorkToMake>
+      <ArmorRating_Sharp>0.50</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.20</ArmorRating_Heat>
+      <Insulation_Cold>-1.0</Insulation_Cold>
+      <Insulation_Heat>0</Insulation_Heat>
+      <EquipDelay>1.5</EquipDelay>
+    </statBases>
+
+    <equippedStatOffsets>
+      <ComfyTemperatureMin>-1</ComfyTemperatureMin>
+    </equippedStatOffsets>
+
+    <comps>
+      <li Class="CompProperties_Forbiddable" />
+    </comps>
+
+    <costList>
+      <Steel>75</Steel>
+      <Sunlight>150</Sunlight>
+    </costList>
+
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Apparel/Barricade</wornGraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>Headgear</li>      <!-- 原版头饰标签 -->
+        <li>PVZ_Headgear</li>   <!-- 自定义标签，供僵尸派系头饰随机选择使用 -->
+      </tags>
+    </apparel>
+
+    <recipeMaker>
+      <researchPrerequisite>PlantApplications</researchPrerequisite>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+    </recipeMaker>
+
+    <tradeTags>
+      <li>CombatSupplier</li>
+    </tradeTags>
+
+    <thingCategories>
+      <li>Headgear</li>
+    </thingCategories>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+</Defs>

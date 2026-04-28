@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: antimatter cannon -->
+  <Gun_AntimatterCannon.label>反物质炮</Gun_AntimatterCannon.label>
+  <!-- EN: 继承于反物质技术的直接产物，精准而快速，发射反粒子弹头造成毁灭性杀伤的一次性武器，令你的敌人感到恐惧！ -->
+  <Gun_AntimatterCannon.description>继承于反物质技术的直接产物，精准而快速，发射反粒子弹头造成毁灭性杀伤的一次性武器，令你的敌人感到恐惧！</Gun_AntimatterCannon.description>
+  <!-- EN: stock -->
+  <Gun_AntimatterCannon.tools.stock.label>枪托</Gun_AntimatterCannon.tools.stock.label>
+  <!-- EN: shoot antimatter shell -->
+  <Gun_AntimatterCannon.verbs.shoot_antimatter_shell.label>发射反物质炮弹</Gun_AntimatterCannon.verbs.shoot_antimatter_shell.label>
+  
+  <!-- EN: antimatter shell -->
+  <Projectile_AntimatterShell.label>反物质炮弹</Projectile_AntimatterShell.label>
+  
+</LanguageData>

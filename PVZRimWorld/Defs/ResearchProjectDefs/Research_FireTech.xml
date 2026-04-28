@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- ========== 烈焰武器科技 ========== -->
+  <!-- 研究完成后解锁三把烈焰武器：烈焰手枪、烈焰突击步枪、烈焰散弹枪 -->
+  <ResearchProjectDef>
+    <!-- 唯一标识符，用于内部引用 -->
+    <defName>FireTech</defName>
+    <!-- 游戏内显示名称 -->
+    <label>fire tech</label>
+    <!-- 描述文本 -->
+    <description>Pyrotechnic weaponization of phlogiston materials. Unlocks fire-based firearms that set enemies ablaze on hit.</description>
+    <!-- 所属研究标签页，与植物科技相同 -->
+    <tab>PVZPlants</tab>
+    <!-- 研究所需点数 -->
+    <baseCost>1000</baseCost>
+    <!-- 科技等级：太空时代 -->
+    <techLevel>Spacer</techLevel>
+    <!-- 前置研究：精确步枪、植物应用技术、反物质技术 -->
+    <prerequisites>
+      <li>PrecisionRifling</li>
+      <li>PlantApplications</li>
+      <li>AntimatterTech</li>
+    </prerequisites>
+    <!-- 在科技树中的坐标：与寒冰武器同列，位于其下方 -->
+    <!-- 假设寒冰武器 IceTech 坐标为 (3.0, 2.0)，则此科技位于 (3.0, 3.0) -->
+    <researchViewX>3.0</researchViewX>
+    <researchViewY>3.0</researchViewY>
+  </ResearchProjectDef>
+</Defs>

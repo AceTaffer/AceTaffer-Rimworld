@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: lantern plant -->
+  <LanternPlant.label>灯笼草</LanternPlant.label>
+  <!-- EN: A bioluminescent plant that produces phlogiston. Its gentle glow soothes the soul and lights the way in darkness. -->
+  <LanternPlant.description>产生燃素的生物发光植物。它柔和的光芒能抚慰心灵，照亮黑暗中的道路。</LanternPlant.description>
+  
+</LanguageData>

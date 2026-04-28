@@ -5,7 +5,6 @@
     <label>hologram wall-nut</label>
     <description>A holographic wall-nut. It can be harvested repeatedly for plasteel.</description>
     <thingClass>Plant</thingClass>
-
     <graphicData>
       <texPath>Things/Plant/WallNut/mature</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -14,22 +13,17 @@
     </graphicData>
     <uiIconPath>UI/Things/Plant_WallNut</uiIconPath>
     <uiIconScale>1.0</uiIconScale>
-
     <statBases>
       <MaxHitPoints>150</MaxHitPoints>
       <Beauty>0.5</Beauty>
       <Flammability>0</Flammability>
       <WorkToBuild>300</WorkToBuild>
     </statBases>
-
-    <!-- ✅ 显式添加 ingestible 并设置为 NeverForNutrition -->
     <ingestible>
       <preferability>NeverForNutrition</preferability>
     </ingestible>
-
     <selectable>true</selectable>
     <pathCost>10</pathCost>
-
     <plant>
       <growDays>5</growDays>
       <harvestAfterGrowth>0.5</harvestAfterGrowth>
@@ -53,8 +47,11 @@
       <visualSizeRange>0.5~1.2</visualSizeRange>
       <cavePlantWeight>2</cavePlantWeight>
       <purpose>Food</purpose>
+      <!-- 研究前置：持续生长植物 -->
+      <sowResearchPrerequisites>
+        <li>SustainablePlants</li>
+      </sowResearchPrerequisites>
     </plant>
-
     <category>Plant</category>
   </ThingDef>
 </Defs>

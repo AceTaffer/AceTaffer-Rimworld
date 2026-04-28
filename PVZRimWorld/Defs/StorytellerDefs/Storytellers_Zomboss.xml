@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ========== 僵王博士 (Dr. Zomboss) ========== -->
+  <!-- 继承自原版 BaseStoryteller，获得基础的人口意图、适应天数等曲线 -->
+  <StorytellerDef ParentName="BaseStoryteller">
+    <defName>Zomboss</defName>
+    <label>Dr. Zomboss</label>
+    <description>A mad scientist obsessed with zombie research. He'll test your defenses with frequent and varied events.\n\nHis experiments sometimes involve other factions, but his beloved zombies are never far away.</description>
+    <!-- 可自定义图标，此处借用原版 Randy 图标，您可替换为自己的图标 -->
+    <portraitLarge>UI/HeroArt/Storytellers/ZombossLarge</portraitLarge>
+    <portraitTiny>UI/HeroArt/Storytellers/ZombossTiny</portraitTiny>
+    <listOrder>25</listOrder> <!-- 放在 Cassandra (20) 和 Phoebe (30) 之间 -->
+
+    <!-- ========== 故事讲述者组件 ========== -->
+    <comps>
+      <!-- 组件1：主随机事件生成器（类似 Randy Random） -->
+      <!-- 负责生成地图上的大部分事件，包括威胁、访客、商人等 -->
+      <li Class="StorytellerCompProperties_RandomMain">
+        <allowedTargetTags>
+          <li>Map_PlayerHome</li> <!-- 只针对玩家主基地 -->
+        </allowedTargetTags>
+        <minDaysPassed>1</minDaysPassed>               <!-- 至少1天后才开始 -->
+        <mtbDays>1.2</mtbDays>                         <!-- 事件平均间隔1.2天，比原版更频繁 -->
+        <randomPointsFactorRange>0.5~1.5</randomPointsFactorRange> <!-- 事件点数随机范围 -->
+        <categoryWeights>
+          <!-- 各事件类别的权重，数值越大出现概率越高 -->
+          <Misc>3.0</Misc>          <!-- 杂项事件（如资源降落、自我驯服等） -->
+          <ThreatBig>2.0</ThreatBig> <!-- 大型威胁（袭击、虫灾、猎杀人类等），提高权重使袭击更频繁 -->
+          <OrbitalVisitor>1.0</OrbitalVisitor> <!-- 轨道商人 -->
+          <FactionArrival>2.0</FactionArrival> <!-- 派系抵达（商队、访客、旅行者） -->
+          <ThreatSmall>0.8</ThreatSmall> <!-- 小型威胁（单个疯狂动物等） -->
+          <ShipChunkDrop>0.2</ShipChunkDrop> <!-- 飞船残骸事件 -->
+        </categoryWeights>
+      </li>
+
+      <!-- 组件2：人类疾病事件 -->
+      <li Class="StorytellerCompProperties_Disease">
+        <category>DiseaseHuman</category>
+        <minDaysPassed>9</minDaysPassed>
+      </li>
+
+      <!-- 组件3：动物疾病事件 -->
+      <li Class="StorytellerCompProperties_Disease">
+        <category>DiseaseAnimal</category>
+        <minDaysPassed>9</minDaysPassed>
+      </li>
+
+      <!-- 组件4：盟友援助（当盟友被呼叫时出现） -->
+      <li Class="StorytellerCompProperties_FactionInteraction">
+        <incident>RaidFriendly</incident>
+        <baseIncidentsPerYear>10</baseIncidentsPerYear>
+        <minSpacingDays>0.4</minSpacingDays>
+        <fullAlliesOnly>true</fullAlliesOnly>
+        <minDanger>High</minDanger>
+      </li>
+
+      <!-- 组件5：商队抵达 -->
+      <li Class="StorytellerCompProperties_FactionInteraction">
+        <incident>TraderCaravanArrival</incident>
+        <minDaysPassed>5</minDaysPassed>
+        <baseIncidentsPerYear>5</baseIncidentsPerYear>
+        <minSpacingDays>6</minSpacingDays>
+      </li>
+
+      <!-- 组件6：访客团体 -->
+      <li Class="StorytellerCompProperties_FactionInteraction">
+        <incident>VisitorGroup</incident>
+        <minDaysPassed>3</minDaysPassed>
+        <baseIncidentsPerYear>4</baseIncidentsPerYear>
+        <minSpacingDays>5</minSpacingDays>
+      </li>
+
+      <!-- 组件7：旅行者团体 -->
+      <li Class="StorytellerCompProperties_FactionInteraction">
+        <incident>TravelerGroup</incident>
+        <minDaysPassed>1</minDaysPassed>
+        <baseIncidentsPerYear>6</baseIncidentsPerYear>
+        <minSpacingDays>1</minSpacingDays>
+      </li>
+
+      <!-- 组件8：商队遭遇（杂项） -->
+      <li Class="StorytellerCompProperties_CategoryIndividualMTBByBiome">
+        <category>Misc</category>
+        <allowedTargetTags>
+          <li>Caravan</li>
+          <li>Map_TempIncident</li>
+        </allowedTargetTags>
+      </li>
+
+      <!-- 组件9：商队遭遇（小型威胁） -->
+      <li Class="StorytellerCompProperties_CategoryIndividualMTBByBiome">
+        <category>ThreatSmall</category>
+        <applyCaravanVisibility>true</applyCaravanVisibility>
+        <allowedTargetTags>
+          <li>Caravan</li>
+          <li>Map_TempIncident</li>
+        </allowedTargetTags>
+      </li>
+
+      <!-- 组件10：商队遭遇（大型威胁） -->
+      <li Class="StorytellerCompProperties_CategoryIndividualMTBByBiome">
+        <category>ThreatBig</category>
+        <applyCaravanVisibility>true</applyCaravanVisibility>
+        <allowedTargetTags>
+          <li>Caravan</li>
+          <li>Map_TempIncident</li>
+        </allowedTargetTags>
+      </li>
+
+      <!-- 组件11：任务（非 Royalty 时使用） -->
+      <li Class="StorytellerCompProperties_RandomQuest">
+        <category>GiveQuest</category>
+        <allowedTargetTags>
+          <li>World</li>
+        </allowedTargetTags>
+        <onDays>10</onDays>
+        <numIncidentsRange>1</numIncidentsRange>
+        <minSpacingDays>3</minSpacingDays>
+        <disableIfAnyModActive>
+          <li>Ludeon.RimWorld.Royalty</li>
+        </disableIfAnyModActive>
+      </li>
+
+      <!-- 组件12：任务（安装了 Royalty 时使用） -->
+      <li Class="StorytellerCompProperties_RandomQuest">
+        <category>GiveQuest</category>
+        <allowedTargetTags>
+          <li>World</li>
+        </allowedTargetTags>
+        <onDays>12</onDays>
+        <numIncidentsRange>2</numIncidentsRange>
+        <minSpacingDays>3</minSpacingDays>
+        <enableIfAnyModActive>
+          <li>Ludeon.RimWorld.Royalty</li>
+        </enableIfAnyModActive>
+      </li>
+
+      <!-- 组件13：世界杂项事件（日食、极光、太阳耀斑等） -->
+      <li Class="StorytellerCompProperties_CategoryMTB">
+        <category>Misc</category>
+        <allowedTargetTags>
+          <li>World</li>
+        </allowedTargetTags>
+        <minDaysPassed>15</minDaysPassed>
+        <mtbDays>15</mtbDays>
+      </li>
+
+      <!-- 组件14：轨道商人 -->
+      <li Class="StorytellerCompProperties_OnOffCycle">
+        <incident>OrbitalTraderArrival</incident>
+        <onDays>7</onDays>
+        <offDays>8</offDays>
+        <numIncidentsRange>1</numIncidentsRange>
+      </li>
+
+      <!-- 组件15：黑衣人加入（触发式） -->
+      <li Class="StorytellerCompProperties_Triggered">
+        <incident>StrangerInBlackJoin</incident>
+        <delayTicks>180</delayTicks>
+      </li>
+    </comps>
+  </StorytellerDef>
+</Defs>

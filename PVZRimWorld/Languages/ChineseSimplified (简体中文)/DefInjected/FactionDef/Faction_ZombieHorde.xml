@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: zombie horde -->
+  <ZombieHorde.label>僵尸群</ZombieHorde.label>
+  <!-- EN: 没人知道他们是怎么来的，也不知道它存在了多久…… -->
+  <ZombieHorde.description>没人知道他们是怎么来的，也不知道它存在了多久，也许是某个科学怪人的杰作，导致一场危机席卷宇宙……</ZombieHorde.description>
+  <!-- EN: leader -->
+  <ZombieHorde.leaderTitle>僵尸首领</ZombieHorde.leaderTitle>
+  <!-- EN: zombie -->
+  <ZombieHorde.pawnSingular>僵尸</ZombieHorde.pawnSingular>
+  <!-- EN: zombies -->
+  <ZombieHorde.pawnsPlural>僵尸们</ZombieHorde.pawnsPlural>
+  
+</LanguageData>

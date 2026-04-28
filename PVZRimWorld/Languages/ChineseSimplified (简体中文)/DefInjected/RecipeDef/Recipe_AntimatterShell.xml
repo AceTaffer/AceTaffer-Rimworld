@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: make anti-particle warhead -->
+  <MakeAntimatterShell.label>制作反物质弹头</MakeAntimatterShell.label>
+  <!-- EN: Craft a devastating warhead from stabilized antimatter nuclides and advanced materials. -->
+  <MakeAntimatterShell.description>用稳定的反物质核素和高级材料制作一枚毁灭性的弹头。</MakeAntimatterShell.description>
+  <!-- EN: Doing an unknown recipe. -->
+  <MakeAntimatterShell.jobString>正在制作反物质弹头。</MakeAntimatterShell.jobString>
+  
+</LanguageData>

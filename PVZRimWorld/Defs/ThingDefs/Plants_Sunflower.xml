@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="PlantBase">
+    <defName>SunflowerPlant</defName>
+    <label>sunflower</label>
+    <description>A radiant flower that produces concentrated sunlight every 5 days. Can be grown in hydroponics.</description>
+    <thingClass>Plant</thingClass>
+
+    <graphicData>
+      <texPath>Things/Plant/Sunflower/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>
+      <drawSize>(1.2,1.2)</drawSize>
+    </graphicData>
+    <uiIconPath>UI/Things/Plant_Sunflower</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+
+    <statBases>
+      <MaxHitPoints>60</MaxHitPoints>
+      <Beauty>2.0</Beauty>
+      <Flammability>0.5</Flammability>
+      <WorkToBuild>300</WorkToBuild>
+      <Nutrition>0</Nutrition>
+    </statBases>
+
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+
+    <selectable>true</selectable>
+    <pathCost>10</pathCost>
+
+    <plant>
+      <growDays>5</growDays>                         <!-- 5天成熟 -->
+      <harvestAfterGrowth>0.9</harvestAfterGrowth>   <!-- 可持续收获，90%即可收获 -->
+      <!-- 研究前置：种植植物科技 -->
+      <sowResearchPrerequisites>
+        <li>PlantCultivation</li>
+      </sowResearchPrerequisites>
+      <harvestedThingDef>Sunlight</harvestedThingDef>
+      <harvestYield>25</harvestYield>                <!-- 每次25阳光 -->
+      <sowMinSkill>4</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>
+        <li>Hydroponic</li>                           <!-- 可水培 -->
+      </sowTags>
+      <growMinGlow>0.5</growMinGlow>
+      <growOptimalGlow>0.8</growOptimalGlow>
+      <fertilitySensitivity>0.5</fertilitySensitivity>
+      <dieIfLeafless>true</dieIfLeafless>
+      <lifespanDaysPerGrowDays>20</lifespanDaysPerGrowDays> <!-- 较长寿命 -->
+      <immatureGraphicPath>Things/Plant/Sunflower/immature</immatureGraphicPath>
+      <visualSizeRange>0.5~1.2</visualSizeRange>
+      <topWindExposure>0.6</topWindExposure>
+      <purpose>Food</purpose>
+    </plant>
+
+    <category>Plant</category>
+  </ThingDef>
+</Defs>

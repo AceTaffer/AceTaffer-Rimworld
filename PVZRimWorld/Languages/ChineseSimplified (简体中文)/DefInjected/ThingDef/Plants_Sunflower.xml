@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: sunflower -->
+  <SunflowerPlant.label>向日葵</SunflowerPlant.label>
+  <!-- EN: A radiant flower that produces concentrated sunlight every 5 days. Can be grown in hydroponics. -->
+  <SunflowerPlant.description>光芒四射的花朵，每 5 天产生浓缩阳光。</SunflowerPlant.description>
+  
+</LanguageData>

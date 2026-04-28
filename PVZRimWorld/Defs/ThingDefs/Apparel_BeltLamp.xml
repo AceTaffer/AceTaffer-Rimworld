@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ========== 腰带挂灯 (Belt Lamp) ========== -->
+  <ThingDef ParentName="ApparelBase">
+    <defName>BeltLamp</defName>
+    <label>belt lamp</label>
+    <description>A fusion of RimWorld tech and plant applications, this lamp can be attached to the belt to illuminate the dark. It requires no fuel and provides constant light.</description>
+    <thingClass>Apparel</thingClass>
+
+    <graphicData>
+      <texPath>Things/Apparel/BeltLamp/beltlamp</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+      <drawSize>(1.0,1.0)</drawSize>
+    </graphicData>
+
+    <tickerType>Normal</tickerType>
+    <techLevel>Industrial</techLevel>
+
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <MarketValue>600</MarketValue>
+      <Mass>1.2</Mass>
+      <Flammability>0.2</Flammability>
+      <Beauty>1</Beauty>
+      <WorkToMake>100</WorkToMake>
+      <EquipDelay>1.5</EquipDelay>
+      <DeteriorationRate>0.2</DeteriorationRate>
+    </statBases>
+
+    <!-- 配方材料：增加阳光 -->
+    <costList>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Steel>20</Steel>
+      <Phlogiston>40</Phlogiston>
+      <Sunlight>200</Sunlight>
+    </costList>
+
+    <!-- 组件：使用自定义装备发光组件，生成隐形光源 -->
+    <comps>
+      <li Class="PumpkinShield.CompProperties_BeltLampLight">
+        <lightSourceDef>BeltLampLightSource</lightSourceDef>
+      </li>
+    </comps>
+
+    <apparel>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>Tech</li>
+      </tags>
+      <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+      <wornGraphicPath>Things/Apparel/BeltLamp/beltlamp</wornGraphicPath>
+    </apparel>
+
+    <recipeMaker>
+      <researchPrerequisite>PlantApplications</researchPrerequisite>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <workAmount>200</workAmount>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+
+    <tradeTags>
+      <li>CombatSupplier</li>
+    </tradeTags>
+
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+</Defs>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ========== 白天和平音乐 ========== -->
+  <SongDef>
+    <clipPath>Gofish</clipPath>        <!-- 对应 Sounds/Music/Gofish.ogg -->
+    <volume>1</volume>
+    <allowedTimeOfDay>Day</allowedTimeOfDay>
+  </SongDef>
+
+  <SongDef>
+    <clipPath>Goodday</clipPath>
+    <volume>1</volume>
+    <allowedTimeOfDay>Day</allowedTimeOfDay>
+  </SongDef>
+
+  <SongDef>
+    <clipPath>Workday</clipPath>
+    <volume>1</volume>
+    <allowedTimeOfDay>Day</allowedTimeOfDay>
+  </SongDef>
+
+  <!-- ========== 夜晚和平音乐 ========== -->
+  <SongDef>
+    <clipPath>I_can_get_it</clipPath>
+    <volume>1</volume>
+    <allowedTimeOfDay>Night</allowedTimeOfDay>
+  </SongDef>
+
+  <SongDef>
+    <clipPath>Over</clipPath>
+    <volume>1</volume>
+    <allowedTimeOfDay>Night</allowedTimeOfDay>
+  </SongDef>
+
+  <SongDef>
+    <clipPath>PVZRimworld</clipPath>
+    <volume>1</volume>
+    <allowedTimeOfDay>Night</allowedTimeOfDay>
+  </SongDef>
+
+  <!-- ========== 战斗音乐（无时间限制） ========== -->
+  <!-- 注意：P-Music 用 <tense>true</tense> 表示紧张/战斗音乐 -->
+  <SongDef>
+    <clipPath>Deep</clipPath>
+    <volume>1</volume>
+    <tense>true</tense>                <!-- 战斗时播放 -->
+  </SongDef>
+
+</Defs>

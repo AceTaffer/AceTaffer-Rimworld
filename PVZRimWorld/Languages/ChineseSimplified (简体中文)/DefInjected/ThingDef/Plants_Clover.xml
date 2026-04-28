@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: clover -->
+  <CloverPlant.label>三叶草</CloverPlant.label>
+  <!-- EN: A decorative clover plant. It cannot be harvested but adds great beauty to your colony. -->
+  <CloverPlant.description>装饰性的三叶草植物，无法收获，但能为殖民地增添大量美观度。</CloverPlant.description>
+  
+</LanguageData>

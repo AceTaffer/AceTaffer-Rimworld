@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ========== 钉耙 (Rake) ========== -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>Building_Rake</defName>
+    <label>rake</label>
+    <description>A hidden rake trap. When stepped on by an enemy, it snaps up and deals heavy damage. Allies and animals ignore it.</description>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <tickerType>Normal</tickerType>
+
+    <graphicData>
+      <texPath>Things/Building/Trap/Rake</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>0</pathCost>
+    <blockPlants>false</blockPlants>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <constructEffect>ConstructMetal</constructEffect>
+    <soundDrop>Metal_Drop</soundDrop>
+
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <MarketValue>100</MarketValue>
+      <Mass>1.5</Mass>
+      <Flammability>0.4</Flammability>
+      <Beauty>1</Beauty>
+      <Cleanliness>-1</Cleanliness>
+      <WorkToBuild>50</WorkToBuild>
+    </statBases>
+
+    <colorGenerator Class="ColorGenerator_Single">
+      <color>(255,255,255)</color>
+    </colorGenerator>
+
+    <building>
+      <isEdifice>true</isEdifice>
+    </building>
+
+    <costList>
+      <Steel>50</Steel>
+      <Sunlight>225</Sunlight>
+    </costList>
+
+    <researchPrerequisites>
+      <li>HomeDefense</li>
+    </researchPrerequisites>
+
+    <designationCategory>Security</designationCategory>
+
+    <comps>
+      <li Class="PumpkinShield.CompProperties_RakeTrigger">
+        <damageAmount>60</damageAmount>
+        <armorPenetration>0.5</armorPenetration>
+      </li>
+    </comps>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+
+  <!-- ========== 除草机 (Lawn Mower) ========== -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>Building_LawnMower</defName>
+    <label>lawn mower</label>
+    <description>A mechanical mower that, when triggered by an enemy, rushes forward in its facing direction, damaging all enemies in its path until it hits an obstacle or leaves the map.</description>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <tickerType>Normal</tickerType>
+
+    <graphicData>
+      <texPath>Things/Building/LawnMower/LawnMower</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+      <drawSize>(1.2,1.2)</drawSize>
+    </graphicData>
+
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>0</pathCost>
+    <blockPlants>false</blockPlants>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <constructEffect>ConstructMetal</constructEffect>
+    <soundDrop>Metal_Drop</soundDrop>
+
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>450</MarketValue>
+      <Mass>3.5</Mass>
+      <Flammability>0.1</Flammability>
+      <Beauty>3</Beauty>
+      <Cleanliness>0</Cleanliness>
+      <WorkToBuild>150</WorkToBuild>
+    </statBases>
+
+    <colorGenerator Class="ColorGenerator_Single">
+      <color>(255,255,255)</color>
+    </colorGenerator>
+
+    <building>
+      <isEdifice>true</isEdifice>
+    </building>
+
+    <costList>
+      <Steel>100</Steel>
+      <Sunlight>300</Sunlight>
+      <Plasteel>25</Plasteel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+
+    <researchPrerequisites>
+      <li>HomeDefense</li>
+    </researchPrerequisites>
+
+    <designationCategory>Security</designationCategory>
+
+    <comps>
+      <li Class="PumpkinShield.CompProperties_LawnMowerTrigger">
+        <projectileDef>Projectile_LawnMower</projectileDef>
+      </li>
+    </comps>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+
+  <!-- ========== 坚果保龄球 (Nut Bowl) ========== -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>Building_NutBowl</defName>
+    <label>nut bowl</label>
+    <description>A bowl of heavy nuts that, when triggered, rolls a bouncing nut that damages enemies and ricochets off walls.</description>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <tickerType>Normal</tickerType>
+
+    <graphicData>
+      <texPath>Things/Building/Trap/NutBowl</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+      <drawSize>(1.0,1.0)</drawSize>
+    </graphicData>
+
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>0</pathCost>
+    <blockPlants>false</blockPlants>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <constructEffect>ConstructMetal</constructEffect>
+    <soundDrop>Metal_Drop</soundDrop>
+
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <MarketValue>250</MarketValue>
+      <Mass>2.5</Mass>
+      <Flammability>0.3</Flammability>
+      <Beauty>2</Beauty>
+      <Cleanliness>0</Cleanliness>
+      <WorkToBuild>0</WorkToBuild>
+    </statBases>
+
+    <building>
+      <isEdifice>true</isEdifice>
+    </building>
+
+    <!-- 建造材料：仅需500阳光 -->
+    <costList>
+      <Sunlight>500</Sunlight>
+    </costList>
+
+    <!-- 研究前置：坚果保龄球科技 -->
+    <researchPrerequisites>
+      <li>NutBowlTech</li>
+    </researchPrerequisites>
+
+    <designationCategory>Security</designationCategory>
+
+    <!-- 使用除草机触发组件，并设置 triggerOnSpawn = true 实现放置立即触发 -->
+    <comps>
+      <li Class="PumpkinShield.CompProperties_LawnMowerTrigger">
+        <projectileDef>Projectile_NutBowl</projectileDef>
+        <triggerOnSpawn>true</triggerOnSpawn>
+      </li>
+    </comps>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+
+</Defs>

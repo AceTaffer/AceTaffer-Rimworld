@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: nut wall plant -->
+  <NutWallPlant.label>坚果墙</NutWallPlant.label>
+  <!-- EN: A sturdy plant that yields wood after 4 days. -->
+  <NutWallPlant.description>从它种植到一次性产出木头只需要四天！</NutWallPlant.description>
+  
+</LanguageData>

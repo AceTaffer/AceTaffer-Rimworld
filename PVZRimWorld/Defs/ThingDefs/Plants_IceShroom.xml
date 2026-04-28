@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!--
+    ========== 寒冰菇 (Ice Shroom) ==========
+    继承自 PlantBase。
+    主要功能：
+      - 一次性收获，得到寒素 (Cryogen)（注意：此处未设置 <harvestAfterGrowth>，因此为一次性收获）
+      - 被摧毁时（非收获）触发眩晕爆炸，对周围生物造成冻伤和眩晕
+      - 室内生长时持续降温至 -20℃
+      - 自然生成于寒冷生物群系（ColdBog、IceSheet、Tundra、BorealForest）
+    研究前置：AntimatterTech
+    种植技能要求：10
+    可种植于：地面、水培盆
+  -->
+  <ThingDef ParentName="PlantBase">
+    <defName>IceShroom</defName>
+    <label>ice shroom</label>
+    <description>A cryogenic fungus that freezes everything around it when destroyed. Harvest it for cryogen, but beware of its deadly freezing burst when killed.</description>
+    <!-- 指向自定义植物类，用于标记收获事件（确保收获时不爆炸） -->
+    <thingClass>PumpkinShield.Plant_IceShroom</thingClass>
+    <!-- 必须为 Normal，使组件正常工作 -->
+    <tickerType>Normal</tickerType>
+
+    <!-- ========== 图形设置 ========== -->
+    <graphicData>
+      <texPath>Things/Plant/IceShroom/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>
+      <drawSize>(1.1,1.3)</drawSize>
+    </graphicData>
+    <uiIconPath>UI/Things/Plant_IceShroom</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+
+    <!-- ========== 基础属性 ========== -->
+    <statBases>
+      <MaxHitPoints>30</MaxHitPoints>
+      <Beauty>3</Beauty>
+      <Flammability>0</Flammability>
+      <WorkToBuild>800</WorkToBuild>
+      <Nutrition>0</Nutrition>
+    </statBases>
+
+    <!-- 必须添加 ingestible 块，避免营养值警告，但设为不可食用 -->
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+
+    <selectable>true</selectable>
+    <pathCost>14</pathCost>
+
+    <!-- ========== 植物生长参数 ========== -->
+    <plant>
+      <growDays>10</growDays>               <!-- 生长10天成熟 -->
+      <!-- ⚠️ 注意：此处故意不设置 <harvestAfterGrowth>，使植物为一次性收获（成熟后收获即消失） -->
+      
+      <sowResearchPrerequisites>
+        <li>AntimatterTech</li>             <!-- 研究前置：反物质科技 -->
+      </sowResearchPrerequisites>
+      <harvestedThingDef>Cryogen</harvestedThingDef>  <!-- 收获物：寒素 -->
+      <harvestYield>1</harvestYield>                   <!-- 每次收获1个 -->
+      <sowMinSkill>10</sowMinSkill>                    <!-- 最低种植技能10 -->
+      <sowTags>
+        <li>Ground</li>                      <!-- 可种于普通地面 -->
+        <li>Hydroponic</li>                   <!-- 可种于水培盆 -->
+      </sowTags>
+      <growMinGlow>0.3</growMinGlow>
+      <growOptimalGlow>0.6</growOptimalGlow>
+      <fertilitySensitivity>0.5</fertilitySensitivity>
+      <dieIfLeafless>true</dieIfLeafless>
+      <minGrowthTemperature>-225</minGrowthTemperature>   <!-- 最低生长温度 -->
+      <maxGrowthTemperature>60</maxGrowthTemperature>      <!-- 最高生长温度 -->
+
+      <immatureGraphicPath>Things/Plant/IceShroom/immature</immatureGraphicPath>
+      <visualSizeRange>0.5~1.2</visualSizeRange>
+      <topWindExposure>0.1</topWindExposure>
+      <purpose>Food</purpose>
+    </plant>
+
+    <!-- ========== 组件 ========== -->
+    <comps>
+      <!-- 眩晕爆炸组件：被摧毁时触发（仅当非收获时） -->
+      <li Class="PumpkinShield.CompProperties_FreezeExplosion">
+        <explosionRadius>5.9</explosionRadius>
+        <stunDurationSeconds>10</stunDurationSeconds>
+        <damageMin>10</damageMin>
+        <damageMax>35</damageMax>
+        <!-- damageDef 不在 XML 中指定，将使用代码中的默认值 Frostbite -->
+        <minGrowthToTrigger>0.8</minGrowthToTrigger>   <!-- 生长进度≥80%才触发 -->
+        <destroyOnTrigger>true</destroyOnTrigger>      <!-- 爆炸后销毁植物 -->
+      </li>
+      <!-- 室内降温组件：当植物处于有屋顶的室内时，持续制冷 -->
+      <li Class="PumpkinShield.CompProperties_IndoorCooler">
+        <coolingPower>-1000</coolingPower>  <!-- 制冷功率 -->
+      </li>
+    </comps>
+
+    <category>Plant</category>
+  </ThingDef>
+</Defs>

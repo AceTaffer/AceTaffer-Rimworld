@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- ========== 自定义反物质炮弹投射物 ========== -->
+  <!-- 定义反物质炮发射的炮弹，属于投射物（Projectile），会在飞行后爆炸。 -->
+  <ThingDef>
+    <!-- 唯一标识符，全局唯一，用于内部引用和存档。 -->
+    <defName>Projectile_AntimatterShell</defName>
+    <!-- 游戏内显示名称（极少出现，但保留）。 -->
+    <label>antimatter shell</label>
+    <!-- 逻辑类：使用原版爆炸投射物类，支持爆炸效果。 -->
+    <thingClass>Projectile_Explosive</thingClass>
+    <!-- 更新频率：Normal 表示每帧更新，投射物必须设置此项才能飞行。 -->
+    <tickerType>Normal</tickerType>
+    <!-- 高度层：投射物层，确保其在合适的视觉层渲染。 -->
+    <altitudeLayer>Projectile</altitudeLayer>
+    <!-- 禁止多选（投射物不可被玩家选中）。 -->
+    <neverMultiSelect>true</neverMultiSelect>
+    <selectable>false</selectable>
+    <drawGUIOverlay>false</drawGUIOverlay>
+
+    <!-- ========== 图形设置 ========== -->
+    <graphicData>
+      <!-- 贴图路径（相对于 Textures 文件夹，不加后缀）。此处借用原版小型子弹贴图作为占位。 -->
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <!-- 使用单张贴图。 -->
+      <graphicClass>Graphic_Single</graphicClass>
+      <!-- 着色器类型：透明，适合投射物。 -->
+      <shaderType>Transparent</shaderType>
+      <!-- 显示大小，1.0 表示占满一格。 -->
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+
+    <!-- ========== 投射物属性 ========== -->
+    <projectile>
+      <!-- 伤害类型：爆炸（Bomb）。 -->
+      <damageDef>Bomb</damageDef>
+      <!-- 基础伤害值：500点，威力巨大。 -->
+      <damageAmountBase>500</damageAmountBase>
+      <!-- 爆炸半径：20格，范围巨大。 -->
+      <explosionRadius>20</explosionRadius>
+      <!-- 飞行速度：20格/秒。 -->
+      <speed>20</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- ========== 反物质炮 ========== -->
+  <!-- 继承自 BaseGun，自动获得远程武器的基本属性（如装备能力、武器分类等）。 -->
+  <ThingDef ParentName="BaseGun">
+    <defName>Gun_AntimatterCannon</defName>
+    <label>antimatter cannon</label>
+    <description>继承于反物质技术的直接产物，精准而快速，发射反粒子弹头造成毁灭性杀伤的一次性武器，令你的敌人感到恐惧！</description>
+    <!-- 科技等级：太空级。 -->
+    <techLevel>Spacer</techLevel>
+
+    <!-- ========== 图形设置 ========== -->
+    <graphicData>
+      <!-- 武器图标贴图路径。 -->
+      <texPath>Things/Item/Weapons/AntimatterCannon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+
+    <!-- ========== 基础属性 ========== -->
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>          <!-- 最大耐久 -->
+      <MarketValue>2000</MarketValue>            <!-- 市场价值（白银） -->
+      <Mass>10</Mass>                             <!-- 重量（kg） -->
+      <Flammability>0.1</Flammability>            <!-- 易燃性，10% 概率被点燃 -->
+      <Beauty>1</Beauty>                          <!-- 美观度 -->
+      <DeteriorationRate>1.0</DeteriorationRate>  <!-- 老化速率 -->
+      <WorkToMake>20000</WorkToMake>               <!-- 制作所需工作量 -->
+      <RangedWeapon_Cooldown>3.0</RangedWeapon_Cooldown> <!-- 射击冷却时间（秒） -->
+      <!-- 各距离精度（0~1），此处设为固定0.5，可调整 -->
+      <AccuracyTouch>0.5</AccuracyTouch>
+      <AccuracyShort>0.5</AccuracyShort>
+      <AccuracyMedium>0.5</AccuracyMedium>
+      <AccuracyLong>0.5</AccuracyLong>
+    </statBases>
+
+    <!-- ========== 近战工具 ========== -->
+    <!-- 定义武器作为近战工具时的属性（如枪托攻击）。 -->
+    <tools>
+      <li>
+        <label>stock</label>                      <!-- 攻击部位名称 -->
+        <capacities>
+          <li>Blunt</li>                          <!-- 钝击能力 -->
+        </capacities>
+        <power>10</power>                          <!-- 基础伤害 -->
+        <cooldownTime>2.0</cooldownTime>           <!-- 冷却时间（秒） -->
+      </li>
+    </tools>
+
+    <!-- 装备时对小人属性的修正（此处降低近战伤害，因为它是远程武器）。 -->
+    <equippedStatOffsets>
+      <MeleeWeapon_DamageMultiplier>0.5</MeleeWeapon_DamageMultiplier>
+    </equippedStatOffsets>
+
+    <!-- ========== 射击属性 ========== -->
+    <verbs>
+      <li Class="VerbProperties">
+        <label>shoot antimatter shell</label>
+        <!-- 使用一次性射击类，发射后武器消失。 -->
+        <verbClass>Verb_ShootOneUse</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <forcedMissRadius>0.5</forcedMissRadius>   <!-- 强制脱靶半径，使炮弹有一定散布 -->
+        <!-- 使用的投射物 defName，必须与上面的投射物定义一致。 -->
+        <defaultProjectile>Projectile_AntimatterShell</defaultProjectile>
+        <warmupTime>3.0</warmupTime>                <!-- 瞄准预热时间（秒） -->
+        <range>100</range>                           <!-- 射程（格） -->
+        <!-- 音效已移除，使用游戏默认音效，避免警告 -->
+        <!-- <soundCast>Shot_DoomsdayRocket</soundCast> -->
+        <!-- <soundCastTail>GunTail_Heavy</soundCastTail> -->
+        <burstShotCount>1</burstShotCount>           <!-- 单次连发数量 -->
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations> <!-- 允许瞄准地面位置 -->
+        </targetParams>
+        <!-- 各距离精度，覆盖 statBases 中的设置（可选）。 -->
+        <accuracyTouch>0.5</accuracyTouch>
+        <accuracyShort>0.5</accuracyShort>
+        <accuracyMedium>0.5</accuracyMedium>
+        <accuracyLong>0.5</accuracyLong>
+        <!-- AI 避免误伤友军的半径。 -->
+        <ai_AvoidFriendlyFireRadius>2.9</ai_AvoidFriendlyFireRadius>
+      </li>
+    </verbs>
+
+    <!-- ========== 制作材料 ========== -->
+    <costList>
+      <AntimatterNuclide>1</AntimatterNuclide>   <!-- 反粒子核素（自定义物品） -->
+      <Plasteel>200</Plasteel>                    <!-- 玻璃钢 -->
+      <Uranium>15</Uranium>                        <!-- 铀 -->
+      <ComponentIndustrial>8</ComponentIndustrial>  <!-- 工业零部件 -->
+      <ComponentSpacer>1</ComponentSpacer>          <!-- 太空零部件 -->
+      <Sunlight>300</Sunlight>                      <!-- 阳光（自定义物品） -->
+    </costList>
+
+    <!-- ========== 制作配方设置 ========== -->
+    <recipeMaker>
+      <researchPrerequisite>AntimatterCannon</researchPrerequisite> <!-- 前置研究 -->
+      <recipeUsers>
+        <li>FabricationBench</li>   <!-- 可在精密装配台制作 -->
+      </recipeUsers>
+      <workAmount>20000</workAmount>               <!-- 制作工作量 -->
+      <skillRequirements>
+        <Crafting>10</Crafting>                    <!-- 所需制作技能等级 -->
+      </skillRequirements>
+    </recipeMaker>
+
+    <!-- 交易标签，使物品出现在特定商人处。 -->
+    <tradeTags>
+      <li>Exotic</li>      <!-- 异国商品 -->
+      <li>Rare</li>        <!-- 稀有物品 -->
+    </tradeTags>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+</Defs>

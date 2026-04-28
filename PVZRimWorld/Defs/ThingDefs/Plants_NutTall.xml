@@ -5,7 +5,6 @@
     <label>tall nut plant</label>
     <description>A tall nut plant that can be harvested repeatedly for extra wood. Requires expert care.</description>
     <thingClass>Plant</thingClass>
-
     <graphicData>
       <texPath>Things/Plant/NutTall/mature</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -14,7 +13,6 @@
     </graphicData>
     <uiIconPath>UI/Things/Plant_NutTall</uiIconPath>
     <uiIconScale>1.0</uiIconScale>
-
     <statBases>
       <MaxHitPoints>120</MaxHitPoints>
       <Beauty>1.2</Beauty>
@@ -22,22 +20,16 @@
       <WorkToBuild>450</WorkToBuild>
       <Nutrition>0</Nutrition>
     </statBases>
-
     <ingestible>
       <preferability>NeverForNutrition</preferability>
     </ingestible>
-
     <selectable>true</selectable>
     <pathCost>14</pathCost>
-
     <plant>
       <growDays>8</growDays>
-      <harvestAfterGrowth>0.9</harvestAfterGrowth>   <!-- 可持续 -->
-      <!-- 不写 harvestDestroyThing（默认 false） -->
-
+      <harvestAfterGrowth>0.9</harvestAfterGrowth>
       <harvestedThingDef>WoodLog</harvestedThingDef>
       <harvestYield>15</harvestYield>
-
       <growMinGlow>0.5</growMinGlow>
       <growOptimalGlow>0.8</growOptimalGlow>
       <fertilitySensitivity>0.7</fertilitySensitivity>
@@ -51,8 +43,11 @@
       <visualSizeRange>0.5~1.5</visualSizeRange>
       <topWindExposure>0.2</topWindExposure>
       <purpose>Food</purpose>
+      <!-- 研究前置：持续生长植物 -->
+      <sowResearchPrerequisites>
+        <li>SustainablePlants</li>
+      </sowResearchPrerequisites>
     </plant>
-
     <category>Plant</category>
   </ThingDef>
 </Defs>

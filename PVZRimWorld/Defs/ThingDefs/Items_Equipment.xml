@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- ========== 旗帜 (Flag) ========== -->
+  <!-- 近战武器，继承自 BaseWeapon，获得近战武器的基础属性 -->
+  <ThingDef ParentName="BaseWeapon">
+    <!-- 唯一标识符，用于内部引用 -->
+    <defName>MeleeWeapon_Flag</defName>
+    <!-- 游戏内显示名称 -->
+    <label>flag</label>
+    <!-- 描述文本 -->
+    <description>旗帜僵尸的旗帜，号令百万僵尸大军！</description>
+    <!-- 科技等级：工业级，与原版多数近战武器一致 -->
+    <techLevel>Industrial</techLevel>
+
+    <!-- ========== 图形设置 ========== -->
+    <graphicData>
+      <!-- 贴图路径（相对于 Textures 文件夹，不加后缀） -->
+      <texPath>Things/Item/Weapons/Flag</texPath>
+      <!-- 图形类，单张贴图 -->
+      <graphicClass>Graphic_Single</graphicClass>
+      <!-- 着色器类型，Cutout 适用于不透明物体 -->
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+
+    <!-- ========== 基础属性 ========== -->
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>       <!-- 最大耐久 -->
+      <MarketValue>25</MarketValue>          <!-- 市场价值（白银） -->
+      <Mass>0.25</Mass>                      <!-- 重量（kg） -->
+      <Flammability>1.0</Flammability>       <!-- 100%易燃 -->
+      <Beauty>1</Beauty>                     <!-- 美观度 -->
+      <DeteriorationRate>1.5</DeteriorationRate> <!-- 老化速率 -->
+      <WorkToMake>1000</WorkToMake>           <!-- 制作工作量 -->
+    </statBases>
+
+    <!-- ========== 近战工具 ========== -->
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>   <!-- 钝击能力 -->
+          <li>Stab</li>    <!-- 刺击能力 -->
+        </capacities>
+        <power>3</power>                     <!-- 基础伤害 -->
+        <cooldownTime>2.0</cooldownTime>      <!-- 冷却时间（秒） -->
+        <armorPenetration>0.08</armorPenetration> <!-- 护甲穿透 8% -->
+      </li>
+    </tools>
+
+    <!-- ========== 制作材料 ========== -->
+    <costList>
+      <WoodLog>15</WoodLog>     <!-- 木材 15 -->
+      <Sunlight>25</Sunlight>   <!-- 阳光 25 -->
+    </costList>
+
+    <!-- ========== 制作配方设置 ========== -->
+    <recipeMaker>
+      <researchPrerequisite>PlantApplications</researchPrerequisite> <!-- 需要研究“植物应用技术” -->
+      <recipeUsers>
+        <li>ElectricStove</li>   <!-- 电力锻造台 -->
+        <li>FueledStove</li>      <!-- 燃料锻造台 -->
+      </recipeUsers>
+    </recipeMaker>
+
+    <!-- ========== 交易标签 ========== -->
+    <tradeTags>
+      <li>CombatSupplier</li>   <!-- 出现在战斗贸易商中 -->
+    </tradeTags>
+
+    <!-- ========== 物品分类 ========== -->
+    <thingCategories>
+      <li>WeaponsMelee</li>     <!-- 近战武器分类 -->
+    </thingCategories>
+
+    <!-- 可被选中 -->
+    <selectable>true</selectable>
+    <!-- 显示 GUI 叠加层（如数量标记） -->
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <weaponTags>
+  <li>PVZ_MeleeWeapon</li>
+</weaponTags>
+  </ThingDef>
+
+  <!-- ========== 矿工头盔 (Miner Helmet) ========== -->
+  <!-- 头饰装备，继承自 ApparelBase，获得衣物基础属性 -->
+  <ThingDef ParentName="ApparelBase">
+    <defName>Apparel_MinerHelmet</defName>
+    <label>miner helmet</label>
+    <description>提供微弱防护的矿工头盔，头上的电灯早已损坏。</description>
+    <techLevel>Industrial</techLevel>
+
+    <graphicData>
+      <texPath>Things/Item/Apparel/MinerHelmet</texPath>   <!-- 请确保贴图存在 -->
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <MarketValue>75</MarketValue>
+      <Mass>0.8</Mass>
+      <Flammability>0.5</Flammability>       <!-- 50%易燃 -->
+      <Beauty>0</Beauty>                      <!-- 无美观加成 -->
+      <DeteriorationRate>1.0</DeteriorationRate>
+      <WorkToMake>200</WorkToMake>
+      <ArmorRating_Sharp>0.30</ArmorRating_Sharp>   <!-- 利器防护 30% -->
+      <ArmorRating_Blunt>0.15</ArmorRating_Blunt>   <!-- 钝器防护 15% -->
+      <ArmorRating_Heat>0.40</ArmorRating_Heat>     <!-- 热能防护 40% -->
+      <Insulation_Cold>0</Insulation_Cold>           <!-- 寒冷隔热 0℃ -->
+      <Insulation_Heat>0</Insulation_Heat>           <!-- 炎热隔热 0℃ -->
+      <EquipDelay>1.0</EquipDelay>                   <!-- 装备时间 1秒 -->
+    </statBases>
+
+    <!-- ========== 衣物特有属性 ========== -->
+    <apparel>
+      <!-- 裸体主义者不认为这是一件衣服（即可以穿着而不会被视为裸体） -->
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <!-- 覆盖的身体部位组：FullHead 表示整个头部（含耳朵、眼睛、鼻子等） -->
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <!-- 衣物层：Overhead 表示头饰层 -->
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <!-- 穿戴时的贴图基础路径，游戏会自动加载 _south, _north, _east 等方向贴图 -->
+      <wornGraphicPath>Things/Apparel/MinerHelmet/MinerHelmet</wornGraphicPath>
+    </apparel>
+
+    <!-- ========== 制作材料 ========== -->
+    <costList>
+      <Steel>30</Steel>          <!-- 钢铁 30 -->
+      <Sunlight>50</Sunlight>    <!-- 阳光 50 -->
+      <ComponentIndustrial>1</ComponentIndustrial> <!-- 零部件 1 -->
+    </costList>
+
+    <recipeMaker>
+      <researchPrerequisite>PlantApplications</researchPrerequisite>
+      <recipeUsers>
+        <li>ElectricStove</li>
+        <li>FueledStove</li>
+      </recipeUsers>
+    </recipeMaker>
+
+    <tradeTags>
+      <li>CombatSupplier</li>
+    </tradeTags>
+
+    <!-- 物品分类：头饰 -->
+    <thingCategories>
+      <li>Headgear</li>
+    </thingCategories>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+
+  <!-- ========== 铁门 (Iron Door) ========== -->
+  <!-- 作为手持护盾，属于腰带层装备，提供躯干防护，同时具有近战能力 -->
+  <ThingDef ParentName="ApparelBase">
+    <defName>Apparel_IronDoor</defName>
+    <label>iron door</label>
+    <description>沉重的铁门，手持时能保护整个躯干。</description>
+    <techLevel>Industrial</techLevel>
+
+    <graphicData>
+      <texPath>Things/Item/Weapons/IronDoor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <MarketValue>1000</MarketValue>
+      <Mass>8</Mass>
+      <Flammability>0.2</Flammability>       <!-- 20%易燃 -->
+      <Beauty>-1</Beauty>                     <!-- 负美观 -->
+      <DeteriorationRate>0.5</DeteriorationRate>
+      <WorkToMake>5000</WorkToMake>
+      <EquipDelay>1.5</EquipDelay>            <!-- 装备时间 1.5秒 -->
+      <ArmorRating_Sharp>1.0</ArmorRating_Sharp>    <!-- 100%利器防护 -->
+      <ArmorRating_Blunt>0.75</ArmorRating_Blunt>   <!-- 75%钝器防护 -->
+      <ArmorRating_Heat>0.5</ArmorRating_Heat>      <!-- 50%热能防护 -->
+    </statBases>
+
+    <!-- ========== 近战能力（可作为武器） ========== -->
+    <tools>
+      <li>
+        <label>edge</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>5</power>
+        <cooldownTime>2.0</cooldownTime>
+        <armorPenetration>0.10</armorPenetration>   <!-- 10%护甲穿透 -->
+      </li>
+    </tools>
+
+    <!-- ========== 装备时属性偏移 ========== -->
+    <equippedStatOffsets>
+      <MoveSpeed>-0.15</MoveSpeed>   <!-- 移动速度 -0.15 -->
+    </equippedStatOffsets>
+
+    <!-- ========== 衣物属性：作为护盾装备 ========== -->
+    <apparel>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <!-- 覆盖身体部位：躯干和颈部，提供核心防护 -->
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+      </bodyPartGroups>
+      <!-- 衣物层：Belt（腰带层），便于与其他衣物共存 -->
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>Shield</li>   <!-- 护盾标签，便于其他模组识别 -->
+      </tags>
+      <wornGraphicPath>Things/Apparel/IronDoor/IronDoor</wornGraphicPath>
+    </apparel>
+
+    <!-- ========== 制作材料 ========== -->
+    <costList>
+      <Steel>50</Steel>          <!-- 钢铁 50 -->
+      <Sunlight>125</Sunlight>    <!-- 阳光 125 -->
+      <Plasteel>20</Plasteel>     <!-- 玻璃钢 20 -->
+      <ComponentIndustrial>1</ComponentIndustrial> <!-- 零部件 1 -->
+    </costList>
+
+    <recipeMaker>
+      <researchPrerequisite>PlantApplications</researchPrerequisite>
+      <recipeUsers>
+        <li>TableMachining</li>   <!-- 机械加工台 -->
+      </recipeUsers>
+    </recipeMaker>
+
+    <tradeTags>
+      <li>CombatSupplier</li>
+    </tradeTags>
+
+    <!-- 物品分类：Apparel（衣物） -->
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+
+  <!-- ========== 电线杆 (Utility Pole) ========== -->
+  <!-- 近战武器，高伤害、高穿甲，对建筑有额外伤害 -->
+  <ThingDef ParentName="BaseWeapon">
+    <defName>MeleeWeapon_UtilityPole</defName>
+    <label>utility pole</label>
+    <description>路边拆下来的老旧电线杆，对敌人和墙体建筑结构等造成强力重击！</description>
+    <techLevel>Industrial</techLevel>
+
+    <graphicData>
+      <texPath>Things/Item/Weapons/UtilityPole</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>450</MarketValue>
+      <Mass>5</Mass>
+      <Flammability>0.4</Flammability>       <!-- 40%易燃 -->
+      <Beauty>-1</Beauty>                     <!-- 负美观 -->
+      <DeteriorationRate>1.5</DeteriorationRate>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+
+    <!-- ========== 近战工具 ========== -->
+    <tools>
+      <li>
+        <label>pole</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>25</power>                      <!-- 基础伤害 25 -->
+        <cooldownTime>2.5</cooldownTime>        <!-- 冷却 2.5秒 -->
+        <armorPenetration>0.75</armorPenetration> <!-- 护甲穿透 75% -->
+        <!-- 额外伤害：对建筑造成 35 点钝击伤害 -->
+        <extraMeleeDamages>
+          <li>
+            <def>Blunt</def>                    <!-- 伤害类型：钝击 -->
+            <amount>35</amount>                  <!-- 额外伤害值 -->
+            <chance>1.0</chance>                 <!-- 触发几率 100% -->
+            <!-- 注意：原版 ExtraDamage 没有 categories 标签，此伤害默认对所有目标生效，但游戏逻辑会自动判断目标是否为建筑。 -->
+          </li>
+        </extraMeleeDamages>
+      </li>
+    </tools>
+
+    <!-- ========== 装备时属性偏移 ========== -->
+    <equippedStatOffsets>
+      <MoveSpeed>-0.8</MoveSpeed>   <!-- 移动速度 -0.8，极重 -->
+    </equippedStatOffsets>
+
+    <!-- ========== 制作材料 ========== -->
+    <costList>
+      <Steel>80</Steel>          <!-- 钢铁 80 -->
+      <Sunlight>250</Sunlight>    <!-- 阳光 250 -->
+      <Plasteel>25</Plasteel>     <!-- 玻璃钢 25 -->
+    </costList>
+
+    <recipeMaker>
+      <researchPrerequisite>PlantApplications</researchPrerequisite>
+      <recipeUsers>
+        <li>TableMachining</li>   <!-- 机械加工台 -->
+      </recipeUsers>
+    </recipeMaker>
+
+    <tradeTags>
+      <li>CombatSupplier</li>
+    </tradeTags>
+
+    <thingCategories>
+      <li>WeaponsMelee</li>
+    </thingCategories>
+
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <weaponTags>
+  <li>PVZ_MeleeWeapon</li>
+</weaponTags>
+  </ThingDef>
+
+  <!-- ========== 小丑盒 (Joker Box) ========== -->
+  <!-- 一次性近战武器，攻击时触发爆炸并消失，不可制作，仅可通过贸易获得 -->
+  <ThingDef ParentName="BaseWeapon">
+  <defName>MeleeWeapon_JokerBox</defName>
+  <label>joker box</label>
+  <description>A mysterious box that explodes upon impact, dealing area damage and disappearing.</description>
+  <techLevel>Industrial</techLevel>
+  <graphicData>
+    <texPath>Things/Item/Weapons/JokerBox</texPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <shaderType>Cutout</shaderType>
+  </graphicData>
+  <statBases>
+    <MaxHitPoints>20</MaxHitPoints>
+    <MarketValue>100</MarketValue>
+    <Mass>0.8</Mass>
+    <Flammability>1.0</Flammability>
+    <Beauty>3</Beauty>
+    <DeteriorationRate>0.5</DeteriorationRate>
+  </statBases>
+  <tools>
+    <li>
+      <label>box</label>
+      <capacities><li>Blunt</li></capacities>
+      <power>2</power>
+      <cooldownTime>1.5</cooldownTime>
+      <armorPenetration>0.05</armorPenetration>
+    </li>
+  </tools>
+  <comps>
+    <li Class="PumpkinShield.CompProperties_AttackExplode">
+      <explosionRadius>1.5</explosionRadius>
+      <explosionDamage>20</explosionDamage>
+      <explosionDamageDef>Bomb</explosionDamageDef>
+      <destroyWeaponOnUse>true</destroyWeaponOnUse>
+    </li>
+  </comps>
+  <!-- 删除了 <verbs> 部分 -->
+  <tradeTags>
+    <li>CombatSupplier</li>
+  </tradeTags>
+  <thingCategories>
+    <li>WeaponsMelee</li>
+  </thingCategories>
+  <selectable>true</selectable>
+  <drawGUIOverlay>true</drawGUIOverlay>
+ <weaponTags>
+    <li>PVZ_JokerBox</li>
+  </weaponTags>
+</ThingDef>
+</Defs>

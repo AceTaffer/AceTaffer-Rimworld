@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="PlantBase">
+    <defName>RadishUmbrellaPlant</defName>
+    <label>radish umbrella</label>
+    <description>A peculiar plant that yields uranium when harvested. Grows in 7 days.</description>
+    <thingClass>Plant</thingClass>
+
+    <graphicData>
+      <texPath>Things/Plant/RadishUmbrella/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>
+      <drawSize>(1.0,1.5)</drawSize>
+    </graphicData>
+    <uiIconPath>UI/Things/Plant_RadishUmbrella</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Beauty>1.0</Beauty>
+      <Flammability>0.3</Flammability>
+      <WorkToBuild>400</WorkToBuild>
+      <Nutrition>0</Nutrition>
+    </statBases>
+
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+
+    <selectable>true</selectable>
+    <pathCost>14</pathCost>
+
+    <plant>
+      <growDays>7</growDays>
+      <harvestedThingDef>Uranium</harvestedThingDef>
+      <harvestYield>5</harvestYield>
+      <sowMinSkill>6</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>
+      </sowTags>
+      <!-- 研究前置：种植植物科技 -->
+      <sowResearchPrerequisites>
+        <li>SustainablePlants</li>
+      </sowResearchPrerequisites>
+      <growMinGlow>0.5</growMinGlow>
+      <growOptimalGlow>0.8</growOptimalGlow>
+      <fertilitySensitivity>0.7</fertilitySensitivity>
+      <dieIfLeafless>true</dieIfLeafless>
+      <immatureGraphicPath>Things/Plant/RadishUmbrella/immature</immatureGraphicPath>
+      <visualSizeRange>0.5~1.5</visualSizeRange>
+      <topWindExposure>0.3</topWindExposure>
+      <purpose>Food</purpose>
+    </plant>
+  </ThingDef>
+</Defs>

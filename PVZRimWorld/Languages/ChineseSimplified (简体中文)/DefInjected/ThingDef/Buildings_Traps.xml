@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: lawn mower -->
+  <Building_LawnMower.label>除草机</Building_LawnMower.label>
+  <!-- EN: A mechanical mower that, when triggered by an enemy, rushes forward in its facing direction, damaging all enemies in its path until it hits an obstacle or leaves the map. -->
+  <Building_LawnMower.description>机械割草机，被敌人触发后朝其朝向直线冲刺，伤害路径上的所有敌人，直到离开地图。</Building_LawnMower.description>
+  
+  <!-- EN: rake -->
+  <Building_Rake.label>钉耙</Building_Rake.label>
+  <!-- EN: A hidden rake trap. When stepped on by an enemy, it snaps up and deals heavy damage. Allies and animals ignore it. -->
+  <Building_Rake.description>隐藏的钉耙陷阱。敌人踩中时会把他们送上天！盟友和动物无视它。</Building_Rake.description>
+  
+</LanguageData>

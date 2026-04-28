@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: sunlight -->
+  <Sunlight.label>阳光</Sunlight.label>
+  <!-- EN: A concentrated orb of solar energy. Used as a currency and material for advanced crafting. -->
+  <Sunlight.description>浓缩的太阳能球体，用作植物货币和制作物品或建筑的材料。</Sunlight.description>
+  
+</LanguageData>

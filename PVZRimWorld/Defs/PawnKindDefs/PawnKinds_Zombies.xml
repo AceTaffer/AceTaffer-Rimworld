@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ========== 普通僵尸 (Zombie_Regular) ========== -->
+  <!-- 基础僵尸类型，战斗力较低，可能携带各种近战武器，有概率佩戴头饰。 -->
+  <PawnKindDef>
+    <!-- 唯一标识符，全局唯一，用于内部引用和存档。 -->
+    <defName>Zombie_Regular</defName>
+    <!-- 游戏内显示的名称。 -->
+    <label>zombie</label>
+    <!-- 鼠标悬停时的描述文本。 -->
+    <description>A shambling, mindless corpse animated by dark forces.</description>
+    
+    <!-- 种族：人类。必须指定，因为僵尸基于人类模板。 -->
+    <race>Human</race>
+    <!-- 默认所属派系，必须与派系定义中的 defName 一致。 -->
+    <defaultFactionDef>ZombieHorde</defaultFactionDef>
+    <!-- 战斗力估值，影响袭击点数计算。 -->
+    <combatPower>50</combatPower>
+    <!-- 生成时的最小和最大年龄。 -->
+    <minGenerationAge>18</minGenerationAge>
+    <maxGenerationAge>65</maxGenerationAge>
+    
+    <!-- 强制特性：食人者。所有僵尸都拥有此特性。 -->
+    <forcedTraits>
+      <li>Cannibal</li>
+    </forcedTraits>
+    
+    <!-- 强制健康状态：原版质溶器（DeathAcidifier）。死亡时销毁尸体和装备。 -->
+    <techHediffsRequired>
+      <li>DeathAcidifier</li>
+    </techHediffsRequired>
+    
+    <!-- ========== 强制基础衣物 ========== -->
+    <!-- 所有僵尸必须穿戴的基础衣物。这些衣物由系统强制生成，不受概率影响。 -->
+    <apparelRequired>
+      <li>Apparel_CollarShirt</li>  <!-- 有领衬衫（原版物品） -->
+      <li>Apparel_Pants</li>        <!-- 裤子（原版物品） -->
+      <li>Apparel_Jacket</li>       <!-- 夹克（原版物品） -->
+    </apparelRequired>
+    
+    <!-- ========== 头饰随机选择 ========== -->
+    <!-- 通过 apparelTags 指定衣物标签，系统会从所有拥有该标签的衣物中随机选择一件。 -->
+    <!-- 此处使用自定义标签 PVZ_Headgear，需要在头饰定义中添加该标签（见 Apparel_Headgear.xml）。 -->
+    <apparelTags>
+      <li>PVZ_Headgear</li>
+    </apparelTags>
+    <!-- 衣物预算，系统会在该范围内随机取值，用于选择符合预算的衣物。 -->
+    <!-- 路障市场价值 180，铁桶 250，预算设为 150~300 确保能覆盖。 -->
+    <apparelMoney>150~300</apparelMoney>
+    
+    <!-- ========== 武器随机选择 ========== -->
+    <!-- 使用 weaponTags 和 weaponMoney 让系统从近战武器标签中随机选择符合预算的武器。 -->
+    <weaponTags>
+      <li>Melee</li>                <!-- 原版近战武器标签，包含短剑、钉头锤等 -->
+      <li>PVZ_MeleeWeapon</li>       <!-- 自定义模组近战武器标签（旗帜、电线杆等） -->
+    </weaponTags>
+    <!-- 武器预算，系统会在该范围内随机取值，用于选择符合预算的武器。 -->
+    <weaponMoney>100~300</weaponMoney>
+    
+    <!-- ========== 随机携带物品 ========== -->
+    <!-- 使用 inventoryOptions 让系统等概率选择一种物品携带。 -->
+    <inventoryOptions>
+      <!-- subOptionsChooseOne 表示从子选项中随机选择一个（等概率）。 -->
+      <subOptionsChooseOne>
+        <li>
+          <thingDef>Silver</thingDef>          <!-- 白银（原版物品） -->
+          <countRange>1~5</countRange>         <!-- 数量范围 1-5 个 -->
+        </li>
+        <li>
+          <thingDef>Gold</thingDef>            <!-- 黄金（原版物品） -->
+          <countRange>1</countRange>            <!-- 固定1个 -->
+        </li>
+        <li>
+          <thingDef>Sunlight</thingDef>        <!-- 阳光（模组物品） -->
+          <countRange>25~100</countRange>       <!-- 数量范围 25-100 个 -->
+        </li>
+      </subOptionsChooseOne>
+    </inventoryOptions>
+    
+    <!-- 人类派系必需的初始抵抗值和意志力范围。这些值影响小人被招募的难度。 -->
+    <initialResistanceRange>
+      <min>0.2</min>  <!-- 最小抵抗值 -->
+      <max>0.5</max>  <!-- 最大抵抗值 -->
+    </initialResistanceRange>
+    <initialWillRange>
+      <min>0.3</min>  <!-- 最小意志力 -->
+      <max>0.6</max>  <!-- 最大意志力 -->
+    </initialWillRange>
+  </PawnKindDef>
+
+  <!-- ========== 精英僵尸 (Zombie_Elite) ========== -->
+  <!-- 更强的僵尸，必定携带铁门，有更高概率获得高级武器。 -->
+  <PawnKindDef>
+    <defName>Zombie_Elite</defName>
+    <label>elite zombie</label>
+    <description>A stronger, more resilient zombie that often carries makeshift shields and heavy weapons.</description>
+    
+    <race>Human</race>
+    <defaultFactionDef>ZombieHorde</defaultFactionDef>
+    <combatPower>120</combatPower>
+    <minGenerationAge>25</minGenerationAge>
+    <maxGenerationAge>55</maxGenerationAge>
+    
+    <forcedTraits>
+      <li>Cannibal</li>
+    </forcedTraits>
+    
+    <techHediffsRequired>
+      <li>DeathAcidifier</li>
+    </techHediffsRequired>
+    
+    <!-- 强制基础衣物 + 铁门（作为手持护盾） -->
+    <apparelRequired>
+      <li>Apparel_CollarShirt</li>
+      <li>Apparel_Pants</li>
+      <li>Apparel_Jacket</li>
+      <li>Apparel_IronDoor</li>      <!-- 铁门（模组物品，作为护盾） -->
+    </apparelRequired>
+    
+    <!-- 头饰随机选择（与普通僵尸相同） -->
+    <apparelTags>
+      <li>PVZ_Headgear</li>
+    </apparelTags>
+    <apparelMoney>150~300</apparelMoney>
+    
+    <weaponTags>
+      <li>Melee</li>
+      <li>PVZ_MeleeWeapon</li>
+    </weaponTags>
+    <!-- 武器预算更高，可获得更强武器（如电线杆等）。 -->
+    <weaponMoney>200~500</weaponMoney>
+    
+    <inventoryOptions>
+      <subOptionsChooseOne>
+        <li>
+          <thingDef>Silver</thingDef>
+          <countRange>10~25</countRange>   <!-- 白银 10-25 个 -->
+        </li>
+        <li>
+          <thingDef>Gold</thingDef>
+          <countRange>2~10</countRange>    <!-- 黄金 2-10 个 -->
+        </li>
+        <li>
+          <thingDef>Sunlight</thingDef>
+          <countRange>50~150</countRange>  <!-- 阳光 50-150 个 -->
+        </li>
+      </subOptionsChooseOne>
+    </inventoryOptions>
+    
+    <initialResistanceRange>
+      <min>0.3</min>
+      <max>0.6</max>
+    </initialResistanceRange>
+    <initialWillRange>
+      <min>0.4</min>
+      <max>0.7</max>
+    </initialWillRange>
+  </PawnKindDef>
+
+  <!-- ========== 小丑僵尸 (Zombie_Joker) ========== -->
+  <!-- 特殊僵尸，100%携带小丑盒，无头饰。 -->
+  <PawnKindDef>
+    <defName>Zombie_Joker</defName>
+    <label>joker zombie</label>
+    <description>A bizarre zombie clutching a mysterious box.</description>
+    
+    <race>Human</race>
+    <defaultFactionDef>ZombieHorde</defaultFactionDef>
+    <combatPower>80</combatPower>
+    <minGenerationAge>20</minGenerationAge>
+    <maxGenerationAge>60</maxGenerationAge>
+    
+    <forcedTraits>
+      <li>Cannibal</li>
+    </forcedTraits>
+    
+    <techHediffsRequired>
+      <li>DeathAcidifier</li>
+    </techHediffsRequired>
+    
+    <!-- 强制基础衣物 + 防尘大衣（替代原设计的羊毛大衣） -->
+    <apparelRequired>
+      <li>Apparel_CollarShirt</li>
+      <li>Apparel_Pants</li>
+      <li>Apparel_Duster</li>        <!-- 防尘大衣（原版物品） -->
+    </apparelRequired>
+    
+    <!-- 小丑僵尸无头饰，不加 apparelTags -->
+    
+    <!-- 强制携带小丑盒：通过自定义武器标签和足够预算实现100%生成。 -->
+    <weaponTags>
+      <li>PVZ_JokerBox</li>          <!-- 小丑盒专属标签，确保系统只会选择小丑盒 -->
+    </weaponTags>
+    <!-- 预算足够高，确保系统能选择小丑盒（市场价值约100）。 -->
+    <weaponMoney>500~1000</weaponMoney>
+    
+    <inventoryOptions>
+      <subOptionsChooseOne>
+        <li>
+          <thingDef>Silver</thingDef>
+          <countRange>25~50</countRange>
+        </li>
+        <li>
+          <thingDef>Gold</thingDef>
+          <countRange>5~20</countRange>
+        </li>
+        <li>
+          <thingDef>Sunlight</thingDef>
+          <countRange>75~250</countRange>
+        </li>
+      </subOptionsChooseOne>
+    </inventoryOptions>
+    
+    <initialResistanceRange>
+      <min>0.2</min>
+      <max>0.5</max>
+    </initialResistanceRange>
+    <initialWillRange>
+      <min>0.3</min>
+      <max>0.6</max>
+    </initialWillRange>
+  </PawnKindDef>
+</Defs>

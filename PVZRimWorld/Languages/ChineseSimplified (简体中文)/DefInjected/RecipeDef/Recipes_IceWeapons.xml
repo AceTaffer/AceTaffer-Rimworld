@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: make ice pistol -->
+  <Recipe_MakeIcePistol.label>制作寒冰手枪</Recipe_MakeIcePistol.label>
+  <!-- EN: Craft an ice pistol at the machining table. -->
+  <Recipe_MakeIcePistol.description>在机械加工台制作一把寒冰手枪。</Recipe_MakeIcePistol.description>
+  <!-- EN: Making ice pistol. -->
+  <Recipe_MakeIcePistol.jobString>正在制作寒冰手枪。</Recipe_MakeIcePistol.jobString>
+  
+  <!-- EN: make ice assault rifle -->
+  <Recipe_MakeIceRifle.label>制作寒冰突击步枪</Recipe_MakeIceRifle.label>
+  <!-- EN: Craft an ice assault rifle at the machining table. -->
+  <Recipe_MakeIceRifle.description>在机械加工台制作一把寒冰突击步枪。</Recipe_MakeIceRifle.description>
+  <!-- EN: Making ice assault rifle. -->
+  <Recipe_MakeIceRifle.jobString>正在制作寒冰突击步枪。</Recipe_MakeIceRifle.jobString>
+  
+  <!-- EN: make ice sniper rifle -->
+  <Recipe_MakeIceSniper.label>制作寒冰狙击步枪</Recipe_MakeIceSniper.label>
+  <!-- EN: Craft an ice sniper rifle at the machining table. -->
+  <Recipe_MakeIceSniper.description>在机械加工台制作一把寒冰狙击步枪。</Recipe_MakeIceSniper.description>
+  <!-- EN: Making ice sniper rifle. -->
+  <Recipe_MakeIceSniper.jobString>正在制作寒冰狙击步枪。</Recipe_MakeIceSniper.jobString>
+  
+</LanguageData>

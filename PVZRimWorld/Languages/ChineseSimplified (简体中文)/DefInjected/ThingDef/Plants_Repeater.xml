@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: repeater -->
+  <Repeater.label>双发射手</Repeater.label>
+  <!-- EN: A upgraded peashooter that fires two peas in quick succession. Requires advanced cultivation techniques. Cannot be harvested, only cut down. -->
+  <Repeater.description>升级版豌豆射手，快速连续发射两颗豌豆。需要高级种植技术。无法收获，只能割除。</Repeater.description>
+  
+</LanguageData>

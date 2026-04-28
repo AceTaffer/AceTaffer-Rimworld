@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- 继承已验证的 PlantBase 父类 -->
+  <ThingDef ParentName="PlantBase">
+    <defName>SquashPlant</defName>
+    <label>squash</label>
+    <description>A sturdy squash plant that yields steel upon harvest. Grows in 7 days.</description>
+    <thingClass>Plant</thingClass>
+
+    <graphicData>
+      <texPath>Things/Plant/Squash/mature</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutPlant</shaderType>
+      <drawSize>(1.1,1.1)</drawSize>
+    </graphicData>
+    <uiIconPath>UI/Things/Plant_Squash</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>
+
+    <statBases>
+      <MaxHitPoints>70</MaxHitPoints>
+      <Beauty>0.5</Beauty>
+      <Flammability>0.4</Flammability>
+      <WorkToBuild>350</WorkToBuild>
+      <Nutrition>0</Nutrition>
+    </statBases>
+
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>NeverForNutrition</preferability>
+    </ingestible>
+
+    <selectable>true</selectable>
+    <pathCost>12</pathCost>
+
+    <plant>
+      <growDays>7</growDays>
+      <!-- 不写 harvestAfterGrowth，默认 1.0（完全成熟才收获） -->
+      <!-- 不写 harvestDestroyThing（1.6 不支持） -->
+      <harvestedThingDef>Steel</harvestedThingDef>
+      <harvestYield>20</harvestYield>
+      <sowMinSkill>5</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>
+        <li>Hydroponic</li>
+      </sowTags>
+      <!-- 研究前置：种植植物科技 -->
+      <sowResearchPrerequisites>
+        <li>PlantCultivation</li>
+      </sowResearchPrerequisites>
+      <growMinGlow>0.4</growMinGlow>
+      <growOptimalGlow>0.7</growOptimalGlow>
+      <fertilitySensitivity>0.6</fertilitySensitivity>
+      <dieIfLeafless>true</dieIfLeafless>
+      <immatureGraphicPath>Things/Plant/Squash/immature</immatureGraphicPath>
+      <visualSizeRange>0.5~1.2</visualSizeRange>
+      <topWindExposure>0.2</topWindExposure>
+      <purpose>Food</purpose>
+    </plant>
+  </ThingDef>
+</Defs>

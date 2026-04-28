@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: ice tech -->
+  <IceTech.label>寒冰科技</IceTech.label>
+  <!-- EN: Cryogenic weaponization of cryogen materials. Unlocks ice-based firearms that freeze enemies on hit. -->
+  <IceTech.description>寒素材料的武器化。解锁能冰冻敌人的寒冰枪械。</IceTech.description>
+  
+</LanguageData>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: fire tech -->
+  <FireTech.label>烈焰科技</FireTech.label>
+  <!-- EN: Pyrotechnic weaponization of phlogiston materials. Unlocks fire-based firearms that set enemies ablaze on hit. -->
+  <FireTech.description>将燃素的武器化。解锁能点燃敌人的烈焰枪械。</FireTech.description>
+  
+</LanguageData>

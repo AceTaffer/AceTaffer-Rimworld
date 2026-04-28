@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: belt lamp -->
+  <BeltLamp.label>腰带挂灯</BeltLamp.label>
+  <!-- EN: A fusion of RimWorld tech and plant applications, this lamp can be attached to the belt to illuminate the dark. It requires no fuel and provides constant light. -->
+  <BeltLamp.description>结合了边缘世界科技与植物应用的灯具，可挂在腰带上照亮黑暗。无需燃料，持续发光。</BeltLamp.description>
+  
+</LanguageData>

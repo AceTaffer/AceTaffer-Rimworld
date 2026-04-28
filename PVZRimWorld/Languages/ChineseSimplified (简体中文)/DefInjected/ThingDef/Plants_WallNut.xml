@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: hologram wall-nut -->
+  <WallNutHologram.label>全息坚果</WallNutHologram.label>
+  <!-- EN: A holographic wall-nut. It can be harvested repeatedly for plasteel. -->
+  <WallNutHologram.description>全息坚果，可反复收获玻璃钢。</WallNutHologram.description>
+  
+</LanguageData>

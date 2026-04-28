@@ -38,7 +38,7 @@
             <li>ComponentSpacer</li>
           </thingDefs>
         </filter>
-        <count>3</count>
+        <count>1</count>
       </li>
       <li>
         <filter>
@@ -46,7 +46,7 @@
             <li>ComponentIndustrial</li>
           </thingDefs>
         </filter>
-        <count>5</count>
+        <count>3</count>
       </li>
       <li>
         <filter>
@@ -55,6 +55,14 @@
           </thingDefs>
         </filter>
         <count>10</count>
+      </li>
+       <li>
+        <filter>
+          <thingDefs>
+            <li>Sunlight</li>
+          </thingDefs>
+        </filter>
+        <count>500</count>
       </li>
     </ingredients>
     
