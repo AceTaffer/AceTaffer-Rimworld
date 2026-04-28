@@ -1,0 +1,6 @@
+H:\SteamLibrary\steamapps\common\RimWorld\Mods\PVZRimWorld\Assemblies\PumpkinShield.dll
+H:\SteamLibrary\steamapps\common\RimWorld\Mods\PVZRimWorld\Assemblies\PumpkinShield.pdb
+H:\SteamLibrary\steamapps\common\RimWorld\Mods\PVZRimWorld\Source\PumpkinShield\obj\Debug\PumpkinShield.csproj.AssemblyReference.cache
+H:\SteamLibrary\steamapps\common\RimWorld\Mods\PVZRimWorld\Source\PumpkinShield\obj\Debug\PumpkinShield.csproj.CoreCompileInputs.cache
+H:\SteamLibrary\steamapps\common\RimWorld\Mods\PVZRimWorld\Source\PumpkinShield\obj\Debug\PumpkinShield.dll
+H:\SteamLibrary\steamapps\common\RimWorld\Mods\PVZRimWorld\Source\PumpkinShield\obj\Debug\PumpkinShield.pdb
