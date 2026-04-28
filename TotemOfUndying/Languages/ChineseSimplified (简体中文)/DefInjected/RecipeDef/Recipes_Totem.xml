@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: make totem of undying -->
+  <Make_TotemOfUndying.label>制作不死图腾</Make_TotemOfUndying.label>
+  <!-- EN: Craft a mystical totem that prevents death. -->
+  <Make_TotemOfUndying.description>制作一个能抵御死亡的神秘图腾</Make_TotemOfUndying.description>
+  <!-- EN: Making totem of undying. -->
+  <Make_TotemOfUndying.jobString>制作不死图腾</Make_TotemOfUndying.jobString>
+  
+</LanguageData>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef>
+    <defName>TotemOfUndying</defName>
+    <label>totem of undying</label>
+    <description>A mystical totem that shatters when its wielder would die, instantly healing them and granting a second chance. It glows faintly with ancient power.</description>
+    <thingClass>Apparel</thingClass>
+    <tickerType>Normal</tickerType>
+
+    <graphicData>
+      <texPath>Things/Item/TotemOfUndying</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+
+    <category>Item</category>
+    <stackLimit>1</stackLimit>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <alwaysHaulable>true</alwaysHaulable>
+    <rotatable>false</rotatable>
+    <burnableByRecipe>true</burnableByRecipe>
+    <altitudeLayer>Item</altitudeLayer>
+    <pathCost>14</pathCost>
+    <techLevel>Medieval</techLevel>
+
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <MarketValue>1200</MarketValue>
+      <Mass>0.3</Mass>
+      <Flammability>0</Flammability>
+      <Beauty>3</Beauty>
+      <DeteriorationRate>0</DeteriorationRate>
+      <WorkToMake>2000</WorkToMake>
+      <EquipDelay>1.0</EquipDelay>
+    </statBases>
+
+    <!-- 衣物属性 -->
+    <apparel>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>Totem</li>
+      </tags>
+      <wornGraphicPath>Things/Item/TotemOfUndying</wornGraphicPath>
+    </apparel>
+
+    <!-- 交易标签 -->
+    <tradeTags>
+      <li>Exotic</li>
+      <li>Rare</li>
+    </tradeTags>
+
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+
+    <!-- 禁止熔炼 -->
+    <smeltable>false</smeltable>
+
+    <!-- 组件列表：刻意不包含 CompQuality -->
+    <comps>
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="TotemOfUndying.CompProperties_Totem" />
+    </comps>
+
+  </ThingDef>
+</Defs>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <RecipeDef>
+    <defName>Make_TotemOfUndying</defName>
+    <label>make totem of undying</label>
+    <description>Craft a mystical totem that prevents death.</description>
+    <jobString>Making totem of undying.</jobString>
+    <workAmount>2000</workAmount>
+    <workSkill>Crafting</workSkill>
+    <recipeUsers>
+      <li>FabricationBench</li>
+    </recipeUsers>
+    <!-- 研究前置：精密装配技术（Fabrication） -->
+    <researchPrerequisite>Fabrication</researchPrerequisite>
+    
+    <!-- 配方材料 -->
+    <ingredients>
+      <!-- 黄金 100 -->
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Gold</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+      <!-- 玻璃钢 75 -->
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+      <!-- 高级零部件（太空零部件）3个 -->
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentSpacer</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    
+    <!-- 产出 -->
+    <products>
+      <TotemOfUndying>1</TotemOfUndying>
+    </products>
+  </RecipeDef>
+</Defs>

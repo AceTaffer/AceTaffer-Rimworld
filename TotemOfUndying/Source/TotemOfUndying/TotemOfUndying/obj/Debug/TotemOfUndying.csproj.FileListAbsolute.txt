@@ -1,0 +1,6 @@
+C:\Users\ASUS\Desktop\TotemOfUndying\Source\TotemOfUndying\TotemOfUndying\obj\Debug\TotemOfUndying.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\TotemOfUndying\Source\TotemOfUndying\TotemOfUndying\obj\Debug\TotemOfUndying.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\TotemOfUndying\Source\TotemOfUndying\TotemOfUndying\bin\Debug\TotemOfUndying.dll
+C:\Users\ASUS\Desktop\TotemOfUndying\Source\TotemOfUndying\TotemOfUndying\bin\Debug\TotemOfUndying.pdb
+C:\Users\ASUS\Desktop\TotemOfUndying\Source\TotemOfUndying\TotemOfUndying\obj\Debug\TotemOfUndying.dll
+C:\Users\ASUS\Desktop\TotemOfUndying\Source\TotemOfUndying\TotemOfUndying\obj\Debug\TotemOfUndying.pdb

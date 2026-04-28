@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: totem of undying -->
+  <TotemOfUndying.label>不死图腾</TotemOfUndying.label>
+  <!-- EN:一个神秘的图腾，当持有者遭受致命伤害时，它会破碎并治愈持有者，给予第二次生命。 -->
+  <TotemOfUndying.description>一个神秘的图腾，当持有者遭受致命伤害时，它会破碎并治愈持有者，给予第二次生命。</TotemOfUndying.description>
+  
+</LanguageData>
